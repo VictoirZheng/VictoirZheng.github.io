@@ -1,96 +1,165 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <!-- 定义文档的字符编码 -->
     <meta charset="UTF-8">
-    
-    <!-- 让页面在移动设备上正常显示 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 网页的标题，会显示在浏览器的标签页上 -->
-    <title>我的个人主页</title>
+    <!-- 网页标题 -->
+    <title>[你的名字] - 个人学术主页</title>
     
-    <!-- 简单的页面描述，有助于搜索引擎了解你的网站 -->
-    <meta name="description" content="欢迎来到我的个人网站，这里记录了我的项目、想法和生活。">
-    
-    <!-- 内嵌的 CSS 样式，用于美化页面 -->
     <style>
-        /* 让页面字体更美观，背景更柔和 */
+        /* --- 全局样式 --- */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            line-height: 1.6;
+            font-family: 'Georgia', 'Times New Roman', Times, serif; /* 学术风格衬线字体 */
+            line-height: 1.7;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #fdfdfd;
             color: #333;
         }
-        /* 创建一个居中的内容容器 */
+
+        /* --- 布局容器 --- */
         .container {
             max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        /* 标题样式 */
-        h1, h2 {
-            color: #2c3e50;
+        
+        /* --- 导航栏 --- */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
-        /* 链接样式 */
-        a {
-            color: #3498db;
+        .nav-link {
+            margin-left: 25px;
+            color: #555;
             text-decoration: none;
+            font-size: 1em;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 导航使用非衬线字体，更清晰 */
         }
-        a:hover {
+        .nav-link:hover {
+            color: #0056b3;
             text-decoration: underline;
         }
-        /* 页脚样式 */
+
+        /* --- 头部区域 --- */
+        header {
+            text-align: left;
+            margin-top: 60px;
+        }
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            color: #111;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 0;
+        }
+
+        /* --- 主内容区域 --- */
+        main {
+            margin-top: 40px;
+        }
+        .intro, .section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        p, li {
+            font-size: 1.1em;
+        }
+        
+        /* --- 关键链接按钮 --- */
+        .cta-button {
+            display: inline-block;
+            background-color: #0056b3;
+            color: #fff;
+            padding: 12px 25px;
+            margin-right: 15px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #003d82;
+        }
+
+        /* --- 页脚 --- */
         footer {
             text-align: center;
-            margin-top: 40px;
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #888;
             font-size: 0.9em;
-            color: #777;
+        }
+        footer a {
+            color: #555;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
+        <!-- 导航栏: 链接到您未来可能创建的页面或部分 -->
+        <nav class="navbar">
+            <a href="#about" class="nav-link">关于我</a>
+            <a href="#research" class="nav-link">研究</a>
+            <a href="#publications" class="nav-link">出版物</a>
+            <a href="#contact" class="nav-link">联系我</a>
+        </nav>
+
         <header>
-            <!-- 这是你的主标题，把名字换成你自己的！ -->
-            <h1>欢迎来到 [你的名字] 的主页</h1>
-            <!-- 一句简短的自我介绍 -->
-            <p>一个对 [你的职业或兴趣，例如：编程、设计、摄影] 充满热情的人。</p>
+            <!-- 把这里的名字换成你自己的 -->
+            <h1>[你的名字]</h1>
+            <!-- 您的身份和目标 -->
+            <p>一位专注于 [你的研究领域] 的研究者 | [你现在的学位] 毕业生</p>
         </header>
 
         <main>
-            <hr>
-            
-            <h2>关于我</h2>
-            <p>
-                在这里详细介绍你自己。你可以谈谈你的学习经历、工作背景、你的爱好，或者任何你觉得有趣的事情。
-                试着让这段文字生动一些，让访问者能够快速了解你是一个怎样的人。
-            </p>
-            
-            <h2>我的项目</h2>
-            <p>
-                这里可以放你的作品集链接或者项目介绍。如果没有，也可以先删除这部分，或者写点别的，比如“我的博客”、“我的想法”等等。
-            </p>
+            <section id="about" class="intro">
+                <!-- 这里是您的电梯演讲，用简短的几句话介绍自己 -->
+                <p>
+                    欢迎来到我的个人主页。我毕业于 [你的学校]，主修 [你的专业]。
+                    我的研究兴趣主要集中在 [具体的研究方向1] 和 [具体的研究方向2]。
+                    我目前正在积极寻求博士项目机会，希望能在 [您希望深入的领域] 做出贡献。
+                </p>
+                <!-- CV 是最重要的，放在最显眼的位置 -->
+                <a href="[你的CV链接，先用#代替]" class="cta-button">查看我的简历 (CV)</a>
+                <a href="[你的研究陈述链接，先用#代替]" class="cta-button">研究陈述</a>
+            </section>
 
-            <h2>联系我</h2>
-            <p>你可以在以下地方找到我：</p>
-            <ul>
-                <!-- 把 # 换成你的真实链接 -->
-                <li><a href="#" target="_blank">我的 GitHub</a></li>
-                <li><a href="#" target="_blank">我的知乎</a></li>
-                <li>你也可以给我发邮件: <a href="mailto:your.email@example.com">your.email@example.com</a></li>
-            </ul>
+            <section id="contact">
+                <h2>联系方式</h2>
+                <p>
+                    如果您对我的背景感兴趣或有任何疑问，请随时通过邮件与我联系。
+                    您也可以在以下平台找到我。
+                </p>
+                <ul>
+                    <!-- 替换成你的真实信息 -->
+                    <li><strong>邮箱:</strong> <a href="mailto:[你的邮箱]">[你的邮箱]</a></li>
+                    <li><strong>Google Scholar:</strong> <a href="[链接]" target="_blank">你的名字</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="[链接]" target="_blank">你的名字</a></li>
+                </ul>
+            </section>
         </main>
 
         <footer>
-            <!-- 页脚的版权信息 -->
-            <p>&copy; 2025 [你的名字]。保留所有权利。</p>
+            <p>&copy; 2025 [你的名字]. All Rights Reserved.</p>
         </footer>
     </div>
 

@@ -1,191 +1,246 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[你的名字] | 个人学术主页</title>
-    <style>
-        :root {
-            --main-bg-color: #f8f9fa;
-            --content-bg-color: #ffffff;
-            --primary-text-color: #212529;
-            --secondary-text-color: #495057;
-            --accent-color: #0056b3; /* A professional blue */
-            --border-color: #dee2e6;
-        }
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Phantom by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<!-- Wrapper -->
+			<div id="wrapper">
 
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.8;
-            margin: 0;
-            background-color: var(--main-bg-color);
-            color: var(--primary-text-color);
-        }
+				<!-- Header -->
+					<header id="header">
+						<div class="inner">
 
-        .container {
-            display: flex;
-            max-width: 1100px;
-            margin: 40px auto;
-            background-color: var(--content-bg-color);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            border: 1px solid var(--border-color);
-        }
+							<!-- Logo -->
+								<a href="index.html" class="logo">
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+								</a>
 
-        /* 左侧边栏 */
-        .sidebar {
-            width: 300px;
-            background-color: #f1f3f5;
-            padding: 40px;
-            border-right: 1px solid var(--border-color);
-            text-align: center;
-        }
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--content-bg-color);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        .sidebar h1 {
-            font-size: 1.8em;
-            margin: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        .sidebar p {
-            font-size: 1em;
-            color: var(--secondary-text-color);
-            margin-top: 5px;
-        }
-        .sidebar nav {
-            margin-top: 30px;
-            text-align: left;
-        }
-        .sidebar nav a {
-            display: block;
-            color: var(--secondary-text-color);
-            text-decoration: none;
-            padding: 10px 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            font-weight: bold;
-            border-bottom: 1px solid var(--border-color);
-            transition: color 0.2s;
-        }
-        .sidebar nav a:hover, .sidebar nav a.active {
-            color: var(--accent-color);
-        }
+							<!-- Nav -->
+								<nav>
+									<ul>
+										<li><a href="#menu">Menu</a></li>
+									</ul>
+								</nav>
 
-        /* 右侧主内容区 */
-        .main-content {
-            flex-grow: 1;
-            padding: 40px;
-        }
-        .main-content h2 {
-            font-size: 1.6em;
-            color: var(--accent-color);
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 10px;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-        }
-        .main-content p, .main-content li {
-            font-size: 1.1em;
-            margin-bottom: 1.2em;
-        }
-        .main-content a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .main-content a:hover {
-            text-decoration: underline;
-        }
-        
-        /* 响应式设计，在小屏幕上垂直布局 */
-        @media (max-width: 800px) {
-            .container {
-                flex-direction: column;
-                margin: 0;
-            }
-            .sidebar {
-                width: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-        }
-    </style>
-</head>
-<body>
+						</div>
+					</header>
 
-    <div class="container">
-        <aside class="sidebar">
-            <!-- 建议使用一张专业的个人照片，文件名改为 profile.jpg 并上传到仓库 -->
-            <img src="[你的照片文件名，如 profile.jpg]" alt="个人照片" class="profile-photo">
-            
-            <h1>[你的名字]</h1>
-            <p>[你的研究领域] 研究者</p>
-            
-            <nav>
-                <a href="#about" class="active">关于我</a>
-                <a href="#research">研究兴趣</a>
-                <a href="#education">教育背景</a>
-                <a href="#publications">出版物</a>
-                <a href="#cv">我的简历</a>
-            </nav>
-        </aside>
+				<!-- Menu -->
+					<nav id="menu">
+						<h2>Menu</h2>
+						<ul>
+							<li><a href="index.html">Home</a></li>
+							<li><a href="generic.html">Ipsum veroeros</a></li>
+							<li><a href="generic.html">Tempus etiam</a></li>
+							<li><a href="generic.html">Consequat dolor</a></li>
+							<li><a href="elements.html">Elements</a></li>
+						</ul>
+					</nav>
 
-        <main class="main-content">
-            <section id="about">
-                <h2>关于我 (About Me)</h2>
-                <p>
-                    欢迎来到我的个人学术主页。我毕业于 [你的大学]，拥有 [你的学位] 学位。我致力于通过研究解决 [你研究领域] 中的核心问题。
-                    我的研究方法结合了 [方法1] 和 [方法2]，旨在 [你的研究目标]。
-                </p>
-                <p>
-                    我目前正在积极寻求 2026 年秋季入学的博士项目机会，希望能加入一个在 [你感兴趣的具体方向] 领域领先的研究团队。
-                </p>
-            </section>
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+							<header>
+								<h1>This is Phantom, a free, fully responsive site<br />
+								template designed by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
+							</header>
+							<section class="tiles">
+								<article class="style1">
+									<span class="image">
+										<img src="images/pic01.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Magna</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="images/pic02.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Lorem</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="images/pic03.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Feugiat</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image">
+										<img src="images/pic04.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Tempus</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/pic05.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Aliquam</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image">
+										<img src="images/pic06.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Veroeros</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style2">
+									<span class="image">
+										<img src="images/pic07.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Ipsum</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style3">
+									<span class="image">
+										<img src="images/pic08.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Dolor</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style1">
+									<span class="image">
+										<img src="images/pic09.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Nullam</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style5">
+									<span class="image">
+										<img src="images/pic10.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Ultricies</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style6">
+									<span class="image">
+										<img src="images/pic11.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Dictum</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+								<article class="style4">
+									<span class="image">
+										<img src="images/pic12.jpg" alt="" />
+									</span>
+									<a href="generic.html">
+										<h2>Pretium</h2>
+										<div class="content">
+											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+										</div>
+									</a>
+								</article>
+							</section>
+						</div>
+					</div>
 
-            <section id="research">
-                <h2>研究兴趣 (Research Interests)</h2>
-                <ul>
-                    <li><strong>核心领域：</strong>[你的核心研究领域，例如：机器学习、计算语言学]</li>
-                    <li><strong>具体方向：</strong>[具体方向1，例如：大型语言模型的可解释性]</li>
-                    <li><strong>交叉学科：</strong>[交叉学科方向，例如：AI伦理、认知科学]</li>
-                </ul>
-            </section>
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<section>
+								<h2>Get in touch</h2>
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="field half">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="field">
+											<textarea name="message" id="message" placeholder="Message"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send" class="primary" /></li>
+									</ul>
+								</form>
+							</section>
+							<section>
+								<h2>Follow</h2>
+								<ul class="icons">
+									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+								</ul>
+							</section>
+							<ul class="copyright">
+								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
 
-            <section id="education">
-                <h2>教育背景 (Education)</h2>
-                <p>
-                    <strong>[你的大学]</strong>, [城市], [国家]<br>
-                    [你的学位], [你的专业]<br>
-                    <em>[毕业年份]</em>
-                </p>
-                <!-- 如果有多个学位，可以复制上面的 <p> 标签块 -->
-            </section>
+			</div>
 
-            <section id="publications">
-                <h2>出版物 (Publications)</h2>
-                <p>
-                    <!-- 如果有出版物，请按标准格式列出。如果没有，可以写 "暂无" 或删除此版块 -->
-                    <strong>[论文标题]</strong><br>
-                    [作者列表]<br>
-                    <em>[期刊或会议名称]</em>, [年份]. <a href="[论文链接]" target="_blank">[PDF]</a> <a href="[代码链接]" target="_blank">[代码]</a>
-                </p>
-            </section>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-            <section id="cv">
-                <h2>我的简历 (CV)</h2>
-                <p>
-                    您可以在这里下载我的完整简历以获取更详细的信息。<br>
-                    <a href="[你的CV文件链接]" target="_blank">点击此处下载简历 (Download CV)</a>
-                </p>
-            </section>
-        </main>
-    </div>
-
-</body>
+	</body>
 </html>

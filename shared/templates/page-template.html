@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<!--
+	Multilingual Page Template
+	Template for creating consistent multilingual pages
+	Variables to replace: {{LANG}}, {{TITLE}}, {{DESCRIPTION}}, {{CONTENT}}
+-->
+<html lang="{{LANG}}">
+	<head>
+		<title>{{TITLE}}</title>
+		<meta charset="utf-8" />
+		<meta name="description" content="{{DESCRIPTION}}" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		
+		<!-- Stylesheets -->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+		<link rel="stylesheet" href="../assets/css/design-system.css" />
+		<link rel="stylesheet" href="../assets/css/simple-navigation-reset.css" />
+		<link rel="stylesheet" href="../assets/css/multilingual.css" />
+		{{LANGUAGE_SPECIFIC_CSS}}
+		<noscript><link rel="stylesheet" href="../assets/css/noscript.css" /></noscript>
+		
+		<!-- Language metadata -->
+		<link rel="alternate" hreflang="en" href="https://victoir.xyz/en/{{PAGE_NAME}}" />
+		<link rel="alternate" hreflang="zh" href="https://victoir.xyz/zh/{{PAGE_NAME}}" />
+		<link rel="alternate" hreflang="x-default" href="https://victoir.xyz/en/{{PAGE_NAME}}" />
+		
+		<!-- SEO and Social Media -->
+		<meta property="og:title" content="{{TITLE}}" />
+		<meta property="og:description" content="{{DESCRIPTION}}" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://victoir.xyz/{{LANG}}/{{PAGE_NAME}}" />
+		<meta property="og:locale" content="{{LOCALE}}" />
+		{{ALTERNATE_LOCALES}}
+		
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="{{TITLE}}" />
+		<meta name="twitter:description" content="{{DESCRIPTION}}" />
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "{{PERSON_NAME}}",
+			"url": "https://victoir.xyz/{{LANG}}/",
+			"sameAs": [
+				"https://github.com/VictoirZheng",
+				"https://orcid.org/{{ORCID_ID}}"
+			],
+			"jobTitle": "{{JOB_TITLE}}",
+			"worksFor": {
+				"@type": "Organization",
+				"name": "{{INSTITUTION}}"
+			},
+			"alumniOf": {
+				"@type": "Organization",
+				"name": "{{INSTITUTION}}"
+			},
+			"knowsAbout": {{EXPERTISE_AREAS}},
+			"inLanguage": "{{LANG}}"
+		}
+		</script>
+	</head>
+	<body class="is-preload {{BODY_CLASSES}}">
+		<!-- Language Switcher -->
+		<div id="language-switcher">
+			<button class="lang-toggle {{EN_ACTIVE}}" data-lang="en" aria-label="Switch to English">
+				<span class="lang-flag">🇺🇸</span>
+				<span class="lang-text">EN</span>
+			</button>
+			<button class="lang-toggle {{ZH_ACTIVE}}" data-lang="zh" aria-label="切换到中文">
+				<span class="lang-flag">🇨🇳</span>
+				<span class="lang-text">中文</span>
+			</button>
+		</div>
+
+		<!-- Wrapper -->
+		<div id="wrapper">
+			<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<!-- Logo -->
+					<a href="index.html" class="logo">
+						<span class="symbol"><img src="../images/logo.svg" alt="" /></span>
+						<span class="title">{{LOGO_TEXT}}</span>
+					</a>
+
+					<!-- Nav -->
+					<nav>
+						<ul>
+							<li><a href="#menu">{{MENU_TEXT}}</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+
+			<!-- Menu -->
+			<nav id="menu">
+				<h2>{{MENU_TITLE}}</h2>
+				<ul>
+					{{NAVIGATION_ITEMS}}
+				</ul>
+			</nav>
+
+			<!-- Main Content -->
+			<div id="main">
+				<div class="inner">
+					{{CONTENT}}
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<section>
+						<h2>{{CONTACT_TITLE}}</h2>
+						<div class="contact-info">
+							<div class="contact-item">
+								<i class="fas fa-envelope"></i>
+								<span>zhengqg@mail.bnu.edu.cn</span>
+							</div>
+							<div class="contact-item">
+								<i class="fas fa-phone"></i>
+								<span>+86 178 5339 1186</span>
+							</div>
+							<div class="contact-item">
+								<i class="fas fa-map-marker-alt"></i>
+								<span>{{LOCATION}}</span>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h2>{{FOLLOW_TITLE}}</h2>
+						<ul class="icons">
+							<li><a href="https://github.com/VictoirZheng" class="icon brands style2 fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:zhengqg@mail.bnu.edu.cn" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+					</section>
+					<ul class="copyright">
+						<li>&copy; 2024 {{PERSON_NAME}}. {{COPYRIGHT_TEXT}}</li>
+						<li>{{LAST_UPDATED}}: {{UPDATE_DATE}}</li>
+					</ul>
+				</div>
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script src="../assets/js/jquery.min.js"></script>
+		<script src="../assets/js/browser.min.js"></script>
+		<script src="../assets/js/breakpoints.min.js"></script>
+		<script src="../assets/js/util.js"></script>
+		<script src="../assets/js/main.js"></script>
+		
+		<!-- Multilingual System Scripts -->
+		<script src="../assets/js/language-detection.js"></script>
+		<script src="../assets/js/language-preferences.js"></script>
+		<script src="../assets/js/multilingual.js"></script>
+		<script src="../assets/js/multilingual-init.js"></script>
+		
+		<!-- Page-specific Scripts -->
+		{{PAGE_SCRIPTS}}
+		
+		<!-- Analytics (if enabled) -->
+		{{ANALYTICS_CODE}}
+	</body>
+</html>

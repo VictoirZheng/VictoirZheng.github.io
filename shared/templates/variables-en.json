@@ -1,0 +1,58 @@
+{
+  "variables": {
+    "LANG": "en",
+    "LOCALE": "en-US",
+    "BODY_CLASSES": "",
+    "LANGUAGE_SPECIFIC_CSS": "",
+    "EN_ACTIVE": "active",
+    "ZH_ACTIVE": "",
+    "LOGO_TEXT": "Qingguang",
+    "MENU_TEXT": "Menu",
+    "MENU_TITLE": "Menu",
+    "PERSON_NAME": "Qingguang Zheng",
+    "JOB_TITLE": "Master's Student in Developmental Psychology",
+    "INSTITUTION": "Beijing Normal University",
+    "ORCID_ID": "0000-0000-0000-0000",
+    "EXPERTISE_AREAS": "[\"Computational Psychology\", \"Natural Language Processing\", \"Multimodal Data Analysis\", \"Marital Dynamics\", \"Mental Health Research\"]",
+    "CONTACT_TITLE": "Get in Touch",
+    "FOLLOW_TITLE": "Follow",
+    "LOCATION": "Beijing, China (UTC+8)",
+    "COPYRIGHT_TEXT": "All rights reserved.",
+    "LAST_UPDATED": "Last updated",
+    "UPDATE_DATE": "September 2024",
+    "ALTERNATE_LOCALES": "<meta property=\"og:locale:alternate\" content=\"zh-CN\" />",
+    "NAVIGATION_ITEMS": "<li><a href=\"index.html\">Home</a></li><li><a href=\"research.html\">Research Experiences</a></li><li><a href=\"skills.html\">Skills and Tools</a></li><li><a href=\"personal.html\">Personal Interests</a></li><li><a href=\"QAs.html\">Frequently Asked Questions</a></li><li><a href=\"contact.html\">Contact Me</a></li>"
+  },
+  "pages": {
+    "index": {
+      "PAGE_NAME": "index.html",
+      "TITLE": "Qingguang Zheng - Computational Psychology Researcher",
+      "DESCRIPTION": "Qingguang Zheng - Master's candidate in Developmental Psychology at Beijing Normal University (China's #1 Psychology Program). Specializing in computational psychology, advanced NLP applications, and multimodal neuroimaging analysis. Actively seeking PhD opportunities for Fall 2026 admission."
+    },
+    "research": {
+      "PAGE_NAME": "research.html",
+      "TITLE": "Research Portfolio - Qingguang Zheng",
+      "DESCRIPTION": "Comprehensive research portfolio showcasing computational psychology projects, NLP applications in mental health research, multimodal neuroimaging studies, and large-scale data analysis. Explore cutting-edge research bridging psychology and artificial intelligence."
+    },
+    "skills": {
+      "PAGE_NAME": "skills.html",
+      "TITLE": "Technical Skills & Research Expertise - Qingguang Zheng",
+      "DESCRIPTION": "Technical expertise in Python, R, MATLAB, machine learning frameworks (TensorFlow, PyTorch), advanced statistical methods, neuroimaging analysis tools, and computational research methodologies for psychological science."
+    },
+    "personal": {
+      "PAGE_NAME": "personal.html",
+      "TITLE": "Personal Interests - Qingguang Zheng",
+      "DESCRIPTION": "Personal interests, teaching experiences, community involvement, and cultural perspectives that complement my research in computational psychology and contribute to a holistic approach to psychological science."
+    },
+    "QAs": {
+      "PAGE_NAME": "QAs.html",
+      "TITLE": "Frequently Asked Questions - Qingguang Zheng",
+      "DESCRIPTION": "Comprehensive answers to questions about research motivations, PhD application strategy, future career plans, and insights into my academic journey in computational psychology and interdisciplinary research."
+    },
+    "contact": {
+      "PAGE_NAME": "contact.html",
+      "TITLE": "Contact Me - Qingguang Zheng",
+      "DESCRIPTION": "Connect with me for research collaborations, PhD program discussions, or academic partnerships. Multiple contact methods, availability information, and response time commitments for professional communications."
+    }
+  }
+}

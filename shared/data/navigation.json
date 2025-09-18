@@ -1,0 +1,86 @@
+{
+  "navigation": {
+    "en": {
+      "menu": "Menu",
+      "items": [
+        {
+          "id": "home",
+          "label": "Home",
+          "url": "index.html",
+          "icon": "fas fa-home"
+        },
+        {
+          "id": "research",
+          "label": "Research Experiences",
+          "url": "research.html",
+          "icon": "fas fa-microscope"
+        },
+        {
+          "id": "skills",
+          "label": "Skills and Tools",
+          "url": "skills.html",
+          "icon": "fas fa-code"
+        },
+        {
+          "id": "personal",
+          "label": "Personal Interests",
+          "url": "personal.html",
+          "icon": "fas fa-user-graduate"
+        },
+        {
+          "id": "qa",
+          "label": "Frequently Asked Questions",
+          "url": "QAs.html",
+          "icon": "fas fa-question-circle"
+        },
+        {
+          "id": "contact",
+          "label": "Contact Me",
+          "url": "contact.html",
+          "icon": "fas fa-envelope"
+        }
+      ]
+    },
+    "zh": {
+      "menu": "导航菜单",
+      "items": [
+        {
+          "id": "home",
+          "label": "首页",
+          "url": "index.html",
+          "icon": "fas fa-home"
+        },
+        {
+          "id": "research",
+          "label": "研究经历",
+          "url": "research.html",
+          "icon": "fas fa-microscope"
+        },
+        {
+          "id": "skills",
+          "label": "技能专长",
+          "url": "skills.html",
+          "icon": "fas fa-code"
+        },
+        {
+          "id": "personal",
+          "label": "个人兴趣",
+          "url": "personal.html",
+          "icon": "fas fa-user-graduate"
+        },
+        {
+          "id": "blog",
+          "label": "学术博客",
+          "url": "blog.html",
+          "icon": "fas fa-blog"
+        },
+        {
+          "id": "contact",
+          "label": "联系方式",
+          "url": "contact.html",
+          "icon": "fas fa-envelope"
+        }
+      ]
+    }
+  }
+}

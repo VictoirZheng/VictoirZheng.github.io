@@ -1,0 +1,72 @@
+/* Navigation Card Hover Fix */
+/* This file fixes the navigation card hover animation issues */
+
+.nav-card.nav-card-hover .nav-card-icon {
+  transform: scale(1.1) rotate(5deg) !important;
+}
+
+.nav-card.nav-card-hover .nav-card-link i {
+  transform: translateX(3px) !important;
+}
+
+.nav-card.nav-card-hover .nav-card-highlights .highlight-item {
+  transform: translateX(3px) !important;
+}
+
+.nav-card.nav-card-hover .nav-card-highlights .highlight-item span:last-child {
+  color: var(--color-text-primary) !important;
+}
+
+/* Ensure smooth transitions for all nav-card elements */
+.nav-card-icon {
+  transition: transform 0.3s ease !important;
+}
+
+.nav-card-link i {
+  transition: transform 0.3s ease !important;
+}
+
+.nav-card-highlights .highlight-item {
+  transition: transform 0.3s ease !important;
+}
+
+.nav-card-highlights .highlight-item span:last-child {
+  transition: color 0.3s ease !important;
+}
+
+/* Prevent any layout shifts or disappearing elements */
+.nav-card-highlights .highlight-item {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  font-size: 0.875rem !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding: 0.25rem 0 !important;
+  will-change: transform !important;
+}
+
+.nav-card-highlights .highlight-item i {
+  color: #f56a6a !important;
+  width: 16px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+}
+
+.nav-card-highlights .highlight-item span:last-child {
+  flex: 1 !important;
+  will-change: color !important;
+}
+
+/* Ensure the nav-card container doesn't interfere */
+.nav-card {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.nav-card-highlights {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+}

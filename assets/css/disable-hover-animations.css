@@ -1,0 +1,75 @@
+/* Disable all hover animations for navigation cards */
+/* This completely removes hover effects to prevent layout issues */
+
+/* Remove all hover transforms and animations */
+.nav-card:hover,
+.nav-card.nav-card-hover {
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* Remove icon hover effects */
+.nav-card:hover .nav-card-icon,
+.nav-card.nav-card-hover .nav-card-icon {
+  transform: none !important;
+}
+
+/* Remove link hover effects */
+.nav-card:hover .nav-card-link i,
+.nav-card.nav-card-hover .nav-card-link i {
+  transform: none !important;
+}
+
+/* Remove highlight item hover effects */
+.nav-card:hover .nav-card-highlights .highlight-item,
+.nav-card.nav-card-hover .nav-card-highlights .highlight-item {
+  transform: none !important;
+}
+
+.nav-card:hover .nav-card-highlights .highlight-item span:last-child,
+.nav-card.nav-card-hover .nav-card-highlights .highlight-item span:last-child {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* Keep only the link button hover effect */
+.nav-card-link:hover {
+  background: linear-gradient(135deg, #d32f2f, #f56a6a) !important;
+  transform: none !important;
+  box-shadow: none !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Remove all transitions to prevent any animation glitches */
+.nav-card,
+.nav-card-icon,
+.nav-card-link i,
+.nav-card-highlights .highlight-item,
+.nav-card-highlights .highlight-item span:last-child {
+  transition: none !important;
+}
+
+/* Keep only essential transitions for the button */
+.nav-card-link {
+  transition: background 0.2s ease !important;
+}
+
+/* Ensure stable layout */
+.nav-card {
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 500px !important;
+}
+
+/* Remove any JavaScript-added hover classes effects */
+.nav-card-hover {
+  /* Override any hover class effects */
+  transform: none !important;
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
+}

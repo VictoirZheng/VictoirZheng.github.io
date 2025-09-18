@@ -1,0 +1,99 @@
+/* Final Layout Fix - Prevent any layout shifts */
+
+/* Force stable grid layout */
+.navigation-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+  gap: 2rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+}
+
+/* Override any responsive changes that might cause shifts */
+@media (min-width: 768px) {
+  .navigation-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navigation-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Ensure all nav cards have the same base height */
+.nav-card {
+  min-height: 600px !important;
+  max-height: none !important;
+  height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative !important;
+  will-change: transform !important;
+}
+
+/* Prevent any content from causing layout shifts */
+.nav-card * {
+  box-sizing: border-box !important;
+}
+
+/* Stable hover effects - no layout changes */
+.nav-card:hover,
+.nav-card.nav-card-hover {
+  transform: translateY(-4px) !important;
+  /* Remove any width/height changes */
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Ensure icons don't cause layout shifts */
+.nav-card-icon {
+  flex-shrink: 0 !important;
+  width: 80px !important;
+  height: 80px !important;
+}
+
+/* Ensure content areas are stable */
+.nav-card-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+}
+
+.nav-card-description {
+  flex-grow: 1 !important;
+  min-height: 100px !important;
+}
+
+.nav-card-highlights {
+  flex-shrink: 0 !important;
+  min-height: 150px !important;
+}
+
+.nav-card-link {
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+}
+
+/* Remove any transforms that might affect layout */
+.nav-card-hover .nav-card-highlights .highlight-item {
+  transform: none !important;
+}
+
+/* Ensure grid doesn't reflow on hover */
+.navigation-section {
+  contain: layout !important;
+}
+
+.navigation-grid {
+  contain: layout !important;
+}
+
+/* Force GPU acceleration for smooth animations */
+.nav-card {
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+}

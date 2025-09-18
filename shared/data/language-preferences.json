@@ -1,0 +1,202 @@
+{
+  "preferences": {
+    "detection": {
+      "priority": [
+        {
+          "source": "explicit",
+          "weight": 100,
+          "description": "User explicitly selected language"
+        },
+        {
+          "source": "url",
+          "weight": 90,
+          "description": "Language detected from URL path"
+        },
+        {
+          "source": "cookie",
+          "weight": 80,
+          "description": "Stored cookie preference"
+        },
+        {
+          "source": "localStorage",
+          "weight": 70,
+          "description": "Local storage preference"
+        },
+        {
+          "source": "session",
+          "weight": 60,
+          "description": "Session storage"
+        },
+        {
+          "source": "browser",
+          "weight": 50,
+          "description": "Browser language preference"
+        },
+        {
+          "source": "geo",
+          "weight": 40,
+          "description": "Geographic location"
+        },
+        {
+          "source": "default",
+          "weight": 0,
+          "description": "Default fallback"
+        }
+      ]
+    },
+    "storage": {
+      "cookie": {
+        "name": "preferred_language",
+        "expiry": 365,
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true
+      },
+      "localStorage": {
+        "key": "user_language_preference",
+        "includeMetadata": true,
+        "maxAge": 90
+      },
+      "sessionStorage": {
+        "key": "session_language_data",
+        "trackSwitches": true
+      }
+    },
+    "analytics": {
+      "enabled": true,
+      "retention": 30,
+      "events": {
+        "languageSwitch": "language_switch",
+        "languageDetection": "language_detection",
+        "preferenceUpdate": "language_preference_update",
+        "sessionStart": "language_session_start"
+      },
+      "metrics": [
+        "totalSwitches",
+        "favoriteLanguage",
+        "sessionDuration",
+        "pageViews",
+        "switchFrequency"
+      ]
+    },
+    "userExperience": {
+      "transitions": {
+        "enabled": true,
+        "duration": 300,
+        "easing": "ease-in-out"
+      },
+      "loading": {
+        "showIndicator": true,
+        "minDuration": 200,
+        "timeout": 5000
+      },
+      "notifications": {
+        "showSwitchConfirmation": false,
+        "showDetectionResult": false,
+        "showErrors": true
+      }
+    },
+    "accessibility": {
+      "announcements": {
+        "enabled": true,
+        "liveRegion": "polite"
+      },
+      "keyboardNavigation": {
+        "enabled": true,
+        "shortcuts": {
+          "switchLanguage": "Alt+L",
+          "toggleSwitcher": "Alt+Shift+L"
+        }
+      },
+      "screenReader": {
+        "enabled": true,
+        "verboseDescriptions": true
+      }
+    },
+    "recommendations": {
+      "enabled": true,
+      "factors": [
+        "timeOfDay",
+        "pageType",
+        "userHistory",
+        "sessionBehavior"
+      ],
+      "workHours": {
+        "start": 9,
+        "end": 17,
+        "timezone": "Asia/Shanghai"
+      }
+    },
+    "fallback": {
+      "onError": "default",
+      "onUnsupported": "default",
+      "onTimeout": "current",
+      "gracefulDegradation": true
+    }
+  },
+  "languages": {
+    "en": {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "flag": "🇺🇸",
+      "direction": "ltr",
+      "charset": "UTF-8",
+      "locale": "en-US",
+      "dateFormat": "MM/DD/YYYY",
+      "timeFormat": "12h",
+      "numberFormat": "1,234.56",
+      "currency": "USD",
+      "contexts": ["academic", "professional", "international"],
+      "preferredFor": ["research", "publications", "applications"]
+    },
+    "zh": {
+      "code": "zh",
+      "name": "Chinese",
+      "nativeName": "中文",
+      "flag": "🇨🇳",
+      "direction": "ltr",
+      "charset": "UTF-8",
+      "locale": "zh-CN",
+      "dateFormat": "YYYY年MM月DD日",
+      "timeFormat": "24h",
+      "numberFormat": "1,234.56",
+      "currency": "CNY",
+      "contexts": ["personal", "cultural", "local"],
+      "preferredFor": ["blog", "personal", "cultural"]
+    }
+  },
+  "contentStrategy": {
+    "en": {
+      "tone": "professional",
+      "style": "academic",
+      "audience": "international",
+      "purpose": "phd_application",
+      "emphasis": ["research", "achievements", "technical_skills"],
+      "contentTypes": ["research", "skills", "personal", "qa", "contact"]
+    },
+    "zh": {
+      "tone": "personal",
+      "style": "conversational",
+      "audience": "chinese_speakers",
+      "purpose": "personal_blog",
+      "emphasis": ["personal_growth", "cultural_insights", "experiences"],
+      "contentTypes": ["blog", "personal", "research", "skills", "contact"]
+    }
+  },
+  "seo": {
+    "hreflang": {
+      "enabled": true,
+      "includeRegional": false,
+      "xDefault": "en"
+    },
+    "sitemap": {
+      "generatePerLanguage": true,
+      "includeAlternates": true
+    },
+    "metadata": {
+      "autoTranslate": false,
+      "languageSpecific": true
+    }
+  }
+}

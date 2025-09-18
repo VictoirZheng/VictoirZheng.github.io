@@ -1,0 +1,58 @@
+{
+  "variables": {
+    "LANG": "zh-CN",
+    "LOCALE": "zh-CN",
+    "BODY_CLASSES": "chinese-layout",
+    "LANGUAGE_SPECIFIC_CSS": "<link rel=\"stylesheet\" href=\"../assets/css/chinese-typography.css\" />",
+    "EN_ACTIVE": "",
+    "ZH_ACTIVE": "active",
+    "LOGO_TEXT": "庆广",
+    "MENU_TEXT": "菜单",
+    "MENU_TITLE": "导航菜单",
+    "PERSON_NAME": "郑庆广",
+    "JOB_TITLE": "北京师范大学发展心理学硕士研究生",
+    "INSTITUTION": "北京师范大学",
+    "ORCID_ID": "0000-0000-0000-0000",
+    "EXPERTISE_AREAS": "[\"计算心理学\", \"自然语言处理\", \"多模态数据分析\", \"婚姻动力学\", \"心理健康研究\"]",
+    "CONTACT_TITLE": "联系方式",
+    "FOLLOW_TITLE": "关注我",
+    "LOCATION": "中国北京 (UTC+8)",
+    "COPYRIGHT_TEXT": "保留所有权利。",
+    "LAST_UPDATED": "最后更新",
+    "UPDATE_DATE": "2024年9月",
+    "ALTERNATE_LOCALES": "<meta property=\"og:locale:alternate\" content=\"en-US\" />",
+    "NAVIGATION_ITEMS": "<li><a href=\"index.html\">首页</a></li><li><a href=\"research.html\">研究经历</a></li><li><a href=\"skills.html\">技能专长</a></li><li><a href=\"personal.html\">个人兴趣</a></li><li><a href=\"blog.html\">学术博客</a></li><li><a href=\"contact.html\">联系方式</a></li>"
+  },
+  "pages": {
+    "index": {
+      "PAGE_NAME": "index.html",
+      "TITLE": "郑庆广 - 计算心理学研究者",
+      "DESCRIPTION": "郑庆广 - 北京师范大学发展心理学硕士研究生（中国心理学排名第一）。专注于计算心理学、自然语言处理应用和多模态神经影像分析。正在寻求2026年秋季博士申请机会。"
+    },
+    "research": {
+      "PAGE_NAME": "research.html",
+      "TITLE": "研究作品集 - 郑庆广",
+      "DESCRIPTION": "全面的研究作品集，展示计算心理学项目、心理健康研究中的自然语言处理应用、多模态神经影像研究和大规模数据分析。探索连接心理学与人工智能的前沿研究。"
+    },
+    "skills": {
+      "PAGE_NAME": "skills.html",
+      "TITLE": "技术技能与研究专长 - 郑庆广",
+      "DESCRIPTION": "Python、R、MATLAB技术专长，机器学习框架（TensorFlow、PyTorch）、高级统计方法、神经影像分析工具，以及心理科学计算研究方法论。"
+    },
+    "personal": {
+      "PAGE_NAME": "personal.html",
+      "TITLE": "个人兴趣 - 郑庆广",
+      "DESCRIPTION": "个人兴趣、教学经验、社区参与和文化视角，这些都补充了我在计算心理学方面的研究，并有助于心理科学的整体方法。"
+    },
+    "blog": {
+      "PAGE_NAME": "blog.html",
+      "TITLE": "学术博客 - 郑庆广",
+      "DESCRIPTION": "学术思考、研究心得、技术分享和个人成长记录。探讨计算心理学、人工智能与心理健康研究的交叉领域。"
+    },
+    "contact": {
+      "PAGE_NAME": "contact.html",
+      "TITLE": "联系方式 - 郑庆广",
+      "DESCRIPTION": "联系我进行研究合作、博士项目讨论或学术伙伴关系。多种联系方式、可用性信息和专业沟通的响应时间承诺。"
+    }
+  }
+}

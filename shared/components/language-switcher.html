@@ -1,0 +1,239 @@
+<!-- Language Switcher Component -->
+<!-- This component can be included in any page for consistent language switching -->
+<div id="language-switcher" class="language-switcher" role="navigation" aria-label="Language selection">
+    <div class="language-switcher-container">
+        <!-- English Language Toggle -->
+        <button 
+            class="lang-toggle" 
+            data-lang="en" 
+            aria-label="Switch to English"
+            aria-pressed="false"
+            title="Switch to English"
+        >
+            <span class="lang-flag" aria-hidden="true">🇺🇸</span>
+            <span class="lang-text">EN</span>
+            <span class="lang-full-name sr-only">English</span>
+        </button>
+        
+        <!-- Chinese Language Toggle -->
+        <button 
+            class="lang-toggle" 
+            data-lang="zh" 
+            aria-label="切换到中文"
+            aria-pressed="false"
+            title="切换到中文"
+        >
+            <span class="lang-flag" aria-hidden="true">🇨🇳</span>
+            <span class="lang-text">中文</span>
+            <span class="lang-full-name sr-only">中文</span>
+        </button>
+    </div>
+    
+    <!-- Loading indicator (hidden by default) -->
+    <div class="language-loading-indicator" aria-hidden="true">
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Loading...</span>
+    </div>
+    
+    <!-- Screen reader announcements -->
+    <div class="sr-only" aria-live="polite" id="language-announcements"></div>
+</div>
+
+<!-- Language Switcher Styles (if not already included) -->
+<style>
+/* Screen reader only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Language switcher specific styles */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.language-switcher-container {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.language-loading-indicator {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 20px;
+    padding: 8px 12px;
+    color: white;
+    font-size: 0.8em;
+    align-items: center;
+    gap: 6px;
+}
+
+.language-loading-indicator.active {
+    display: flex;
+}
+
+.loading-spinner {
+    width: 12px;
+    height: 12px;
+    border: 2px solid transparent;
+    border-top: 2px solid #f56a6a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+    .language-switcher {
+        top: 15px;
+        right: 15px;
+    }
+    
+    .language-switcher-container {
+        padding: 6px;
+        gap: 6px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .language-switcher {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .language-switcher-container {
+        padding: 4px;
+        gap: 4px;
+    }
+    
+    .lang-text {
+        display: none;
+    }
+    
+    .lang-flag {
+        font-size: 1.2em;
+    }
+}
+</style>
+
+<!-- Language Switcher JavaScript (if not already included) -->
+<script>
+// Initialize language switcher if multilingual system is available
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if multilingual system is available
+    if (typeof window.multilingualManager !== 'undefined' || typeof window.multilingualInit !== 'undefined') {
+        console.log('Multilingual system detected, language switcher will be handled by main system');
+        return;
+    }
+    
+    // Fallback language switcher for pages without full multilingual system
+    const languageSwitcher = document.getElementById('language-switcher');
+    if (!languageSwitcher) return;
+    
+    const toggles = languageSwitcher.querySelectorAll('.lang-toggle');
+    const announcements = document.getElementById('language-announcements');
+    
+    // Set initial active state based on current page language
+    const currentLang = detectCurrentLanguage();
+    updateActiveState(currentLang);
+    
+    // Add click handlers
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetLang = this.getAttribute('data-lang');
+            
+            if (targetLang !== currentLang) {
+                switchLanguage(targetLang);
+            }
+        });
+        
+        // Keyboard support
+        toggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+    
+    function detectCurrentLanguage() {
+        const path = window.location.pathname;
+        const segments = path.split('/').filter(segment => segment);
+        
+        if (segments.length > 0 && ['en', 'zh'].includes(segments[0])) {
+            return segments[0];
+        }
+        
+        return 'en'; // default
+    }
+    
+    function updateActiveState(activeLang) {
+        toggles.forEach(toggle => {
+            const lang = toggle.getAttribute('data-lang');
+            if (lang === activeLang) {
+                toggle.classList.add('active');
+                toggle.setAttribute('aria-pressed', 'true');
+            } else {
+                toggle.classList.remove('active');
+                toggle.setAttribute('aria-pressed', 'false');
+            }
+        });
+    }
+    
+    function switchLanguage(targetLang) {
+        // Show loading state
+        const loadingIndicator = languageSwitcher.querySelector('.language-loading-indicator');
+        if (loadingIndicator) {
+            loadingIndicator.classList.add('active');
+        }
+        
+        // Announce to screen readers
+        if (announcements) {
+            const message = targetLang === 'zh' ? '正在切换到中文...' : 'Switching to English...';
+            announcements.textContent = message;
+        }
+        
+        // Build new URL
+        const currentPath = window.location.pathname;
+        const segments = currentPath.split('/').filter(segment => segment);
+        
+        // Remove current language if present
+        if (segments.length > 0 && ['en', 'zh'].includes(segments[0])) {
+            segments.shift();
+        }
+        
+        // Add new language
+        const newPath = `/${targetLang}/${segments.join('/')}`;
+        const newUrl = newPath + window.location.search + window.location.hash;
+        
+        // Redirect to new language version
+        window.location.href = newUrl;
+    }
+});
+</script>

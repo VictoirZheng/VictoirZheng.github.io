@@ -1,0 +1,129 @@
+{
+  "routing": {
+    "baseUrl": "https://victoir.xyz",
+    "defaultLanguage": "en",
+    "fallbackLanguage": "en",
+    "supportedLanguages": ["en", "zh"],
+    "languageDetection": {
+      "enabled": true,
+      "sources": ["url", "cookie", "localStorage", "browser", "geo"],
+      "cookieName": "preferred_language",
+      "cookieExpiry": 365,
+      "localStorageKey": "user_language_preference"
+    },
+    "urlStructure": {
+      "pattern": "/{language}/{page}",
+      "examples": {
+        "en": "/en/index.html",
+        "zh": "/zh/index.html"
+      }
+    },
+    "redirectRules": {
+      "rootAccess": {
+        "enabled": true,
+        "target": "/{detectedLanguage}/",
+        "preserveQuery": true,
+        "preserveHash": true
+      },
+      "missingLanguage": {
+        "enabled": true,
+        "target": "/{defaultLanguage}/{originalPath}",
+        "fallback": "/{defaultLanguage}/"
+      },
+      "unsupportedLanguage": {
+        "enabled": true,
+        "target": "/{defaultLanguage}/{originalPath}",
+        "fallback": "/{defaultLanguage}/"
+      }
+    },
+    "seoConfiguration": {
+      "hreflang": {
+        "enabled": true,
+        "includeXDefault": true,
+        "xDefaultLanguage": "en"
+      },
+      "canonicalUrls": {
+        "enabled": true,
+        "pattern": "{baseUrl}/{language}/{page}"
+      },
+      "languageAlternates": {
+        "enabled": true,
+        "autoGenerate": true
+      }
+    },
+    "pageMapping": {
+      "en": {
+        "index": "index.html",
+        "research": "research.html",
+        "skills": "skills.html",
+        "personal": "personal.html",
+        "qa": "QAs.html",
+        "contact": "contact.html"
+      },
+      "zh": {
+        "index": "index.html",
+        "research": "research.html",
+        "skills": "skills.html",
+        "personal": "personal.html",
+        "blog": "blog.html",
+        "contact": "contact.html"
+      }
+    },
+    "contentMapping": {
+      "sharedAssets": [
+        "images/",
+        "assets/css/",
+        "assets/js/",
+        "assets/webfonts/",
+        "assets/*.pdf"
+      ],
+      "languageSpecific": {
+        "en": {
+          "contentPath": "shared/content/en/",
+          "stylesheets": ["../assets/css/multilingual.css"],
+          "scripts": [
+            "../assets/js/language-detection.js",
+            "../assets/js/language-preferences.js",
+            "../assets/js/multilingual.js",
+            "../assets/js/multilingual-init.js"
+          ]
+        },
+        "zh": {
+          "contentPath": "shared/content/zh/",
+          "stylesheets": [
+            "../assets/css/multilingual.css",
+            "../assets/css/chinese-typography.css"
+          ],
+          "scripts": [
+            "../assets/js/language-detection.js",
+            "../assets/js/language-preferences.js",
+            "../assets/js/multilingual.js",
+            "../assets/js/multilingual-init.js"
+          ]
+        }
+      }
+    },
+    "errorHandling": {
+      "404": {
+        "enabled": true,
+        "redirectToHome": true,
+        "preserveLanguage": true
+      },
+      "languageNotFound": {
+        "enabled": true,
+        "fallbackToDefault": true,
+        "showNotification": false
+      }
+    },
+    "analytics": {
+      "trackLanguageSwitches": true,
+      "trackLanguageDetection": true,
+      "trackUserPreferences": true,
+      "events": {
+        "languageSwitch": "language_switch",
+        "languageDetection": "language_detection",
+        "preferenceUpdate": "language_preference_update"
+      }
+    }
+  }
+}

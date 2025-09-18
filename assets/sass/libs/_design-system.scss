@@ -1,0 +1,192 @@
+///
+/// Personal Website Design System
+/// Unified visual design system for Qingguang Zheng's academic website
+///
+
+// Design Tokens - Colors
+$design-colors: (
+	// Primary Academic Red Theme
+	primary: #f56a6a,
+	primary-light: #ff8a80,
+	primary-dark: #d32f2f,
+	
+	// Background Colors (Dark Theme)
+	bg-primary: #1a1a1a,
+	bg-secondary: #2a2a2a,
+	bg-tertiary: #333333,
+	bg-card: rgba(255, 255, 255, 0.03),
+	bg-card-hover: rgba(255, 255, 255, 0.05),
+	
+	// Text Colors
+	text-primary: #ffffff,
+	text-secondary: rgba(255, 255, 255, 0.65),
+	text-tertiary: rgba(255, 255, 255, 0.45),
+	text-accent: #f56a6a,
+	
+	// Border Colors
+	border-primary: rgba(255, 255, 255, 0.1),
+	border-secondary: rgba(255, 255, 255, 0.05),
+	border-accent: #f56a6a,
+	
+	// Status Colors
+	success: #4caf50,
+	warning: #ff9800,
+	error: #f44336,
+	info: #2196f3
+);
+
+// Design Tokens - Typography
+$design-typography: (
+	// Font Families
+	font-primary: ('Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif),
+	font-mono: ('SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace),
+	
+	// Font Weights
+	weight-light: 300,
+	weight-regular: 400,
+	weight-medium: 500,
+	weight-semibold: 600,
+	weight-bold: 700,
+	weight-black: 900,
+	
+	// Font Sizes (Responsive Scale)
+	size-xs: 0.75rem,    // 12px
+	size-sm: 0.875rem,   // 14px
+	size-base: 1rem,     // 16px
+	size-lg: 1.125rem,   // 18px
+	size-xl: 1.25rem,    // 20px
+	size-2xl: 1.5rem,    // 24px
+	size-3xl: 1.875rem,  // 30px
+	size-4xl: 2.25rem,   // 36px
+	size-5xl: 3rem,      // 48px
+	
+	// Line Heights
+	leading-tight: 1.25,
+	leading-normal: 1.5,
+	leading-relaxed: 1.75,
+	
+	// Letter Spacing
+	tracking-tight: -0.025em,
+	tracking-normal: 0,
+	tracking-wide: 0.025em,
+	tracking-wider: 0.05em,
+	tracking-widest: 0.1em
+);
+
+// Design Tokens - Spacing (8px base unit)
+$design-spacing: (
+	0: 0,
+	1: 0.25rem,  // 4px
+	2: 0.5rem,   // 8px
+	3: 0.75rem,  // 12px
+	4: 1rem,     // 16px
+	5: 1.25rem,  // 20px
+	6: 1.5rem,   // 24px
+	8: 2rem,     // 32px
+	10: 2.5rem,  // 40px
+	12: 3rem,    // 48px
+	16: 4rem,    // 64px
+	20: 5rem,    // 80px
+	24: 6rem,    // 96px
+	32: 8rem     // 128px
+);
+
+// Design Tokens - Border Radius
+$design-radius: (
+	none: 0,
+	sm: 0.25rem,   // 4px
+	base: 0.5rem,  // 8px
+	md: 0.75rem,   // 12px
+	lg: 1rem,      // 16px
+	xl: 1.5rem,    // 24px
+	full: 9999px
+);
+
+// Design Tokens - Shadows
+$design-shadows: (
+	sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05),
+	base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06),
+	md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06),
+	lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05),
+	xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04),
+	accent: 0 10px 30px rgba(245, 106, 106, 0.1),
+	accent-hover: 0 20px 40px rgba(245, 106, 106, 0.15)
+);
+
+// Design Tokens - Transitions
+$design-transitions: (
+	fast: 0.15s ease,
+	base: 0.3s ease,
+	slow: 0.5s ease,
+	bounce: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+);
+
+// Design Tokens - Z-Index Scale
+$design-z-index: (
+	dropdown: 1000,
+	sticky: 1020,
+	fixed: 1030,
+	modal-backdrop: 1040,
+	modal: 1050,
+	popover: 1060,
+	tooltip: 1070
+);
+
+// Breakpoints (Mobile-first approach)
+$design-breakpoints: (
+	sm: 640px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1280px,
+	2xl: 1536px
+);
+
+// Helper Functions
+@function design-color($key) {
+	@return map-get($design-colors, $key);
+}
+
+@function design-font($key) {
+	@return map-get($design-typography, $key);
+}
+
+@function design-space($key) {
+	@return map-get($design-spacing, $key);
+}
+
+@function design-radius($key) {
+	@return map-get($design-radius, $key);
+}
+
+@function design-shadow($key) {
+	@return map-get($design-shadows, $key);
+}
+
+@function design-transition($key) {
+	@return map-get($design-transitions, $key);
+}
+
+@function design-z($key) {
+	@return map-get($design-z-index, $key);
+}
+
+// Responsive Mixins
+@mixin respond-to($breakpoint) {
+	@if map-has-key($design-breakpoints, $breakpoint) {
+		@media (min-width: map-get($design-breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@warn "Unknown breakpoint: #{$breakpoint}";
+	}
+}
+
+@mixin respond-below($breakpoint) {
+	@if map-has-key($design-breakpoints, $breakpoint) {
+		@media (max-width: (map-get($design-breakpoints, $breakpoint) - 1px)) {
+			@content;
+		}
+	} @else {
+		@warn "Unknown breakpoint: #{$breakpoint}";
+	}
+}

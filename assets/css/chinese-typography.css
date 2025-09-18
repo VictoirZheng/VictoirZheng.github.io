@@ -1,0 +1,254 @@
+/* Chinese Typography and Layout Adjustments */
+
+/* Chinese Font Stack */
+.chinese-layout {
+    font-family: 
+        -apple-system, 
+        BlinkMacSystemFont, 
+        "Segoe UI", 
+        "PingFang SC", 
+        "Hiragino Sans GB", 
+        "Microsoft YaHei", 
+        "WenQuanYi Micro Hei", 
+        "Helvetica Neue", 
+        Helvetica, 
+        Arial, 
+        sans-serif;
+}
+
+/* Chinese Headings */
+.chinese-layout h1,
+.chinese-layout h2,
+.chinese-layout h3,
+.chinese-layout h4,
+.chinese-layout h5,
+.chinese-layout h6 {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+}
+
+.chinese-layout h1 {
+    font-size: 2.5em;
+    line-height: 1.2;
+}
+
+.chinese-layout h2 {
+    font-size: 2em;
+    line-height: 1.3;
+}
+
+.chinese-layout h3 {
+    font-size: 1.5em;
+    line-height: 1.4;
+}
+
+/* Chinese Body Text */
+.chinese-layout p {
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+
+.chinese-layout li {
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+}
+
+/* Chinese Punctuation Adjustments */
+.chinese-layout {
+    /* text-spacing: ideograph-alpha ideograph-numeric; */ /* Not widely supported yet */
+    /* hanging-punctuation: first last; */ /* Not widely supported yet */
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Chinese Quote Styles */
+.chinese-layout blockquote {
+    border-left: 4px solid #f56a6a;
+    padding-left: 1.5em;
+    margin-left: 0;
+    font-style: normal;
+}
+
+.chinese-layout blockquote::before {
+    content: """;
+    font-size: 1.5em;
+    color: #f56a6a;
+    line-height: 0;
+    margin-right: 0.2em;
+}
+
+.chinese-layout blockquote::after {
+    content: """;
+    font-size: 1.5em;
+    color: #f56a6a;
+    line-height: 0;
+    margin-left: 0.2em;
+}
+
+/* Chinese Navigation Adjustments */
+.chinese-layout #menu h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.chinese-layout #menu ul li a {
+    font-size: 1em;
+    letter-spacing: 0.02em;
+}
+
+/* Chinese Button Text */
+.chinese-layout .btn,
+.chinese-layout button {
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+/* Chinese Form Labels */
+.chinese-layout label {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Chinese Table Headers */
+.chinese-layout th {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+/* Chinese Code and Technical Text */
+.chinese-layout code,
+.chinese-layout pre {
+    font-family: 
+        "SF Mono", 
+        "Monaco", 
+        "Inconsolata", 
+        "Roboto Mono", 
+        "Source Code Pro", 
+        "Consolas", 
+        "Liberation Mono", 
+        "Menlo", 
+        monospace;
+}
+
+/* Chinese Emphasis */
+.chinese-layout em {
+    font-style: normal;
+    text-emphasis: dot;
+    text-emphasis-position: under;
+}
+
+.chinese-layout strong {
+    font-weight: 600;
+    color: #f56a6a;
+}
+
+/* Chinese List Styling */
+.chinese-layout ul {
+    list-style-type: none;
+    padding-left: 1.5em;
+}
+
+.chinese-layout ul li::before {
+    content: "•";
+    color: #f56a6a;
+    font-weight: bold;
+    position: absolute;
+    margin-left: -1.2em;
+}
+
+.chinese-layout ol {
+    padding-left: 1.5em;
+}
+
+.chinese-layout ol li {
+    padding-left: 0.3em;
+}
+
+/* Chinese Card and Component Adjustments */
+.chinese-layout .card h3,
+.chinese-layout .skill-card h3,
+.chinese-layout .research-card h3 {
+    font-size: 1.3em;
+    line-height: 1.4;
+}
+
+.chinese-layout .card p,
+.chinese-layout .skill-card p,
+.chinese-layout .research-card p {
+    line-height: 1.7;
+}
+
+/* Chinese Meta Information */
+.chinese-layout .meta-tag,
+.chinese-layout .publication-status,
+.chinese-layout .research-meta span {
+    font-size: 0.9em;
+    letter-spacing: 0.02em;
+}
+
+/* Chinese Responsive Typography */
+@media screen and (max-width: 768px) {
+    .chinese-layout h1 {
+        font-size: 2em;
+        line-height: 1.3;
+    }
+    
+    .chinese-layout h2 {
+        font-size: 1.6em;
+        line-height: 1.4;
+    }
+    
+    .chinese-layout h3 {
+        font-size: 1.3em;
+        line-height: 1.5;
+    }
+    
+    .chinese-layout p {
+        line-height: 1.7;
+        font-size: 0.95em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .chinese-layout h1 {
+        font-size: 1.8em;
+    }
+    
+    .chinese-layout h2 {
+        font-size: 1.4em;
+    }
+    
+    .chinese-layout h3 {
+        font-size: 1.2em;
+    }
+    
+    .chinese-layout p {
+        font-size: 0.9em;
+        line-height: 1.6;
+    }
+}
+
+/* Chinese Print Styles */
+@media print {
+    .chinese-layout {
+        font-family: "SimSun", "Song", serif;
+    }
+    
+    .chinese-layout h1,
+    .chinese-layout h2,
+    .chinese-layout h3,
+    .chinese-layout h4,
+    .chinese-layout h5,
+    .chinese-layout h6 {
+        font-family: "SimHei", "Hei", sans-serif;
+        font-weight: bold;
+    }
+    
+    .chinese-layout p {
+        line-height: 1.6;
+        text-align: justify;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "languages": {
+    "en": {
+      "code": "en",
+      "name": "English",
+      "nativeName": "English",
+      "flag": "🇺🇸",
+      "direction": "ltr",
+      "default": true,
+      "path": "/en/",
+      "description": "Academic application focused version"
+    },
+    "zh": {
+      "code": "zh",
+      "name": "Chinese",
+      "nativeName": "中文",
+      "flag": "🇨🇳",
+      "direction": "ltr",
+      "default": false,
+      "path": "/zh/",
+      "description": "Personal blog focused version"
+    }
+  },
+  "defaultLanguage": "en",
+  "fallbackLanguage": "en",
+  "supportedLanguages": ["en", "zh"],
+  "autoDetect": true,
+  "cookieName": "preferred_language",
+  "cookieExpiry": 365
+}

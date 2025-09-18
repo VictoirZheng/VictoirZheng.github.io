@@ -1,0 +1,104 @@
+{
+  "strings": {
+    "en": {
+      "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "retry": "Retry",
+        "close": "Close",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous",
+        "home": "Home",
+        "menu": "Menu"
+      },
+      "navigation": {
+        "home": "Home",
+        "research": "Research Experiences",
+        "skills": "Skills and Tools",
+        "personal": "Personal Interests",
+        "qa": "Frequently Asked Questions",
+        "contact": "Contact Me"
+      },
+      "hero": {
+        "greeting": "Hello, I'm",
+        "role": "Master's Student in Developmental Psychology",
+        "institution": "Beijing Normal University (China's #1 Psychology Program)",
+        "status_phd": "PhD Applicant Fall 2026",
+        "status_research": "Computational Psychology",
+        "mission_title": "Research Mission:",
+        "cta_research": "Explore My Research",
+        "cta_cv": "Download CV"
+      },
+      "specializations": {
+        "computational": "Computational Psychology",
+        "nlp": "Natural Language Processing",
+        "multimodal": "Multimodal Data Analysis",
+        "marital": "Marital & Family Dynamics",
+        "mental_health": "Large-Scale Mental Health"
+      },
+      "contact": {
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "timezone": "Timezone",
+        "response_time": "Response Time",
+        "best_contact": "Best Contact Method"
+      },
+      "footer": {
+        "copyright": "© 2024 Qingguang Zheng. All rights reserved.",
+        "last_updated": "Last updated"
+      }
+    },
+    "zh": {
+      "common": {
+        "loading": "加载中...",
+        "error": "错误",
+        "retry": "重试",
+        "close": "关闭",
+        "back": "返回",
+        "next": "下一页",
+        "previous": "上一页",
+        "home": "首页",
+        "menu": "菜单"
+      },
+      "navigation": {
+        "home": "首页",
+        "research": "研究经历",
+        "skills": "技能专长",
+        "personal": "个人兴趣",
+        "blog": "学术博客",
+        "contact": "联系方式"
+      },
+      "hero": {
+        "greeting": "你好，我是",
+        "role": "北京师范大学发展心理学硕士研究生",
+        "institution": "中国心理学排名第一",
+        "status_phd": "2026秋季博士申请者",
+        "status_research": "计算心理学",
+        "mission_title": "研究使命：",
+        "cta_research": "探索我的研究",
+        "cta_cv": "下载简历"
+      },
+      "specializations": {
+        "computational": "计算心理学",
+        "nlp": "自然语言处理",
+        "multimodal": "多模态数据分析",
+        "marital": "婚姻与家庭动力学",
+        "mental_health": "大规模心理健康"
+      },
+      "contact": {
+        "email": "邮箱",
+        "phone": "电话",
+        "location": "位置",
+        "timezone": "时区",
+        "response_time": "回复时间",
+        "best_contact": "最佳联系方式"
+      },
+      "footer": {
+        "copyright": "© 2024 郑庆广。保留所有权利。",
+        "last_updated": "最后更新"
+      }
+    }
+  }
+}

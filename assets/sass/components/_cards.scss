@@ -1,0 +1,363 @@
+///
+/// Unified Card Component System
+/// Standardized card designs with consistent styling and interactions
+///
+
+// Base Card Component
+.card {
+	background: design-color(bg-card);
+	border: 1px solid design-color(border-primary);
+	border-radius: design-radius(base);
+	padding: design-space(8);
+	transition: all design-transition(base);
+	position: relative;
+	overflow: hidden;
+	
+	// Card hover effects
+	&:hover {
+		background: design-color(bg-card-hover);
+		transform: translateY(-2px);
+		box-shadow: design-shadow(accent);
+		border-color: design-color(border-accent);
+	}
+	
+	// Card header
+	&__header {
+		margin-bottom: design-space(6);
+		padding-bottom: design-space(4);
+		border-bottom: 1px solid design-color(border-secondary);
+		
+		.card__title {
+			font-size: design-font(size-xl);
+			font-weight: design-font(weight-semibold);
+			color: design-color(text-primary);
+			margin: 0 0 design-space(2) 0;
+			line-height: design-font(leading-tight);
+		}
+		
+		.card__subtitle {
+			font-size: design-font(size-sm);
+			color: design-color(text-secondary);
+			margin: 0;
+			text-transform: uppercase;
+			letter-spacing: design-font(tracking-wide);
+		}
+	}
+	
+	// Card body
+	&__body {
+		color: design-color(text-secondary);
+		line-height: design-font(leading-relaxed);
+		
+		p {
+			margin-bottom: design-space(4);
+			
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	// Card footer
+	&__footer {
+		margin-top: design-space(6);
+		padding-top: design-space(4);
+		border-top: 1px solid design-color(border-secondary);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: design-space(3);
+	}
+	
+	// Card actions
+	&__actions {
+		display: flex;
+		gap: design-space(3);
+		align-items: center;
+	}
+	
+	// Card metadata
+	&__meta {
+		display: flex;
+		gap: design-space(4);
+		font-size: design-font(size-sm);
+		color: design-color(text-tertiary);
+		
+		.meta-item {
+			display: flex;
+			align-items: center;
+			gap: design-space(1);
+			
+			i {
+				font-size: design-font(size-xs);
+			}
+		}
+	}
+}
+
+// Card Variants
+
+// Research Project Card
+.card--research {
+	&:hover {
+		box-shadow: design-shadow(accent-hover);
+		transform: translateY(-4px);
+	}
+	
+	.card__status {
+		display: inline-block;
+		padding: design-space(1) design-space(3);
+		border-radius: design-radius(full);
+		font-size: design-font(size-xs);
+		font-weight: design-font(weight-medium);
+		text-transform: uppercase;
+		letter-spacing: design-font(tracking-wide);
+		
+		&--ongoing {
+			background: rgba(76, 175, 80, 0.1);
+			color: design-color(success);
+			border: 1px solid rgba(76, 175, 80, 0.2);
+		}
+		
+		&--completed {
+			background: rgba(33, 150, 243, 0.1);
+			color: design-color(info);
+			border: 1px solid rgba(33, 150, 243, 0.2);
+		}
+		
+		&--under-review {
+			background: rgba(255, 152, 0, 0.1);
+			color: design-color(warning);
+			border: 1px solid rgba(255, 152, 0, 0.2);
+		}
+	}
+	
+	.card__technologies {
+		display: flex;
+		flex-wrap: wrap;
+		gap: design-space(2);
+		margin-top: design-space(4);
+		
+		.tech-tag {
+			background: rgba(245, 106, 106, 0.1);
+			color: design-color(text-accent);
+			padding: design-space(1) design-space(2);
+			border-radius: design-radius(sm);
+			font-size: design-font(size-xs);
+			font-weight: design-font(weight-medium);
+			border: 1px solid rgba(245, 106, 106, 0.2);
+		}
+	}
+}
+
+// Skill Card
+.card--skill {
+	text-align: center;
+	
+	.card__icon {
+		width: 60px;
+		height: 60px;
+		margin: 0 auto design-space(4);
+		background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+		border-radius: design-radius(lg);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+		color: white;
+		transition: transform design-transition(base);
+	}
+	
+	&:hover .card__icon {
+		transform: scale(1.1) rotate(5deg);
+	}
+	
+	.skill-level {
+		margin-top: design-space(4);
+		
+		.skill-bar {
+			background: design-color(bg-tertiary);
+			height: 6px;
+			border-radius: design-radius(full);
+			overflow: hidden;
+			margin-top: design-space(2);
+			
+			.skill-progress {
+				height: 100%;
+				background: linear-gradient(90deg, design-color(primary), design-color(primary-light));
+				border-radius: design-radius(full);
+				transition: width 1s ease-out;
+				position: relative;
+				
+				&::after {
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+					animation: shimmer 2s infinite;
+				}
+			}
+		}
+		
+		.skill-percentage {
+			font-size: design-font(size-sm);
+			color: design-color(text-secondary);
+			margin-top: design-space(2);
+			font-weight: design-font(weight-medium);
+		}
+	}
+}
+
+// Navigation Card
+.card--nav {
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+	display: block;
+	
+	&:hover {
+		text-decoration: none;
+		color: inherit;
+		transform: translateY(-3px);
+		
+		.card__icon {
+			transform: scale(1.05);
+		}
+	}
+	
+	.card__icon {
+		width: 80px;
+		height: 80px;
+		margin: 0 auto design-space(6);
+		background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+		border-radius: design-radius(xl);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 2rem;
+		color: white;
+		transition: all design-transition(base);
+	}
+	
+	.card__title {
+		text-align: center;
+		margin-bottom: design-space(3);
+	}
+	
+	.card__description {
+		text-align: center;
+		font-size: design-font(size-sm);
+		color: design-color(text-secondary);
+	}
+}
+
+// Personal Interest Card
+.card--personal {
+	.card__image {
+		width: 100%;
+		height: 200px;
+		background-size: cover;
+		background-position: center;
+		border-radius: design-radius(base);
+		margin-bottom: design-space(4);
+		position: relative;
+		overflow: hidden;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+		}
+	}
+	
+	.card__category {
+		position: absolute;
+		top: design-space(3);
+		left: design-space(3);
+		background: rgba(245, 106, 106, 0.9);
+		color: white;
+		padding: design-space(1) design-space(3);
+		border-radius: design-radius(full);
+		font-size: design-font(size-xs);
+		font-weight: design-font(weight-medium);
+		text-transform: uppercase;
+		letter-spacing: design-font(tracking-wide);
+	}
+}
+
+// Responsive Card Grid
+.cards-grid {
+	display: grid;
+	gap: design-space(8);
+	
+	// Default: 1 column
+	grid-template-columns: 1fr;
+	
+	// 2 columns on tablet
+	@include respond-to(md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	// 3 columns on desktop
+	@include respond-to(lg) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
+	// 4 columns on large screens
+	@include respond-to(xl) {
+		grid-template-columns: repeat(4, 1fr);
+	}
+	
+	// Specific grid layouts
+	&--2-col {
+		@include respond-to(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	
+	&--3-col {
+		@include respond-to(lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	
+	&--auto-fit {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+}
+
+// Card animations
+@keyframes shimmer {
+	0% { transform: translateX(-100%); }
+	100% { transform: translateX(100%); }
+}
+
+@keyframes cardSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// Animation classes
+.card--animate {
+	animation: cardSlideIn 0.6s ease-out;
+	
+	&:nth-child(2) { animation-delay: 0.1s; }
+	&:nth-child(3) { animation-delay: 0.2s; }
+	&:nth-child(4) { animation-delay: 0.3s; }
+	&:nth-child(5) { animation-delay: 0.4s; }
+	&:nth-child(6) { animation-delay: 0.5s; }
+}

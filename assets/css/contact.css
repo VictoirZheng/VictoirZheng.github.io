@@ -1,0 +1,421 @@
+/**
+ * Contact Page Styles
+ * Specific styles for the contact page layout and components
+ */
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 3em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.page-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+    color: #f56a6a;
+}
+
+.page-header p {
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Contact Grid Layout */
+.contact-grid {
+    margin-bottom: 4em;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2em;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 106, 106, 0.1);
+    border-color: rgba(245, 106, 106, 0.3);
+}
+
+.contact-card header {
+    margin-bottom: 1.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-card header h2 {
+    color: #f56a6a;
+    font-size: 1.3em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.contact-card header i {
+    font-size: 1.2em;
+}
+
+/* Contact Details */
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+}
+
+.contact-item i {
+    color: #f56a6a;
+    font-size: 1.2em;
+    margin-top: 0.2em;
+    min-width: 20px;
+}
+
+.contact-info strong {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 0.3em;
+    font-size: 1.1em;
+}
+
+.contact-info a {
+    color: #f56a6a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ff8a80;
+    text-decoration: underline;
+}
+
+.contact-info small {
+    display: block;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9em;
+    margin-top: 0.3em;
+}
+
+/* Timezone and Availability */
+.timezone-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.timezone-display {
+    text-align: center;
+    padding: 1em;
+    background: rgba(245, 106, 106, 0.1);
+    border-radius: 6px;
+    border: 1px solid rgba(245, 106, 106, 0.2);
+}
+
+.timezone-display strong {
+    display: block;
+    color: #f56a6a;
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+}
+
+.current-time {
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.availability-schedule h3,
+.response-commitment h3 {
+    color: #ffffff;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5em;
+}
+
+.schedule-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.schedule-list li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.schedule-list li:last-child {
+    border-bottom: none;
+}
+
+.response-commitment p {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.5em 0;
+}
+
+.response-commitment i {
+    color: #f56a6a;
+}
+
+/* Social Media Section */
+.social-media-section {
+    margin-bottom: 4em;
+}
+
+.social-media-section header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.social-media-section header h2 {
+    color: #f56a6a;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.social-grid .social-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1.5em;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 106, 106, 0.1);
+    border-color: rgba(245, 106, 106, 0.3);
+}
+
+.social-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.social-card i {
+    font-size: 2.5em;
+    color: #f56a6a;
+    margin-bottom: 0.8em;
+    display: block;
+}
+
+.social-card h3 {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.social-card p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* Collaboration Section */
+.collaboration-section {
+    margin-bottom: 4em;
+}
+
+.collaboration-section header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.collaboration-section header h2 {
+    color: #f56a6a;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+}
+
+.collaboration-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2em;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.collaboration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(245, 106, 106, 0.1);
+    border-color: rgba(245, 106, 106, 0.3);
+}
+
+.collaboration-card i {
+    font-size: 2em;
+    color: #f56a6a;
+    margin-bottom: 1em;
+    display: block;
+}
+
+.collaboration-card h3 {
+    color: #ffffff;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
+
+.collaboration-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.collaboration-card li {
+    padding: 0.5em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    padding-left: 1.5em;
+}
+
+.collaboration-card li:before {
+    content: "▸";
+    color: #f56a6a;
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+}
+
+.collaboration-card li:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+/* Icon-specific styles */
+.fa-orcid {
+    color: #a6ce39 !important;
+}
+
+.fa-researchgate {
+    color: #00d0b7 !important;
+}
+
+.fa-github {
+    color: #333 !important;
+}
+
+.fa-graduation-cap {
+    color: #4285f4 !important;
+}
+
+/* Improved Footer Styles */
+#footer {
+    background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%) !important;
+    border-top: 2px solid rgba(245, 106, 106, 0.3);
+}
+
+#footer .copyright {
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 2em 0 !important;
+}
+
+#footer .copyright li {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.9em !important;
+    border-left: solid 1px rgba(255, 255, 255, 0.2) !important;
+    padding: 0 1em !important;
+    margin: 0 !important;
+}
+
+#footer .copyright li:first-child {
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+#footer .copyright a {
+    color: #f56a6a !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+#footer .copyright a:hover {
+    color: #ff8a80 !important;
+    text-decoration: underline !important;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 980px) {
+    .contact-grid .col-6 {
+        margin-bottom: 2em;
+    }
+    
+    .social-grid .col-3 {
+        margin-bottom: 1.5em;
+    }
+    
+    .collaboration-grid .col-6 {
+        margin-bottom: 2em;
+    }
+    
+
+}
+
+@media screen and (max-width: 736px) {
+    .page-header h1 {
+        font-size: 2em;
+    }
+    
+    .contact-card {
+        padding: 1.5em;
+    }
+    
+
+    
+    .social-card i {
+        font-size: 2em;
+    }
+    
+    .collaboration-card i {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .page-header {
+        margin-bottom: 2em;
+        padding-bottom: 1em;
+    }
+    
+    .page-header h1 {
+        font-size: 1.8em;
+    }
+    
+    .contact-card,
+
+    .social-card,
+    .collaboration-card,
+
+    
+    .contact-item {
+        flex-direction: column;
+        gap: 0.5em;
+    }
+    
+    .contact-item i {
+        margin-top: 0;
+    }
+}

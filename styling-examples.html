@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>样式调整示例</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/design-system.css" />
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <h1>样式调整示例</h1>
+                
+                <h2>字体大小调整示例</h2>
+                
+                <div class="grid grid--1 grid--gap-md">
+                    <!-- 原始样式 -->
+                    <div class="card card--research">
+                        <div class="card__body">
+                            <h4 class="text-primary mb-2">原始：Marital Interaction Analysis</h4>
+                            <p class="text-secondary mb-0">Using NLP and LLMs to analyze 720+ spousal interaction texts</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 调整选项1：更大字体 -->
+                    <div class="card card--research">
+                        <div class="card__body">
+                            <h4 class="text-primary text-xl mb-3 font-semibold">选项1：Marital Interaction Analysis</h4>
+                            <p class="text-secondary text-lg mb-0">Using NLP and LLMs to analyze 720+ spousal interaction texts</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 调整选项2：中等字体，更大间距 -->
+                    <div class="card card--research">
+                        <div class="card__body">
+                            <h4 class="text-primary text-lg mb-4 font-medium">选项2：Marital Interaction Analysis</h4>
+                            <p class="text-secondary mb-0 leading-relaxed">Using NLP and LLMs to analyze 720+ spousal interaction texts</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 调整选项3：小字体，紧凑间距 -->
+                    <div class="card card--research">
+                        <div class="card__body">
+                            <h4 class="text-primary text-base mb-2 font-medium">选项3：Marital Interaction Analysis</h4>
+                            <p class="text-secondary text-sm mb-0">Using NLP and LLMs to analyze 720+ spousal interaction texts</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="mt-8">间距调整示例</h2>
+                
+                <div class="grid grid--1 grid--gap-md">
+                    <!-- 紧凑间距 -->
+                    <div class="card p-4">
+                        <h4 class="text-primary mb-1">紧凑间距 (mb-1)</h4>
+                        <p class="text-secondary mb-2">这是一个紧凑间距的示例</p>
+                        <p class="text-secondary mb-0">第二段文字</p>
+                    </div>
+                    
+                    <!-- 标准间距 -->
+                    <div class="card p-6">
+                        <h4 class="text-primary mb-3">标准间距 (mb-3)</h4>
+                        <p class="text-secondary mb-4">这是一个标准间距的示例</p>
+                        <p class="text-secondary mb-0">第二段文字</p>
+                    </div>
+                    
+                    <!-- 宽松间距 -->
+                    <div class="card p-8">
+                        <h4 class="text-primary mb-6">宽松间距 (mb-6)</h4>
+                        <p class="text-secondary mb-6">这是一个宽松间距的示例</p>
+                        <p class="text-secondary mb-0">第二段文字</p>
+                    </div>
+                </div>
+                
+                <h2 class="mt-8">组合调整示例</h2>
+                
+                <div class="grid grid--1 grid--gap-md">
+                    <!-- 研究重点样式 - 选项A -->
+                    <div class="card card--research p-6">
+                        <div class="card__body">
+                            <h4 class="text-primary text-xl mb-4 font-semibold">选项A：Multimodal Data Processing</h4>
+                            <p class="text-secondary text-lg mb-0 leading-relaxed">fMRI, fNIRS hyperscanning, facial expression analysis</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 研究重点样式 - 选项B -->
+                    <div class="card card--research p-4">
+                        <div class="card__body">
+                            <h4 class="text-primary text-lg mb-3 font-medium">选项B：Multimodal Data Processing</h4>
+                            <p class="text-secondary mb-0">fMRI, fNIRS hyperscanning, facial expression analysis</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 研究重点样式 - 选项C -->
+                    <div class="card card--research p-8">
+                        <div class="card__body">
+                            <h4 class="text-primary text-2xl mb-6 font-bold">选项C：Multimodal Data Processing</h4>
+                            <p class="text-secondary text-xl mb-0 leading-relaxed">fMRI, fNIRS hyperscanning, facial expression analysis</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2 class="mt-8">快速调整参考</h2>
+                <div class="card p-6">
+                    <h3 class="mb-4">常用调整组合：</h3>
+                    <ul class="text-secondary">
+                        <li class="mb-3"><strong>更突出的标题：</strong> <code>text-xl font-semibold mb-4</code></li>
+                        <li class="mb-3"><strong>更易读的段落：</strong> <code>text-lg leading-relaxed mb-6</code></li>
+                        <li class="mb-3"><strong>紧凑的内容：</strong> <code>text-sm mb-2</code></li>
+                        <li class="mb-3"><strong>宽松的布局：</strong> <code>p-8 mb-8</code></li>
+                        <li class="mb-0"><strong>移除间距：</strong> <code>mb-0</code></li>
+                    </ul>
+                </div>
+                
+                <div class="card p-6 mt-6">
+                    <h3 class="mb-4">字体大小参考：</h3>
+                    <div class="grid grid--2 grid--gap-md">
+                        <div>
+                            <p class="text-xs mb-2">text-xs (12px) - 小标签</p>
+                            <p class="text-sm mb-2">text-sm (14px) - 辅助文字</p>
+                            <p class="text-base mb-2">text-base (16px) - 正文</p>
+                            <p class="text-lg mb-2">text-lg (18px) - 重要正文</p>
+                        </div>
+                        <div>
+                            <p class="text-xl mb-2">text-xl (20px) - 小标题</p>
+                            <p class="text-2xl mb-2">text-2xl (24px) - 中标题</p>
+                            <p class="text-3xl mb-2">text-3xl (30px) - 大标题</p>
+                            <p class="text-4xl mb-0">text-4xl (36px) - 主标题</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

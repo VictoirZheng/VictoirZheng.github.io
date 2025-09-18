@@ -1,0 +1,170 @@
+/* Navigation Section Layout Fix */
+/* This file fixes the navigation grid layout issues */
+
+.navigation-section {
+  padding: 4rem 0 !important;
+  background: #1a1a1a !important;
+}
+
+.navigation-grid {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem !important;
+}
+
+/* Fixed responsive breakpoints to prevent layout shifts */
+@media (min-width: 768px) {
+  .navigation-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navigation-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Ensure nav cards maintain consistent size */
+.nav-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1rem !important;
+  padding: 2rem !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: visible !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: auto !important;
+  min-height: 500px !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.nav-card:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  transform: translateY(-4px) !important;
+  box-shadow: 0 20px 40px rgba(245, 106, 106, 0.15) !important;
+  border-color: #f56a6a !important;
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Prevent any layout shifts during hover */
+.nav-card * {
+  box-sizing: border-box !important;
+}
+
+.nav-card-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.nav-card-title {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.25 !important;
+}
+
+.nav-card-description {
+  font-size: 1rem !important;
+  line-height: 1.75 !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  margin-bottom: 1.5rem !important;
+  flex-grow: 1 !important;
+}
+
+.nav-card-highlights {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.nav-card-link {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 0.75rem 1rem !important;
+  background: linear-gradient(135deg, #f56a6a, #ff8a80) !important;
+  color: white !important;
+  border-radius: 0.5rem !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  margin-top: auto !important;
+}
+
+.nav-card-link:hover {
+  background: linear-gradient(135deg, #d32f2f, #f56a6a) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Fix for the priority card */
+.nav-card.priority {
+  border: 2px solid #f56a6a !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(245, 106, 106, 0.02) 100%) !important;
+}
+
+/* Ensure consistent icon sizing */
+.nav-card-icon {
+  width: 80px !important;
+  height: 80px !important;
+  background: linear-gradient(135deg, #f56a6a, #ff8a80) !important;
+  border-radius: 1.5rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 2rem !important;
+  color: white !important;
+  margin-bottom: 1.5rem !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Remove any conflicting transforms that might cause layout shifts */
+.nav-card-hover .nav-card-icon {
+  transform: scale(1.1) rotate(5deg) !important;
+}
+
+.nav-card-hover .nav-card-link i {
+  transform: translateX(3px) !important;
+}
+
+/* Ensure stats and preview sections don't cause layout issues */
+.nav-card-stats,
+.nav-card-preview,
+.nav-card-teaser,
+.nav-card-featured-questions,
+.nav-card-contact-preview,
+.nav-card-cv-preview {
+  margin: 1rem 0 !important;
+}
+
+/* Priority badge positioning */
+.nav-card-priority-badge {
+  position: absolute !important;
+  top: 1rem !important;
+  right: 1rem !important;
+  background: linear-gradient(135deg, #f56a6a, #ff8a80) !important;
+  color: white !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.25rem !important;
+  z-index: 10 !important;
+}

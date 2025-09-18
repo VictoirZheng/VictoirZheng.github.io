@@ -7,7 +7,7 @@
     right: 20px;
     z-index: 1000;
     display: flex;
-    gap: 0;
+    align-items: center;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 25px;
@@ -20,7 +20,10 @@
 /* Language Switcher Component (now part of top controls) */
 #language-switcher {
     display: flex;
-    gap: 0;
+    align-items: center;
+    margin-right: 12px;
+    padding-right: 12px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #top-controls:hover {
@@ -50,12 +53,19 @@
     position: relative;
 }
 
+/* Language toggle specific spacing */
 .lang-toggle {
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    margin-right: 4px;
 }
 
-.lang-toggle:last-of-type {
-    border-right: none;
+.lang-toggle:last-child {
+    margin-right: 0;
+}
+
+/* Menu toggle specific styling */
+.menu-toggle {
+    min-width: 50px;
+    padding: 8px 10px;
 }
 
 .lang-toggle:hover,
@@ -77,9 +87,6 @@
 }
 
 /* Menu Toggle Specific Styles */
-.menu-toggle {
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
 
 .menu-toggle .menu-icon {
     display: flex;

@@ -22,8 +22,23 @@
         const path = window.location.pathname;
         const segments = path.split('/').filter(segment => segment);
         
-        // If we're at root or don't have a language prefix, we need to redirect
-        return segments.length === 0 || !config.supportedLanguages.includes(segments[0]);
+        // Only redirect if we're at the exact root path ("/") 
+        // Don't redirect if we're accessing specific files like "/index.html"
+        if (path === '/' || path === '') {
+            return true;
+        }
+        
+        // Don't redirect if we're already in a language-specific path
+        if (segments.length > 0 && config.supportedLanguages.includes(segments[0])) {
+            return false;
+        }
+        
+        // Don't redirect if we're accessing a specific file in the root
+        if (segments.length > 0 && segments[0].includes('.html')) {
+            return false;
+        }
+        
+        return false;
     }
     
     /**
@@ -126,13 +141,20 @@
      * Initialize redirect logic
      */
     function init() {
-        // Only redirect if we're at root level or missing language prefix
-        if (shouldRedirect()) {
-            performRedirect();
+        const path = window.location.pathname;
+        
+        // Only redirect from exact root path to English version
+        if (path === '/' || path === '') {
+            // Directly redirect to English version without language selection
+            window.location.replace('/en/');
         }
     }
     
-    // Run immediately (don't wait for DOM ready for redirects)
-    init();
+    // Run when DOM is ready instead of immediately
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
     
 })();

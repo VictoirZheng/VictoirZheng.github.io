@@ -1,13 +1,13 @@
 /* Multilingual Architecture Styles */
 
-/* Language Switcher Component */
-#language-switcher {
+/* Unified Top Control Bar */
+#top-controls {
     position: fixed;
     top: 20px;
     right: 20px;
     z-index: 1000;
     display: flex;
-    gap: 8px;
+    gap: 0;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     border-radius: 25px;
@@ -17,13 +17,21 @@
     transition: all 0.3s ease;
 }
 
-#language-switcher:hover {
+/* Language Switcher Component (now part of top controls) */
+#language-switcher {
+    display: flex;
+    gap: 0;
+}
+
+#top-controls:hover {
     background: rgba(0, 0, 0, 0.9);
     transform: translateY(-2px);
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
-.lang-toggle {
+/* Unified button style for language toggles and menu button */
+.lang-toggle,
+.menu-toggle {
     display: flex;
     align-items: center;
     gap: 6px;
@@ -38,9 +46,20 @@
     font-weight: 500;
     min-width: 60px;
     justify-content: center;
+    text-decoration: none;
+    position: relative;
 }
 
-.lang-toggle:hover {
+.lang-toggle {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-toggle:last-of-type {
+    border-right: none;
+}
+
+.lang-toggle:hover,
+.menu-toggle:hover {
     background: rgba(245, 106, 106, 0.1);
     color: #f56a6a;
     transform: scale(1.05);
@@ -55,6 +74,50 @@
 .lang-toggle.active:hover {
     background: linear-gradient(135deg, #ff8a80, #f56a6a);
     transform: scale(1.05);
+}
+
+/* Menu Toggle Specific Styles */
+.menu-toggle {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-toggle .menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 18px;
+    height: 14px;
+}
+
+.menu-toggle .menu-icon span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle:hover .menu-icon span {
+    background: #f56a6a;
+}
+
+/* Menu button active state when menu is open */
+.menu-toggle.active {
+    background: rgba(245, 106, 106, 0.2);
+    color: #f56a6a;
+}
+
+.menu-toggle.active .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .lang-flag {
@@ -139,14 +202,14 @@
 
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
-    #language-switcher {
+    #top-controls {
         top: 15px;
         right: 15px;
         padding: 6px;
-        gap: 6px;
     }
     
-    .lang-toggle {
+    .lang-toggle,
+    .menu-toggle {
         padding: 6px 10px;
         min-width: 50px;
     }
@@ -158,17 +221,23 @@
     .lang-flag {
         font-size: 1em;
     }
+    
+    .menu-toggle .menu-icon {
+        width: 16px;
+        height: 12px;
+        gap: 2px;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    #language-switcher {
+    #top-controls {
         top: 10px;
         right: 10px;
         padding: 4px;
-        gap: 4px;
     }
     
-    .lang-toggle {
+    .lang-toggle,
+    .menu-toggle {
         padding: 4px 8px;
         min-width: 45px;
     }
@@ -180,30 +249,44 @@
     .lang-flag {
         font-size: 1.2em;
     }
+    
+    .menu-toggle .menu-icon {
+        width: 14px;
+        height: 10px;
+        gap: 2px;
+    }
 }
 
 /* Accessibility Enhancements */
-.lang-toggle:focus {
+.lang-toggle:focus,
+.menu-toggle:focus {
     outline: 2px solid #f56a6a;
     outline-offset: 2px;
 }
 
-.lang-toggle:focus:not(:focus-visible) {
+.lang-toggle:focus:not(:focus-visible),
+.menu-toggle:focus:not(:focus-visible) {
     outline: none;
 }
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
-    #language-switcher {
+    #top-controls {
         background: rgba(0, 0, 0, 0.95);
         border: 2px solid rgba(255, 255, 255, 0.3);
     }
     
-    .lang-toggle {
+    .lang-toggle,
+    .menu-toggle {
         border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .lang-toggle.active {
+        background: #f56a6a;
+        border: 2px solid white;
+    }
+    
+    .menu-toggle.active {
         background: #f56a6a;
         border: 2px solid white;
     }
@@ -225,7 +308,51 @@
 
 /* Print Styles */
 @media print {
-    #language-switcher {
+    #top-controls {
         display: none;
     }
+}
+/* Hide 
+original navigation button */
+header nav {
+    display: none !important;
+}
+
+/* Ensure the unified top controls work with the existing menu system */
+body.menu-visible .menu-toggle {
+    background: rgba(245, 106, 106, 0.2);
+    color: #f56a6a;
+}
+
+body.menu-visible .menu-toggle .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+body.menu-visible .menu-toggle .menu-icon span:nth-child(2) {
+    opacity: 0;
+}
+
+body.menu-visible .menu-toggle .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Loading states for the unified control */
+#top-controls.language-loading {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+#top-controls.language-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid #f56a6a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }

@@ -111,6 +111,12 @@ class MultilingualManager {
 
         // Update active state
         this.updateLanguageSwitcher();
+        
+        // Initialize menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
     }
 
     updateLanguageSwitcher() {
@@ -127,6 +133,23 @@ class MultilingualManager {
         });
     }
 
+    toggleMenu() {
+        // Use the existing menu system from the main theme
+        const body = document.body;
+        const menu = document.getElementById('menu');
+        const menuToggle = document.querySelector('.menu-toggle');
+        
+        if (body.classList.contains('menu-visible')) {
+            body.classList.remove('menu-visible');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        } else {
+            body.classList.add('menu-visible');
+            menuToggle.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+        }
+    }
+
     setupEventListeners() {
         // Language switcher clicks
         document.addEventListener('click', (e) => {
@@ -137,6 +160,13 @@ class MultilingualManager {
                 if (targetLang && targetLang !== this.currentLanguage) {
                     this.switchLanguage(targetLang);
                 }
+            }
+            
+            // Menu toggle clicks
+            const menuToggle = e.target.closest('.menu-toggle');
+            if (menuToggle) {
+                e.preventDefault();
+                this.toggleMenu();
             }
         });
 
@@ -361,16 +391,16 @@ class MultilingualManager {
     }
 
     showLoadingState() {
-        const switcher = document.getElementById('language-switcher');
-        if (switcher) {
-            switcher.classList.add('language-loading');
+        const topControls = document.getElementById('top-controls');
+        if (topControls) {
+            topControls.classList.add('language-loading');
         }
     }
 
     hideLoadingState() {
-        const switcher = document.getElementById('language-switcher');
-        if (switcher) {
-            switcher.classList.remove('language-loading');
+        const topControls = document.getElementById('top-controls');
+        if (topControls) {
+            topControls.classList.remove('language-loading');
         }
     }
 

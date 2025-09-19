@@ -238,7 +238,7 @@ server.listen(PORT, () => {
     console.log(\`   - 原始英文首页: http://localhost:\${PORT}/index.html\`);
     console.log(\`   - 英文版本: http://localhost:\${PORT}/en/\`);
     console.log(\`   - 中文版本: http://localhost:\${PORT}/zh/\`);
-    console.log(\`   - 测试页面: http://localhost:\${PORT}/test-unified-controls.html\`);
+    console.log(\`   - 测试页面: http://localhost:\${PORT}/legacy/root-pages/test-unified-controls.html\`);
     console.log('🛑 按 Ctrl+C 停止服务器');
     console.log('-'.repeat(50));
 });

@@ -31,7 +31,7 @@
    - **原始英文首页**：http://localhost:8000/index.html ⭐
    - **英文版本（完整内容）**：http://localhost:8000/en/ ⭐⭐
    - 中文版本：http://localhost:8000/zh/
-   - 测试页面：http://localhost:8000/test-unified-controls.html
+   - 测试页面：http://localhost:8000/legacy/root-pages/test-unified-controls.html
 
 ### 方法二：Node.js服务器
 
@@ -101,7 +101,7 @@ npx http-server -p 8000
 ├── shared/                   # 多语言共享配置
 ├── local-server.py           # Python测试服务器
 ├── local-server.js           # Node.js测试服务器
-└── test-unified-controls.html # 按钮测试页面
+└── legacy/root-pages/test-unified-controls.html # 按钮测试页面（已归档）
 ```
 
 ## 常见问题解决

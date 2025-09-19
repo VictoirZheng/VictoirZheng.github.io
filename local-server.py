@@ -193,7 +193,7 @@ def run_server(port=8000):
         print(f"   - 原始英文首页: http://localhost:{port}/index.html")
         print(f"   - 英文版本: http://localhost:{port}/en/")
         print(f"   - 中文版本: http://localhost:{port}/zh/")
-        print(f"   - 测试页面: http://localhost:{port}/test-unified-controls.html")
+        print(f"   - 测试页面: http://localhost:{port}/legacy/root-pages/test-unified-controls.html")
         print(f"🛑 按 Ctrl+C 停止服务器")
         print("-" * 50)
         

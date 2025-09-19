@@ -78,7 +78,7 @@ node local-server.js
 - **原始页面**：http://localhost:8000/index.html ⭐
 - **英文版本**：http://localhost:8000/en/ ⭐⭐
 - **中文版本**：http://localhost:8000/zh/
-- **测试页面**：http://localhost:8000/test-unified-controls.html
+- **测试页面**：http://localhost:8000/legacy/root-pages/test-unified-controls.html
 
 ## 📝 **待完成任务**
 

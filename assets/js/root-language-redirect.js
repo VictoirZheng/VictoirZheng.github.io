@@ -1,6 +1,9 @@
 /**
  * Root Language Redirect Script
- * Handles language detection and redirection for root-level access
+ * Enhanced language detection and redirection for multilingual website
+ * 
+ * This script is now integrated directly into index.html for better performance
+ * and user experience. This file is kept for reference and potential future use.
  */
 
 (function() {
@@ -10,35 +13,45 @@
     const config = {
         supportedLanguages: ['en', 'zh'],
         defaultLanguage: 'en',
-        fallbackLanguage: 'en',
         cookieName: 'preferred_language',
-        autoDetect: true
+        autoRedirectDelay: 2000,
+        enableAutoRedirect: true
     };
     
     /**
-     * Check if we're at the root level and need to redirect
+     * Set language preference cookie
      */
-    function shouldRedirect() {
-        const path = window.location.pathname;
-        const segments = path.split('/').filter(segment => segment);
-        
-        // Only redirect if we're at the exact root path ("/") 
-        // Don't redirect if we're accessing specific files like "/index.html"
-        if (path === '/' || path === '') {
-            return true;
+    function setLanguagePreference(lang) {
+        if (config.supportedLanguages.includes(lang)) {
+            setCookie(config.cookieName, lang, 365);
         }
-        
-        // Don't redirect if we're already in a language-specific path
-        if (segments.length > 0 && config.supportedLanguages.includes(segments[0])) {
-            return false;
+    }
+    
+    /**
+     * Get cookie value
+     */
+    function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
-        
-        // Don't redirect if we're accessing a specific file in the root
-        if (segments.length > 0 && segments[0].includes('.html')) {
-            return false;
+        return null;
+    }
+    
+    /**
+     * Set cookie
+     */
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
         }
-        
-        return false;
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
     }
     
     /**
@@ -53,12 +66,10 @@
             return cookieValue;
         }
         
-        // 2. Check browser preference (if auto-detect is enabled)
-        if (config.autoDetect) {
-            const browserLang = getBrowserLanguage();
-            if (browserLang && config.supportedLanguages.includes(browserLang)) {
-                return browserLang;
-            }
+        // 2. Check browser preference
+        const browserLang = getBrowserLanguage();
+        if (browserLang && config.supportedLanguages.includes(browserLang)) {
+            return browserLang;
         }
         
         // 3. Use default language
@@ -97,60 +108,44 @@
     }
     
     /**
-     * Get cookie value
-     */
-    function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-    
-    /**
      * Perform the language redirect
      */
     function performRedirect() {
         const detectedLang = detectLanguage();
-        const currentPath = window.location.pathname;
-        const search = window.location.search;
-        const hash = window.location.hash;
+        const targetUrl = `/${detectedLang}/`;
         
-        // Build new URL
-        let newPath;
-        if (currentPath === '/' || currentPath === '') {
-            newPath = `/${detectedLang}/`;
-        } else {
-            // Remove leading slash and add language prefix
-            const cleanPath = currentPath.replace(/^\/+/, '');
-            newPath = `/${detectedLang}/${cleanPath}`;
-        }
-        
-        const newUrl = newPath + search + hash;
-        
-        console.log(`Redirecting to: ${newUrl} (detected language: ${detectedLang})`);
+        console.log(`Redirecting to: ${targetUrl} (detected language: ${detectedLang})`);
         
         // Perform redirect
-        window.location.replace(newUrl);
+        window.location.href = targetUrl;
     }
     
     /**
      * Initialize redirect logic
+     * Note: This script is now primarily used for reference.
+     * The actual redirect logic is embedded in index.html for better performance.
      */
     function init() {
         const path = window.location.pathname;
         
-        // Only redirect from exact root path to English version
+        // Only redirect from exact root path
         if (path === '/' || path === '') {
-            // Directly redirect to English version without language selection
-            window.location.replace('/en/');
+            if (config.enableAutoRedirect) {
+                setTimeout(performRedirect, config.autoRedirectDelay);
+            }
         }
     }
     
-    // Run when DOM is ready instead of immediately
+    /**
+     * Make functions available globally
+     */
+    window.LanguageRedirect = {
+        setLanguagePreference: setLanguagePreference,
+        detectLanguage: detectLanguage,
+        performRedirect: performRedirect
+    };
+    
+    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

@@ -1,0 +1,1250 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Technical Skills & Research Expertise - Qingguang Zheng</title>
+	<meta charset="utf-8" />
+	<meta name="description"
+		content="Comprehensive overview of my technical skills in programming, statistical analysis, NLP, machine learning, and psychological research methods." />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/design-system.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<style>
+		/* Custom styles for skills page */
+		.skills-section {
+			margin-bottom: 3em;
+		}
+
+
+
+		/* Competency Cards Enhancement */
+		.competency-card {
+			position: relative;
+			overflow: hidden;
+		}
+
+		.competency-metrics {
+			display: flex;
+			flex-direction: column;
+			gap: 0.5em;
+			margin-top: 1em;
+			padding-top: 1em;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.metric {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5em;
+			font-size: 0.85em;
+			color: rgba(255, 255, 255, 0.8);
+			background: rgba(245, 106, 106, 0.1);
+			padding: 0.3em 0.8em;
+			border-radius: 15px;
+		}
+
+		.metric i {
+			color: #f56a6a;
+		}
+
+		/* Enhanced Skill Cards */
+		.skill-detail-card {
+			position: relative;
+		}
+
+		.skill-detail-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			background: linear-gradient(90deg, #f56a6a, #ff8a80);
+			border-radius: 8px 8px 0 0;
+		}
+
+		/* Project Examples */
+		.project-examples {
+			margin-top: 1em;
+			padding-top: 1em;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		.project-example {
+			background: rgba(245, 106, 106, 0.05);
+			border-left: 3px solid #f56a6a;
+			padding: 0.8em;
+			margin: 0.5em 0;
+			border-radius: 0 5px 5px 0;
+			font-size: 0.9em;
+		}
+
+		.project-example strong {
+			color: #f56a6a;
+		}
+
+		/* Enhanced Progress Bars */
+		.enhanced-progress {
+			margin: 0.5em 0;
+		}
+
+		.progress-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 0.3em;
+		}
+
+		.progress-label {
+			font-weight: 600;
+			color: #ffffff;
+		}
+
+		.progress-level {
+			font-size: 0.8em;
+			color: #f56a6a;
+			background: rgba(245, 106, 106, 0.2);
+			padding: 0.2em 0.5em;
+			border-radius: 10px;
+		}
+
+		.animated-progress-bar {
+			width: 100%;
+			height: 6px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 3px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.animated-progress-fill {
+			height: 100%;
+			background: linear-gradient(90deg, #f56a6a, #ff8a80);
+			border-radius: 3px;
+			transition: width 2s ease-in-out;
+			position: relative;
+		}
+
+		.animated-progress-fill::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+			animation: shimmer 2s infinite;
+		}
+
+		@keyframes shimmer {
+			0% { transform: translateX(-100%); }
+			100% { transform: translateX(100%); }
+		}
+
+
+		
+		/* Ensure proper text color inheritance */
+		#main {
+			color: rgba(255, 255, 255, 0.65);
+		}
+		
+		#main h1, #main h2, #main h3, #main h4 {
+			color: #ffffff;
+		}
+		
+		#main p {
+			color: rgba(255, 255, 255, 0.65);
+		}
+
+		.skill-category {
+			background: rgba(255, 255, 255, 0.05);
+			border-left: 4px solid #f56a6a;
+			padding: 1.5em;
+			margin-bottom: 2em;
+			border-radius: 0 8px 8px 0;
+		}
+
+		.skill-category h3 {
+			color: #f56a6a;
+			margin-bottom: 1em;
+			font-weight: 600;
+		}
+
+		.skill-item {
+			margin-bottom: 1em;
+			padding: 0.5em 0;
+			color: rgba(255, 255, 255, 0.65);
+		}
+
+		.skill-item strong {
+			color: #ffffff;
+			font-weight: 600;
+		}
+
+		.proficiency-indicator {
+			display: inline-block;
+			margin-left: 0.5em;
+			font-size: 0.8em;
+			padding: 0.2em 0.5em;
+			border-radius: 12px;
+			background: rgba(245, 106, 106, 0.2);
+			color: #f56a6a;
+		}
+
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2em;
+			margin: 2em 0;
+		}
+
+		.skill-card {
+			background: rgba(255, 255, 255, 0.03);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 8px;
+			padding: 1.5em;
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			color: rgba(255, 255, 255, 0.65);
+		}
+		
+		.skill-card h3 {
+			color: #f56a6a !important;
+			margin-bottom: 1em;
+			font-size: 1.2em;
+		}
+		
+		.skill-card h4 {
+			color: #ffffff !important;
+			margin-bottom: 0.5em;
+		}
+		
+		.skill-card p, .skill-card li {
+			color: rgba(255, 255, 255, 0.65) !important;
+		}
+
+		.skill-card:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 30px rgba(245, 106, 106, 0.1);
+		}
+
+
+
+		.language-level {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 0.5em;
+			color: rgba(255, 255, 255, 0.65);
+		}
+		
+		.language-level span {
+			color: rgba(255, 255, 255, 0.65);
+		}
+		
+		.language-level strong {
+			color: #ffffff;
+		}
+
+		.level-bar {
+			width: 60%;
+			height: 4px;
+			background: rgba(255, 255, 255, 0.1);
+			border-radius: 2px;
+			overflow: hidden;
+		}
+
+		.level-fill {
+			height: 100%;
+			background: linear-gradient(90deg, #f56a6a, #ff8a80);
+			border-radius: 2px;
+		}
+
+		.advanced {
+			width: 90%;
+		}
+
+		.intermediate {
+			width: 70%;
+		}
+
+		.basic {
+			width: 40%;
+		}
+
+		/* Animations */
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.skill-card {
+			animation: fadeInUp 0.6s ease-out;
+		}
+
+		.skill-card:nth-child(2) {
+			animation-delay: 0.1s;
+		}
+
+		.skill-card:nth-child(3) {
+			animation-delay: 0.2s;
+		}
+
+		.skill-card:nth-child(4) {
+			animation-delay: 0.3s;
+		}
+
+		/* Hover effects for icons */
+		.skill-card i {
+			transition: transform 0.3s ease, color 0.3s ease;
+		}
+
+		.skill-card:hover i {
+			transform: scale(1.1);
+			color: #ff8a80;
+		}
+
+		/* Progress bar animation */
+		.level-fill {
+			transition: width 1s ease-in-out;
+		}
+
+		/* Responsive design */
+		@media screen and (max-width: 736px) {
+			.skills-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.skill-category {
+				padding: 1em;
+			}
+
+			.language-level {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.level-bar {
+				width: 100%;
+				margin-top: 0.5em;
+			}
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Qingguang</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="research.html">Research Experiences</a></li>
+				<li><a href="skills.html">Skills and Tools</a></li>
+				<li><a href="personal.html">Personal Interests</a></li>
+				<li><a href="QAs.html">Frequently Asked Questions</a></li>
+				<li><a href="contact.html">Contact Me</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Technical Skills & Research Expertise</h1>
+				<p>As a Master's candidate in Developmental Psychology at Beijing Normal University (China's premier Psychology program, ranked #1 nationally) and prospective PhD student, I have cultivated extensive expertise in computational
+					psychology, advanced natural language processing, and sophisticated multimodal data analysis methodologies. My comprehensive technical skill set enables me
+					to conduct cutting-edge interdisciplinary research at the intersection of psychological science and computational data science.</p>
+
+				<!-- Skills Overview -->
+				<section class="skills-section">
+					<h2><i class="fas fa-chart-pie"></i> Core Research Competencies</h2>
+					<div class="skills-grid">
+						<div class="skill-card competency-card" data-category="computational" style="text-align: center;">
+							<h3><i class="fas fa-brain"
+									style="font-size: 2em; color: #f56a6a; margin-bottom: 0.5em;"></i></h3>
+							<h4>Computational Psychology</h4>
+							<p><strong>5+ years specialized experience</strong> in advanced NLP, large language model applications, and machine learning methodologies for psychological research</p>
+							<div class="competency-metrics">
+								<span class="metric"><i class="fas fa-code"></i> 7K+ lines of production code</span>
+								<span class="metric"><i class="fas fa-database"></i> 5M+ participants analyzed</span>
+							</div>
+						</div>
+						<div class="skill-card competency-card" data-category="statistical" style="text-align: center;">
+							<h3><i class="fas fa-chart-line"
+									style="font-size: 2em; color: #f56a6a; margin-bottom: 0.5em;"></i></h3>
+							<h4>Advanced Statistical Modeling</h4>
+							<p><strong>Expert-level proficiency</strong> in structural equation modeling (SEM), hierarchical linear modeling (HLM), and advanced psychometric analysis techniques</p>
+							<div class="competency-metrics">
+								<span class="metric"><i class="fas fa-users"></i> 250K+ scale validation</span>
+								<span class="metric"><i class="fas fa-chart-bar"></i> 100+ statistical models</span>
+							</div>
+						</div>
+						<div class="skill-card competency-card" data-category="neuroimaging" style="text-align: center;">
+							<h3><i class="fas fa-microscope"
+									style="font-size: 2em; color: #f56a6a; margin-bottom: 0.5em;"></i></h3>
+							<h4>Neuroimaging & Multimodal Analysis</h4>
+							<p><strong>Advanced expertise</strong> in functional magnetic resonance imaging (fMRI), functional near-infrared spectroscopy (fNIRS) hyperscanning, and automated behavioral coding systems</p>
+							<div class="competency-metrics">
+								<span class="metric"><i class="fas fa-brain"></i> 34 couples fMRI data</span>
+								<span class="metric"><i class="fas fa-video"></i> 1200+ video recordings</span>
+							</div>
+						</div>
+						<div class="skill-card competency-card" data-category="experimental" style="text-align: center;">
+							<h3><i class="fas fa-cogs"
+									style="font-size: 2em; color: #f56a6a; margin-bottom: 0.5em;"></i></h3>
+							<h4>Experimental Design & Infrastructure</h4>
+							<p><strong>Comprehensive experience</strong> in enterprise-scale data management systems and fully-automated research pipeline development</p>
+							<div class="competency-metrics">
+								<span class="metric"><i class="fas fa-flask"></i> 50+ experiments designed</span>
+								<span class="metric"><i class="fas fa-server"></i> 1TB+ data managed</span>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Core Programming & Data Science -->
+				<section class="skills-section">
+					<h2>Programming & Computational Methods</h2>
+					<div class="skills-grid">
+						<div class="skill-card skill-detail-card" data-category="programming">
+							<h3><i class="fas fa-code"></i> Core Programming Languages</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Python</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>NSFC Marital Interaction Project:</strong> Architected end-to-end data processing pipeline handling 720+ spousal interaction transcripts using fine-tuned BERT-base models, achieving 79% inter-rater reliability (Cohen's κ = 0.76) for automated behavioral coding
+									</div>
+									<div class="project-example">
+										<strong>Multimodal Analysis System:</strong> Integrated OpenFace, Whisper, and custom NLP models for comprehensive behavioral analysis of 1,200+ video recordings
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">R</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>CSMHSS Scale Validation:</strong> Conducted comprehensive psychometric analysis of 250,000+ participants using confirmatory factor analysis (CFA) and structural equation modeling with automated Mplus-R integration, achieving excellent model fit indices (CFI > 0.95, RMSEA < 0.06)
+									</div>
+									<div class="project-example">
+										<strong>Large-Scale Survey Analysis:</strong> Processed 5M+ participant national dataset using hierarchical linear modeling (HLM) with nested data structures (students within universities within provinces), implementing robust standard error corrections and multiple imputation procedures
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">MATLAB</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>fMRI Couple Study:</strong> Analyzed 34 couples using REST Toolkit with custom preprocessing pipelines and statistical parametric mapping
+									</div>
+									<div class="project-example">
+										<strong>Multi-Arrangement Task:</strong> Designed and implemented experimental paradigm for 43+ participants with real-time data collection
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">SQL</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Research Database Management:</strong> Designed and maintained complex relational databases for longitudinal studies with automated data integrity checks
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card" data-category="computational">
+							<h3><i class="fas fa-robot"></i> Machine Learning & AI</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Natural Language Processing</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>LLM Fine-tuning Project:</strong> Fine-tuned BERT models for marital interaction coding with custom loss functions, achieving state-of-the-art performance in psychological text analysis
+									</div>
+									<div class="project-example">
+										<strong>Semantic Analysis Pipeline:</strong> Implemented LIWC, LDA topic modeling, and transformer-based sentiment analysis for 720+ interaction transcripts
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Deep Learning Frameworks</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>MindSpore Competition:</strong> Won 2nd Prize in MindSpore Innovation Competition with novel neural architecture for psychological prediction tasks
+									</div>
+									<div class="project-example">
+										<strong>Multimodal Deep Learning:</strong> Built TensorFlow/PyTorch models integrating facial expressions, speech, and text for comprehensive emotion analysis
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Machine Learning Algorithms</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Ensemble Methods:</strong> Applied Random Forest, SVM, and RVR for predicting marital satisfaction with 85%+ accuracy across multiple validation sets
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Computer Vision</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Facial Expression Analysis:</strong> Processed 1,200+ video recordings using OpenFace for AU tracking and emotion recognition in dyadic interactions
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Research Methods & Experimental Tools -->
+				<section class="skills-section">
+					<h2>Research Methods & Experimental Design</h2>
+					<div class="skills-grid">
+						<div class="skill-card skill-detail-card" data-category="experimental">
+							<h3><i class="fas fa-flask"></i> Experimental Platforms & Tools</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">PsychoPy</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Cognitive Battery Development:</strong> Created comprehensive test battery including Stroop, go/no-go, n-back, and word-association paradigms deployed on Naodao platform for 500+ participants
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">MATLAB Psychtoolbox</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Multi-Arrangement Task Implementation:</strong> Designed and programmed complex experimental paradigm with real-time similarity judgments for 43+ participants, generating high-dimensional behavioral data
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Survey Design & Deployment</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Large-Scale Survey Management:</strong> Designed and deployed surveys on Wenjuanxing and Credamo platforms with advanced branching logic, reaching 250,000+ participants with quality control mechanisms
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card" data-category="statistical">
+							<h3><i class="fas fa-chart-line"></i> Advanced Statistical Methods</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Structural Equation Modeling</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>CSMHSS Scale Validation:</strong> Conducted comprehensive SEM analysis with Mplus-R integration, automated batch processing for 250,000+ participants, and publication-ready path diagram visualization
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Psychometrics & Scale Development</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>National Scale Standardization:</strong> Led psychometric analysis for CSMHSS scale with reliability analysis, factor structure validation, and norm development across diverse Chinese populations
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Longitudinal Data Analysis</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Dyadic Interaction Modeling:</strong> Applied multilevel modeling (HLM/GLM) to analyze nested data structures in couple interactions with time-varying covariates
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Representational Similarity Analysis</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Neural-Behavioral Linking:</strong> Implemented RSA to connect fMRI activation patterns with behavioral similarity judgments in semantic space analysis
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Neuroimaging & Multimodal Analysis -->
+				<section class="skills-section">
+					<h2>Neuroimaging & Multimodal Data Analysis</h2>
+					<div class="skills-grid">
+						<div class="skill-card skill-detail-card" data-category="neuroimaging">
+							<h3><i class="fas fa-brain"></i> Neuroimaging Methods</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">fMRI Analysis</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Couple fMRI Study:</strong> Analyzed 34 couples using MATLAB REST Toolkit with custom preprocessing pipelines, generating 100+ T-statistic images with FWE correction and ROI-based analysis
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">fNIRS Hyperscanning</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Dyadic Neural Coupling:</strong> Operated NIRScout system for 50+ couples (150+ hours of recording), analyzing inter-brain synchronization during marital interactions with wavelet coherence analysis
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Multimodal Integration</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Comprehensive Analysis Framework:</strong> Integrated neuroimaging (fMRI/fNIRS), behavioral (facial expressions), and linguistic data using custom Python pipelines for holistic understanding of couple dynamics
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card" data-category="computational">
+							<h3><i class="fas fa-video"></i> Video & Audio Analysis</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Facial Expression Analysis</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Large-Scale Video Processing:</strong> Processed 1,200+ video recordings (600+ hours, 1TB+ data) using OpenFace for AU tracking and emotion recognition, with automated quality control and batch processing systems
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Speech Processing</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Multimodal Speech Analysis:</strong> Implemented Whisper for speech-to-text conversion combined with LLM-based sentiment analysis and interaction pattern coding for comprehensive communication analysis
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Behavioral Coding</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Fine-Grained Behavioral Analysis:</strong> Applied MouseTracker for trajectory analysis and curvature measurements, extracting subtle behavioral patterns in decision-making tasks
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card" data-category="programming">
+							<h3><i class="fas fa-database"></i> Large-Scale Data Management</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Database Curation</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Research Data Infrastructure:</strong> Built comprehensive database system for 1,200+ video recordings with metadata tagging, quality control protocols, and automated batch transcoding workflows
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Automated Research Pipelines</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>End-to-End Automation:</strong> Developed 7,000+ lines of R/Python code for complete research pipeline from data cleaning to publication-ready visualizations and statistical reports
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">High-Performance Computing</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Infrastructure Management:</strong> Negotiated cloud computing contracts, managed vendor relationships, and deployed high-specification workstations for computationally intensive research tasks
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Web Development & Digital Skills -->
+				<section class="skills-section">
+					<h2>Digital & Web Technologies</h2>
+					<div class="skills-grid">
+						<div class="skill-card skill-detail-card" data-category="programming">
+							<h3><i class="fas fa-code"></i> Web Development</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Frontend Development</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Academic Website Development:</strong> Built responsive personal academic website using HTML5, CSS3, and JavaScript with modern design principles and cross-browser compatibility
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Interactive Research Tools</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Web-Based Experiments:</strong> Developed interactive research tools using jsPsych and custom JavaScript for online behavioral studies and data collection
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Cloud Services & Deployment</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Research Infrastructure:</strong> Deployed web applications using Cloudflare Workers and AWS services for scalable research data collection and analysis
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card" data-category="experimental">
+							<h3><i class="fas fa-tools"></i> Digital Research Ecosystem</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Reference & Literature Management</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Systematic Literature Organization:</strong> Managed 500+ research papers using Zotero with custom citation styles and automated bibliography generation for multiple publications
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Collaborative Research Platforms</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Multi-Team Coordination:</strong> Coordinated research projects using Slack, Microsoft Teams, and Google Workspace for seamless collaboration across multiple institutions
+									</div>
+								</div>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Open Science & Reproducibility</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<div class="project-examples">
+									<div class="project-example">
+										<strong>Reproducible Research Practices:</strong> Implemented version control with GitHub and documented research workflows on OSF for transparent and reproducible science
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Language & Communication -->
+				<section class="skills-section">
+					<h2>Languages & Communication</h2>
+					<div class="skills-grid">
+						<div class="skill-card skill-detail-card" data-category="programming">
+							<h3><i class="fas fa-laptop-code"></i> Programming Languages Proficiency</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Python</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									7,000+ lines of production code, TensorFlow/PyTorch, NLP pipelines, multimodal analysis
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">R</span>
+									<span class="progress-level">Expert (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Advanced SEM, Shiny applications, large-scale data analysis (5M+ participants)
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">MATLAB</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									fMRI analysis, experimental paradigms, neuroimaging data processing
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">SQL</span>
+									<span class="progress-level">Advanced (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Database management, complex queries, research data extraction
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">JavaScript</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Web-based experiments, jsPsych, interactive research tools
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">HTML/CSS</span>
+									<span class="progress-level">Intermediate (3/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="60"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Responsive design, academic websites, experimental interfaces
+								</p>
+							</div>
+						</div>
+
+						<div class="skill-card skill-detail-card">
+							<h3><i class="fas fa-globe"></i> Natural Languages</h3>
+							
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">Chinese (Mandarin)</span>
+									<span class="progress-level">Native (5/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="100"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Native speaker with full academic and professional proficiency
+								</p>
+							</div>
+
+							<div class="enhanced-progress">
+								<div class="progress-header">
+									<span class="progress-label">English</span>
+									<span class="progress-level">Professional (4/5)</span>
+								</div>
+								<div class="animated-progress-bar">
+									<div class="animated-progress-fill" data-width="80"></div>
+								</div>
+								<p style="font-size: 0.85em; margin-top: 0.5em; color: rgba(255,255,255,0.7);">
+									Academic & professional proficiency - TOEFL/IELTS scores available upon request
+								</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Continuous Learning -->
+				<section class="skills-section">
+					<h2><i class="fas fa-graduation-cap"></i> Professional Development</h2>
+					<p>I am committed to continuous learning and staying current with emerging technologies and
+						methodologies in psychological research. I regularly participate in online courses, workshops,
+						and conferences to expand my skill set and contribute to the advancement of cognitive science
+						research.</p>
+
+					<div class="skill-card" style="margin-top: 2em;">
+						<h3>Recent Learning Focus Areas</h3>
+						<div class="skills-grid"
+							style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1em;">
+							<div style="padding: 1em; background: rgba(245, 106, 106, 0.1); border-radius: 8px;">
+								<i class="fas fa-robot"></i> Advanced machine learning techniques for psychological data
+							</div>
+							<div style="padding: 1em; background: rgba(245, 106, 106, 0.1); border-radius: 8px;">
+								<i class="fas fa-brain"></i> Computational modeling of cognitive processes
+							</div>
+							<div style="padding: 1em; background: rgba(245, 106, 106, 0.1); border-radius: 8px;">
+								<i class="fas fa-chart-line"></i> Big data analytics in behavioral research
+							</div>
+							<div style="padding: 1em; background: rgba(245, 106, 106, 0.1); border-radius: 8px;">
+								<i class="fas fa-microscope"></i> Open science practices and reproducible research
+								methods
+							</div>
+							<div style="padding: 1em; background: rgba(245, 106, 106, 0.1); border-radius: 8px;">
+								<i class="fas fa-globe-asia"></i> Cross-cultural research methodologies
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; 2025 Qingguang Zheng. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/design-system.js"></script>
+
+	<script>
+		// Enhanced Skills Page Functionality
+		$(document).ready(function () {
+
+
+			// Enhanced Progress Bar Animation
+			if ('IntersectionObserver' in window) {
+				const progressObserver = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							// Animate new enhanced progress bars
+							const enhancedBars = entry.target.querySelectorAll('.animated-progress-fill');
+							enhancedBars.forEach(bar => {
+								const width = bar.getAttribute('data-width') || '0';
+								setTimeout(() => {
+									bar.style.width = width + '%';
+								}, 200);
+							});
+
+							// Animate old progress bars (for compatibility)
+							const oldBars = entry.target.querySelectorAll('.level-fill');
+							oldBars.forEach(bar => {
+								bar.style.width = bar.classList.contains('advanced') ? '90%' :
+									bar.classList.contains('intermediate') ? '70%' : '40%';
+							});
+						}
+					});
+				}, {
+					threshold: 0.3
+				});
+
+				// Observe all skill cards
+				document.querySelectorAll('.skill-card').forEach(card => {
+					progressObserver.observe(card);
+				});
+			}
+
+			// Staggered Animation for Skill Cards
+			const skillCards = $('.skill-card');
+			skillCards.each(function(index) {
+				$(this).css('animation-delay', (index * 0.1) + 's');
+			});
+
+			// Enhanced Hover Effects
+			$('.skill-card').hover(
+				function() {
+					$(this).find('.animated-progress-fill').addClass('shimmer-active');
+				},
+				function() {
+					$(this).find('.animated-progress-fill').removeClass('shimmer-active');
+				}
+			);
+
+			// Smooth scrolling for better UX
+			$('a[href^="#"]').on('click', function (event) {
+				var target = $(this.getAttribute('href'));
+				if (target.length) {
+					event.preventDefault();
+					$('html, body').stop().animate({
+						scrollTop: target.offset().top - 100
+					}, 1000);
+				}
+			});
+
+
+
+			// Add loading animation for progress bars
+			setTimeout(() => {
+				$('.animated-progress-fill').each(function() {
+					const width = $(this).attr('data-width') || '0';
+					$(this).css('width', width + '%');
+				});
+			}, 500);
+		});
+
+		// Additional CSS for shimmer effect
+		const additionalCSS = `
+			.shimmer-active::after {
+				animation-duration: 1s !important;
+			}
+			
+			.competency-card {
+				border-top: 3px solid #f56a6a;
+			}
+			
+			@media (max-width: 736px) {
+				
+				.competency-metrics {
+					flex-direction: column;
+				}
+			}
+		`;
+		
+		// Inject additional CSS
+		$('<style>').text(additionalCSS).appendTo('head');
+	</script>
+
+</body>
+
+</html>

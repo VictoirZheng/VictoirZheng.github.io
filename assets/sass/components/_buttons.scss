@@ -1,0 +1,437 @@
+///
+/// Unified Button System
+/// Consistent button styles and interactions
+///
+
+// Base Button Component
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: design-space(2);
+	padding: design-space(3) design-space(6);
+	border: 2px solid transparent;
+	border-radius: design-radius(base);
+	font-family: design-font(font-primary);
+	font-size: design-font(size-base);
+	font-weight: design-font(weight-medium);
+	line-height: 1;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	transition: all design-transition(base);
+	position: relative;
+	overflow: hidden;
+	white-space: nowrap;
+	user-select: none;
+	
+	// Remove default button styles
+	background: none;
+	outline: none;
+	
+	// Disabled state
+	&:disabled,
+	&.btn--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+	
+	// Loading state
+	&.btn--loading {
+		color: transparent;
+		
+		&::after {
+			content: '';
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			border: 2px solid currentColor;
+			border-radius: 50%;
+			border-top-color: transparent;
+			animation: btn-spin 1s linear infinite;
+		}
+	}
+	
+	// Icon handling
+	.btn__icon {
+		font-size: 0.875em;
+		
+		&--left {
+			margin-right: design-space(1);
+			margin-left: design-space(-1);
+		}
+		
+		&--right {
+			margin-left: design-space(1);
+			margin-right: design-space(-1);
+		}
+	}
+}
+
+// Button Variants
+
+// Primary Button
+.btn--primary {
+	background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+	color: white;
+	border-color: design-color(primary);
+	box-shadow: design-shadow(sm);
+	
+	&:hover {
+		transform: translateY(-1px);
+		box-shadow: design-shadow(md);
+		background: linear-gradient(135deg, design-color(primary-dark), design-color(primary));
+	}
+	
+	&:active {
+		transform: translateY(0);
+		box-shadow: design-shadow(sm);
+	}
+}
+
+// Secondary Button
+.btn--secondary {
+	background: transparent;
+	color: design-color(primary);
+	border-color: design-color(primary);
+	
+	&:hover {
+		background: design-color(primary);
+		color: white;
+		transform: translateY(-1px);
+		box-shadow: design-shadow(sm);
+	}
+	
+	&:active {
+		transform: translateY(0);
+	}
+}
+
+// Ghost Button
+.btn--ghost {
+	background: transparent;
+	color: design-color(text-secondary);
+	border-color: transparent;
+	
+	&:hover {
+		background: design-color(bg-card);
+		color: design-color(text-primary);
+		border-color: design-color(border-primary);
+	}
+}
+
+// Text Button
+.btn--text {
+	background: transparent;
+	color: design-color(primary);
+	border-color: transparent;
+	padding: design-space(2) design-space(3);
+	
+	&:hover {
+		background: rgba(245, 106, 106, 0.1);
+		color: design-color(primary-dark);
+	}
+}
+
+// Danger Button
+.btn--danger {
+	background: linear-gradient(135deg, design-color(error), #f66);
+	color: white;
+	border-color: design-color(error);
+	
+	&:hover {
+		background: linear-gradient(135deg, #d32f2f, design-color(error));
+		transform: translateY(-1px);
+		box-shadow: design-shadow(md);
+	}
+}
+
+// Success Button
+.btn--success {
+	background: linear-gradient(135deg, design-color(success), #66bb6a);
+	color: white;
+	border-color: design-color(success);
+	
+	&:hover {
+		background: linear-gradient(135deg, #388e3c, design-color(success));
+		transform: translateY(-1px);
+		box-shadow: design-shadow(md);
+	}
+}
+
+// Button Sizes
+
+// Small Button
+.btn--sm {
+	padding: design-space(2) design-space(4);
+	font-size: design-font(size-sm);
+	border-radius: design-radius(sm);
+}
+
+// Large Button
+.btn--lg {
+	padding: design-space(4) design-space(8);
+	font-size: design-font(size-lg);
+	border-radius: design-radius(md);
+}
+
+// Extra Large Button
+.btn--xl {
+	padding: design-space(5) design-space(10);
+	font-size: design-font(size-xl);
+	border-radius: design-radius(lg);
+}
+
+// Button Shapes
+
+// Rounded Button
+.btn--rounded {
+	border-radius: design-radius(full);
+}
+
+// Square Button
+.btn--square {
+	border-radius: 0;
+}
+
+// Icon-only Button
+.btn--icon {
+	width: 2.5rem;
+	height: 2.5rem;
+	padding: 0;
+	border-radius: design-radius(base);
+	
+	&.btn--sm {
+		width: 2rem;
+		height: 2rem;
+	}
+	
+	&.btn--lg {
+		width: 3rem;
+		height: 3rem;
+	}
+	
+	&.btn--rounded {
+		border-radius: design-radius(full);
+	}
+}
+
+// Button Groups
+.btn-group {
+	display: inline-flex;
+	
+	.btn {
+		border-radius: 0;
+		
+		&:first-child {
+			border-top-left-radius: design-radius(base);
+			border-bottom-left-radius: design-radius(base);
+		}
+		
+		&:last-child {
+			border-top-right-radius: design-radius(base);
+			border-bottom-right-radius: design-radius(base);
+		}
+		
+		&:not(:first-child) {
+			margin-left: -2px;
+		}
+		
+		&:hover,
+		&:focus {
+			z-index: 1;
+		}
+	}
+	
+	&--vertical {
+		flex-direction: column;
+		
+		.btn {
+			&:first-child {
+				border-radius: design-radius(base) design-radius(base) 0 0;
+			}
+			
+			&:last-child {
+				border-radius: 0 0 design-radius(base) design-radius(base);
+			}
+			
+			&:not(:first-child) {
+				margin-left: 0;
+				margin-top: -2px;
+			}
+		}
+	}
+}
+
+// Floating Action Button
+.btn--fab {
+	position: fixed;
+	bottom: design-space(6);
+	right: design-space(6);
+	width: 56px;
+	height: 56px;
+	border-radius: design-radius(full);
+	background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+	color: white;
+	border: none;
+	box-shadow: design-shadow(lg);
+	z-index: design-z(fixed);
+	
+	&:hover {
+		transform: scale(1.1);
+		box-shadow: design-shadow(xl);
+	}
+	
+	&:active {
+		transform: scale(1.05);
+	}
+}
+
+// CTA (Call to Action) Button
+.btn--cta {
+	background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+	color: white;
+	border: none;
+	padding: design-space(4) design-space(8);
+	font-size: design-font(size-lg);
+	font-weight: design-font(weight-semibold);
+	border-radius: design-radius(lg);
+	box-shadow: design-shadow(lg);
+	position: relative;
+	overflow: hidden;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+		transition: left 0.5s;
+	}
+	
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: design-shadow(xl);
+		
+		&::before {
+			left: 100%;
+		}
+	}
+	
+	&:active {
+		transform: translateY(-1px);
+	}
+}
+
+// Download Button
+.btn--download {
+	background: linear-gradient(135deg, design-color(info), #42a5f5);
+	color: white;
+	border: none;
+	
+	&:hover {
+		background: linear-gradient(135deg, #1976d2, design-color(info));
+		transform: translateY(-1px);
+		box-shadow: design-shadow(md);
+	}
+	
+	.btn__icon {
+		animation: downloadBounce 2s infinite;
+	}
+}
+
+// Social Button
+.btn--social {
+	padding: design-space(3);
+	border-radius: design-radius(base);
+	
+	&--github {
+		background: #333;
+		color: white;
+		
+		&:hover {
+			background: #24292e;
+		}
+	}
+	
+	&--linkedin {
+		background: #0077b5;
+		color: white;
+		
+		&:hover {
+			background: #005885;
+		}
+	}
+	
+	&--email {
+		background: design-color(primary);
+		color: white;
+		
+		&:hover {
+			background: design-color(primary-dark);
+		}
+	}
+}
+
+// Button animations
+@keyframes btn-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes downloadBounce {
+	0%, 20%, 50%, 80%, 100% {
+		transform: translateY(0);
+	}
+	40% {
+		transform: translateY(-3px);
+	}
+	60% {
+		transform: translateY(-1px);
+	}
+}
+
+// Responsive button utilities
+@include respond-to(sm) {
+	.btn--responsive {
+		padding: design-space(3) design-space(6);
+		font-size: design-font(size-base);
+	}
+}
+
+@include respond-below(sm) {
+	.btn--responsive {
+		padding: design-space(2) design-space(4);
+		font-size: design-font(size-sm);
+		
+		&.btn--lg {
+			padding: design-space(3) design-space(6);
+			font-size: design-font(size-base);
+		}
+	}
+	
+	.btn-group {
+		flex-direction: column;
+		
+		.btn {
+			border-radius: 0;
+			
+			&:first-child {
+				border-radius: design-radius(base) design-radius(base) 0 0;
+			}
+			
+			&:last-child {
+				border-radius: 0 0 design-radius(base) design-radius(base);
+			}
+			
+			&:not(:first-child) {
+				margin-left: 0;
+				margin-top: -2px;
+			}
+		}
+	}
+}

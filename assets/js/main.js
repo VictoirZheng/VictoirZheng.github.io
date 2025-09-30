@@ -1,185 +1,89 @@
 /*
-	Phantom by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	Academic Website - Main JavaScript
+	Minimal functionality - FAQ interactions only
+	Navigation works without JavaScript
 */
 
-(function($) {
+(function() {
+	'use strict';
 
-	var	$window = $(window),
-		$body = $('body');
-
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ '361px',   '480px'  ],
-			xxsmall:  [ null,      '360px'  ]
-		});
-
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
+	// Wait for DOM to be ready
+	document.addEventListener('DOMContentLoaded', function() {
+		
+		// Remove preload class after page loads
+		window.addEventListener('load', function() {
+			setTimeout(function() {
+				document.body.classList.remove('is-preload');
 			}, 100);
 		});
+		
+		// Initialize FAQ functionality (if on FAQ page)
+		if (document.querySelector('.faq-question')) {
+			initializeFAQ();
+		}
+	});
 
-	// Touch?
-		if (browser.mobile)
-			$body.addClass('is-touch');
+	/**
+	 * Initialize FAQ expandable sections
+	 * Progressive enhancement - content is accessible without JavaScript
+	 */
+	function initializeFAQ() {
+		const faqQuestions = document.querySelectorAll('.faq-question');
+		
+		faqQuestions.forEach(function(question) {
+			// Make questions focusable and add ARIA attributes
+			question.setAttribute('tabindex', '0');
+			question.setAttribute('role', 'button');
+			question.setAttribute('aria-expanded', 'false');
+			
+			const answer = question.nextElementSibling;
+			if (answer && answer.classList.contains('faq-answer')) {
+				answer.setAttribute('aria-hidden', 'true');
+			}
 
-	// Forms.
-		var $form = $('form');
-
-		// Auto-resizing textareas.
-			$form.find('textarea').each(function() {
-
-				var $this = $(this),
-					$wrapper = $('<div class="textarea-wrapper"></div>'),
-					$submits = $this.find('input[type="submit"]');
-
-				$this
-					.wrap($wrapper)
-					.attr('rows', 1)
-					.css('overflow', 'hidden')
-					.css('resize', 'none')
-					.on('keydown', function(event) {
-
-						if (event.keyCode == 13
-						&&	event.ctrlKey) {
-
-							event.preventDefault();
-							event.stopPropagation();
-
-							$(this).blur();
-
-						}
-
-					})
-					.on('blur focus', function() {
-						$this.val($.trim($this.val()));
-					})
-					.on('input blur focus --init', function() {
-
-						$wrapper
-							.css('height', $this.height());
-
-						$this
-							.css('height', 'auto')
-							.css('height', $this.prop('scrollHeight') + 'px');
-
-					})
-					.on('keyup', function(event) {
-
-						if (event.keyCode == 9)
-							$this
-								.select();
-
-					})
-					.triggerHandler('--init');
-
-				// Fix.
-					if (browser.name == 'ie'
-					||	browser.mobile)
-						$this
-							.css('max-height', '10em')
-							.css('overflow-y', 'auto');
-
+			// Click handler
+			question.addEventListener('click', function() {
+				toggleFAQItem(question);
 			});
 
-	// Menu.
-		var $menu = $('#menu');
+			// Keyboard handler
+			question.addEventListener('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggleFAQItem(question);
+				}
+			});
+		});
 
-		$menu.wrapInner('<div class="inner"></div>');
+		function toggleFAQItem(question) {
+			const answer = question.nextElementSibling;
+			if (!answer || !answer.classList.contains('faq-answer')) return;
 
-		$menu._locked = false;
+			const isExpanded = question.getAttribute('aria-expanded') === 'true';
 
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-				event.stopPropagation();
-			})
-			.on('click', 'a', function(event) {
-
-				var href = $(this).attr('href');
-
-				event.preventDefault();
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
-
-				// Redirect.
-					if (href == '#menu')
-						return;
-
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 350);
-
-			})
-			.append('<a class="close" href="#menu">Close</a>');
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('click', function(event) {
-
-				// Hide.
-					$menu._hide();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
+			// Close all other FAQ items
+			faqQuestions.forEach(function(otherQuestion) {
+				if (otherQuestion !== question) {
+					otherQuestion.setAttribute('aria-expanded', 'false');
+					const otherAnswer = otherQuestion.nextElementSibling;
+					if (otherAnswer && otherAnswer.classList.contains('faq-answer')) {
+						otherAnswer.classList.remove('active');
+						otherAnswer.setAttribute('aria-hidden', 'true');
+					}
+				}
 			});
 
-})(jQuery);
+			// Toggle current item
+			if (!isExpanded) {
+				question.setAttribute('aria-expanded', 'true');
+				answer.classList.add('active');
+				answer.setAttribute('aria-hidden', 'false');
+			} else {
+				question.setAttribute('aria-expanded', 'false');
+				answer.classList.remove('active');
+				answer.setAttribute('aria-hidden', 'true');
+			}
+		}
+	}
+
+})();

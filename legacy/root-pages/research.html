@@ -1,0 +1,1140 @@
+<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+	<title>Research Portfolio - Qingguang Zheng</title>
+	<meta charset="utf-8" />
+	<meta name="description"
+		content="Comprehensive research portfolio in computational psychology, marital interaction analysis, NLP applications, and large-scale mental health studies. Publications, ongoing projects, and research interests." />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/design-system.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+	<style>
+		/* Enhanced Research Page Styles */
+		.research-section {
+			margin-bottom: var(--space-12);
+		}
+
+		.research-section h2 {
+			display: flex;
+			align-items: center;
+			gap: var(--space-3);
+			margin-bottom: var(--space-8);
+			font-size: var(--font-size-2xl);
+		}
+
+		.research-section h2 i {
+			color: var(--color-primary);
+			font-size: 1.2em;
+		}
+
+		/* Enhanced Research Interests */
+		.research-interests {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+			gap: var(--space-6);
+			margin: var(--space-8) 0;
+		}
+
+		.interest-card {
+			background: var(--color-bg-card);
+			border: 1px solid var(--color-border-primary);
+			border-radius: var(--radius-base);
+			padding: var(--space-8);
+			text-align: center;
+			transition: all var(--transition-base);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.interest-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 3px;
+			background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+			transform: scaleX(0);
+			transition: transform var(--transition-base);
+		}
+
+		.interest-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--shadow-accent);
+			border-color: var(--color-primary);
+		}
+
+		.interest-card:hover::before {
+			transform: scaleX(1);
+		}
+
+		.interest-icon {
+			width: 80px;
+			height: 80px;
+			margin: 0 auto var(--space-6);
+			background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+			border-radius: var(--radius-lg);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 2rem;
+			color: white;
+			transition: transform var(--transition-base);
+		}
+
+		.interest-card:hover .interest-icon {
+			transform: scale(1.1) rotate(5deg);
+		}
+
+		.interest-card h3 {
+			color: var(--color-text-primary);
+			margin-bottom: var(--space-4);
+			font-size: var(--font-size-lg);
+		}
+
+		.interest-card p {
+			color: var(--color-text-secondary);
+			line-height: 1.6;
+			margin-bottom: 0;
+		}
+
+		/* Enhanced Research Projects */
+		.research-card {
+			background: var(--color-bg-card);
+			border: 1px solid var(--color-border-primary);
+			border-left: 4px solid var(--color-primary);
+			border-radius: var(--radius-base);
+			padding: var(--space-8);
+			margin-bottom: var(--space-8);
+			transition: all var(--transition-base);
+			position: relative;
+		}
+
+		.research-card:hover {
+			transform: translateY(-3px);
+			box-shadow: var(--shadow-accent-hover);
+			border-left-color: var(--color-primary-light);
+		}
+
+		.research-card h3 {
+			color: var(--color-text-primary);
+			margin-bottom: var(--space-4);
+			font-size: var(--font-size-xl);
+			line-height: 1.3;
+		}
+
+		.research-meta {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-3);
+			margin-bottom: var(--space-6);
+		}
+
+		.meta-tag {
+			background: rgba(245, 106, 106, 0.1);
+			color: var(--color-primary);
+			padding: var(--space-2) var(--space-3);
+			border-radius: var(--radius-full);
+			font-size: var(--font-size-sm);
+			font-weight: 500;
+			border: 1px solid rgba(245, 106, 106, 0.2);
+		}
+
+		.meta-tag--funding {
+			background: rgba(76, 175, 80, 0.1);
+			color: var(--color-success);
+			border-color: rgba(76, 175, 80, 0.2);
+		}
+
+		.research-highlights {
+			background: rgba(255, 255, 255, 0.02);
+			border-radius: var(--radius-sm);
+			padding: var(--space-6);
+			margin: var(--space-6) 0;
+		}
+
+		.research-highlights h4 {
+			color: var(--color-primary);
+			margin-bottom: var(--space-4);
+			font-size: var(--font-size-base);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+
+		.highlight-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: var(--space-4);
+		}
+
+		.highlight-item {
+			display: flex;
+			align-items: flex-start;
+			gap: var(--space-3);
+		}
+
+		.highlight-icon {
+			width: 24px;
+			height: 24px;
+			background: var(--color-primary);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.8rem;
+			color: white;
+			flex-shrink: 0;
+			margin-top: 2px;
+		}
+
+		.highlight-content {
+			flex: 1;
+		}
+
+		.highlight-title {
+			font-weight: 600;
+			color: var(--color-text-primary);
+			margin-bottom: var(--space-1);
+			font-size: var(--font-size-sm);
+		}
+
+		.highlight-description {
+			color: var(--color-text-secondary);
+			font-size: var(--font-size-sm);
+			line-height: 1.5;
+		}
+
+		.tech-stack {
+			display: flex;
+			flex-wrap: wrap;
+			gap: var(--space-2);
+			margin-top: var(--space-4);
+		}
+
+		.tech-tag {
+			background: rgba(33, 150, 243, 0.1);
+			color: var(--color-info);
+			padding: var(--space-1) var(--space-2);
+			border-radius: var(--radius-sm);
+			font-size: var(--font-size-xs);
+			font-weight: 500;
+			border: 1px solid rgba(33, 150, 243, 0.2);
+		}
+
+		/* Enhanced Publications Section */
+		.publications-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: var(--space-6);
+			flex-wrap: wrap;
+			gap: var(--space-4);
+		}
+
+
+
+		.publication-category {
+			margin-bottom: var(--space-10);
+		}
+
+		.category-header {
+			display: flex;
+			align-items: center;
+			gap: var(--space-3);
+			margin-bottom: var(--space-6);
+		}
+
+		.category-count {
+			background: var(--color-primary);
+			color: white;
+			padding: var(--space-1) var(--space-2);
+			border-radius: var(--radius-full);
+			font-size: var(--font-size-xs);
+			font-weight: 600;
+		}
+
+		.publication-item {
+			background: var(--color-bg-card);
+			border: 1px solid var(--color-border-primary);
+			border-left: 4px solid var(--color-primary);
+			border-radius: var(--radius-base);
+			padding: var(--space-6);
+			margin-bottom: var(--space-6);
+			transition: all var(--transition-base);
+		}
+
+		.publication-item:hover {
+			transform: translateX(4px);
+			box-shadow: var(--shadow-md);
+			border-left-color: var(--color-primary-light);
+		}
+
+		.publication-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: var(--space-4);
+			margin-bottom: var(--space-4);
+		}
+
+		.publication-status {
+			display: inline-flex;
+			align-items: center;
+			gap: var(--space-1);
+			padding: var(--space-1) var(--space-3);
+			border-radius: var(--radius-full);
+			font-size: var(--font-size-xs);
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.025em;
+			flex-shrink: 0;
+		}
+
+		.publication-status--under-review {
+			background: rgba(255, 152, 0, 0.1);
+			color: var(--color-warning);
+			border: 1px solid rgba(255, 152, 0, 0.2);
+		}
+
+		.publication-status--in-preparation {
+			background: rgba(33, 150, 243, 0.1);
+			color: var(--color-info);
+			border: 1px solid rgba(33, 150, 243, 0.2);
+		}
+
+		.publication-status--published {
+			background: rgba(76, 175, 80, 0.1);
+			color: var(--color-success);
+			border: 1px solid rgba(76, 175, 80, 0.2);
+		}
+
+		.publication-item h4 {
+			color: var(--color-text-primary);
+			margin-bottom: var(--space-3);
+			font-size: var(--font-size-lg);
+			line-height: 1.4;
+		}
+
+		.publication-authors {
+			color: var(--color-text-secondary);
+			font-style: italic;
+			margin-bottom: var(--space-2);
+			font-size: var(--font-size-sm);
+		}
+
+		.publication-journal {
+			color: var(--color-primary);
+			font-weight: 600;
+			margin-bottom: var(--space-4);
+		}
+
+		.publication-abstract {
+			color: var(--color-text-secondary);
+			line-height: 1.6;
+			font-size: var(--font-size-sm);
+		}
+
+		/* Enhanced Conference Section */
+		.conference-item {
+			background: var(--color-bg-card);
+			border: 1px solid var(--color-border-primary);
+			border-radius: var(--radius-base);
+			padding: var(--space-6);
+			margin-bottom: var(--space-4);
+			transition: all var(--transition-base);
+			position: relative;
+		}
+
+		.conference-item::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 3px;
+			background: var(--color-primary);
+			border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+		}
+
+		.conference-item:hover {
+			transform: translateX(3px);
+			box-shadow: var(--shadow-md);
+		}
+
+		.conference-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			gap: var(--space-4);
+			margin-bottom: var(--space-3);
+		}
+
+		.conference-type {
+			background: rgba(245, 106, 106, 0.1);
+			color: var(--color-primary);
+			padding: var(--space-1) var(--space-2);
+			border-radius: var(--radius-sm);
+			font-size: var(--font-size-xs);
+			font-weight: 500;
+			flex-shrink: 0;
+		}
+
+		.conference-item h4 {
+			color: var(--color-text-primary);
+			margin-bottom: var(--space-2);
+			font-size: var(--font-size-base);
+			line-height: 1.4;
+		}
+
+		.conference-meta {
+			color: var(--color-text-secondary);
+			font-size: var(--font-size-sm);
+			line-height: 1.5;
+		}
+
+		.conference-meta strong {
+			color: var(--color-text-primary);
+		}
+
+		/* Enhanced Awards Section */
+		.awards-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: var(--space-6);
+		}
+
+		.award-category {
+			background: var(--color-bg-card);
+			border: 1px solid var(--color-border-primary);
+			border-radius: var(--radius-base);
+			padding: var(--space-6);
+			transition: all var(--transition-base);
+		}
+
+		.award-category:hover {
+			transform: translateY(-2px);
+			box-shadow: var(--shadow-md);
+		}
+
+		.award-category h4 {
+			color: var(--color-primary);
+			margin-bottom: var(--space-4);
+			display: flex;
+			align-items: center;
+			gap: var(--space-2);
+		}
+
+		.award-category h4 i {
+			font-size: 1.2em;
+		}
+
+		.award-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.award-list li {
+			padding: var(--space-2) 0;
+			border-bottom: 1px solid var(--color-border-secondary);
+			color: var(--color-text-secondary);
+			font-size: var(--font-size-sm);
+		}
+
+		.award-list li:last-child {
+			border-bottom: none;
+		}
+
+		.award-list li:hover {
+			color: var(--color-text-primary);
+		}
+
+
+
+
+
+
+
+		/* Responsive Design */
+		@media screen and (max-width: 768px) {
+			.research-interests {
+				grid-template-columns: 1fr;
+			}
+
+			.research-meta {
+				flex-direction: column;
+				gap: var(--space-2);
+			}
+
+			.publication-header,
+			.conference-header {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.publications-header {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.highlight-grid {
+				grid-template-columns: 1fr;
+			}
+
+			.awards-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		/* Animation Classes */
+		.fade-in {
+			opacity: 0;
+			transform: translateY(20px);
+			transition: all 0.6s ease-out;
+		}
+
+		.fade-in.visible {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
+		.slide-in-left {
+			opacity: 0;
+			transform: translateX(-30px);
+			transition: all 0.6s ease-out;
+		}
+
+		.slide-in-left.visible {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	</style>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Qingguang</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+				<li><a href="research.html">Research Experiences</a></li>
+				<li><a href="skills.html">Skills and Tools</a></li>
+				<li><a href="personal.html">Personal Interests</a></li>
+				<li><a href="QAs.html">Frequently Asked Questions</a></li>
+				<li><a href="contact.html">Contact Me</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Research Portfolio</h1>
+				<p style="font-size: 1.1em; margin-bottom: 2em;">My research program operates at the intersection of
+					<strong>computational psychology</strong>, <strong>advanced natural language processing</strong>, and
+					<strong>relationship science</strong>. I leverage state-of-the-art artificial intelligence and machine learning methodologies to
+					understand human relationships and mental health phenomena at unprecedented scale and precision.</p>
+
+
+
+				<!-- Research Interests -->
+				<section class="research-section">
+					<h2><i class="fas fa-lightbulb"></i> Research Interests</h2>
+					<div class="research-interests">
+						<div class="interest-card fade-in" data-tags="marital">
+							<div class="interest-icon">
+								<i class="fas fa-heart"></i>
+							</div>
+							<h3>Marital & Family Dynamics</h3>
+							<p>Investigating how spousal interaction patterns and communication dynamics predict
+								relationship quality and individual psychological well-being using sophisticated multimodal computational
+								methodologies. Research focus encompasses automated behavioral coding, advanced sentiment analysis, and longitudinal relationship outcome prediction models.</p>
+						</div>
+						<div class="interest-card fade-in" data-tags="nlp,machine-learning">
+							<div class="interest-icon">
+								<i class="fas fa-robot"></i>
+							</div>
+							<h3>Social Computation</h3>
+							<p>Developing and applying advanced natural language processing, machine learning algorithms, and large language models to objectively quantify complex
+								human interactions and social behavioral patterns. Specialized expertise in transformer model fine-tuning (BERT, RoBERTa), probabilistic topic modeling, and automated behavioral coding systems.</p>
+						</div>
+						<div class="interest-card fade-in" data-tags="mental-health,machine-learning">
+							<div class="interest-icon">
+								<i class="fas fa-mobile-alt"></i>
+							</div>
+							<h3>Digital Mental Health</h3>
+							<p>Translating computational insights into evidence-based, AI-driven assessment tools and therapeutic interventions
+								for mental health support and clinical psychotherapeutic practice. Developing scalable, clinically-validated assessment and intervention platforms with real-world applicability.</p>
+						</div>
+						<div class="interest-card fade-in" data-tags="nlp">
+							<div class="interest-icon">
+								<i class="fas fa-comments"></i>
+							</div>
+							<h3>Language & Social Interaction</h3>
+							<p>Exploring high-dimensional semantic spaces, emotional language patterns, and their complex relationships with
+								psychological well-being and social behavioral outcomes. Employing sophisticated text analysis methodologies including LIWC psycholinguistic analysis, multi-dimensional sentiment analysis, and contextualized semantic embeddings.</p>
+						</div>
+						<div class="interest-card fade-in" data-tags="large-scale,mental-health">
+							<div class="interest-icon">
+								<i class="fas fa-chart-network"></i>
+							</div>
+							<h3>Large-Scale Analytics</h3>
+							<p>Conducting population-level epidemiological analyses of mental health trends and developing scalable, psychometrically-validated
+								assessment instruments for large-scale psychological research. Extensive experience managing 5M+ participant datasets with demonstrated national-level policy impact and evidence-based recommendations.</p>
+						</div>
+						<div class="interest-card fade-in" data-tags="neuroimaging,machine-learning">
+							<div class="interest-icon">
+								<i class="fas fa-brain"></i>
+							</div>
+							<h3>Multimodal Analysis</h3>
+							<p>Integrating multimodal neuroimaging data (functional MRI, functional near-infrared spectroscopy), behavioral measurements, and linguistic analyses to elucidate the
+								neural mechanisms underlying social interactions and interpersonal dynamics. Specialized expertise in hyperscanning methodologies, automated facial expression analysis, and inter-brain neural synchronization quantification.</p>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Current Research Projects -->
+				<section class="research-section">
+					<h2><i class="fas fa-flask"></i> Current Research Projects</h2>
+
+					<div class="research-card slide-in-left" data-tags="nlp,neuroimaging,machine-learning,marital">
+						<h3>The Effect of Marital Interaction on Marital Relationship: Behavior and Cognitive Neurosis
+							Mechanism</h3>
+						<div class="research-meta">
+							<span class="meta-tag">Oct 2022 - Present</span>
+							<span class="meta-tag">Primary Student Researcher</span>
+							<span class="meta-tag meta-tag--funding">NSFC General Program (National Natural Science Foundation of China)</span>
+							<span class="meta-tag meta-tag--funding">CNY 1,256,520 (~$175,000 USD)</span>
+						</div>
+						<p><strong>PI:</strong> Dr. Xiaoyi Fang | <strong>Institution:</strong> Beijing Normal
+							University</p>
+						<p>Directing the computational analysis of spousal interactions using state-of-the-art natural language processing and
+							multimodal analytical techniques to elucidate complex relationship dynamics and develop predictive models for marital satisfaction outcomes.</p>
+						
+						<div class="research-highlights">
+							<h4>Key Technical Achievements</h4>
+							<div class="highlight-grid">
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-language"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Advanced NLP Pipeline</div>
+										<div class="highlight-description">Applied Linguistic Inquiry and Word Count (LIWC) psycholinguistic analysis, Latent Dirichlet Allocation (LDA) topic modeling, and fine-tuned large language models (Gemini, DeepSeek) achieving 79% inter-rater coding consistency (Cohen's κ = 0.76) across 720+ interaction transcripts</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-video"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Multimodal Analysis</div>
+										<div class="highlight-description">Comprehensive end-to-end analytical pipeline utilizing OpenFace for facial Action Unit (AU) tracking, k-nearest neighbors classification, OpenAI Whisper for speech-to-text conversion, and large language models for automated expression recognition and sentiment analysis</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-database"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Big Data Management</div>
+										<div class="highlight-description">Systematically curated and managed 1,200+ high-resolution video recordings (600+ hours, 1TB+ storage) with comprehensive metadata annotation, automated quality control protocols, and standardized data validation procedures</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-brain"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Neuroimaging Analysis</div>
+										<div class="highlight-description">Comprehensive functional magnetic resonance imaging (fMRI) analysis of 34 couples using MATLAB RESTplus Toolkit with family-wise error (FWE) correction, region-of-interest (ROI) extraction, and statistical parametric mapping</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tech-stack">
+							<span class="tech-tag">Python</span>
+							<span class="tech-tag">TensorFlow</span>
+							<span class="tech-tag">BERT</span>
+							<span class="tech-tag">OpenFace</span>
+							<span class="tech-tag">Whisper</span>
+							<span class="tech-tag">MATLAB</span>
+							<span class="tech-tag">R/Shiny</span>
+							<span class="tech-tag">Mplus</span>
+						</div>
+					</div>
+
+					<div class="research-card slide-in-left" data-tags="mental-health,large-scale,machine-learning">
+						<h3>Analyses of Chinese College Students' Mental Health Status and CSMHSS Scale Revision</h3>
+						<div class="research-meta">
+							<span class="meta-tag">Oct 2022 - Present</span>
+							<span class="meta-tag">Primary Student Researcher</span>
+							<span class="meta-tag meta-tag--funding">Ministry of Education of China</span>
+							<span class="meta-tag meta-tag--funding">CNY 800,000 (~$112,000 USD)</span>
+						</div>
+						<p><strong>PI:</strong> Dr. Xiaoyi Fang | <strong>Institution:</strong> Beijing Normal
+							University</p>
+						<p>Directing large-scale epidemiological mental health analysis and psychometric scale validation with demonstrated national policy impact, systematically processing longitudinal data from 5M+ Chinese college students across diverse demographic strata.</p>
+						
+						<div class="research-highlights">
+							<h4>Key Technical Achievements</h4>
+							<div class="highlight-grid">
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-chart-bar"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Scale Validation</div>
+										<div class="highlight-description">Annual psychometric analysis of CSMHSS with 250,000+ participants using advanced statistical modeling</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-globe"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">National-Scale Analysis</div>
+										<div class="highlight-description">Comprehensive mental health analysis across 5,000,000+ Chinese college students with regional comparisons</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-code"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Automated Pipeline</div>
+										<div class="highlight-description">7,000+ lines of R/Python code for data cleaning, analysis, modeling, and automated report generation</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-users"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Team Leadership</div>
+										<div class="highlight-description">Led 4-member graduate team producing evidence-based reports for national mental health policy</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tech-stack">
+							<span class="tech-tag">R</span>
+							<span class="tech-tag">Python</span>
+							<span class="tech-tag">SQL</span>
+							<span class="tech-tag">Pandas</span>
+							<span class="tech-tag">Matplotlib</span>
+							<span class="tech-tag">Seaborn</span>
+							<span class="tech-tag">Psychometrics</span>
+							<span class="tech-tag">SEM</span>
+						</div>
+					</div>
+
+					<div class="research-card slide-in-left" data-tags="neuroimaging,machine-learning,marital">
+						<h3>Dynamic Association between Marital Interaction and Relationship Among Newlyweds</h3>
+						<div class="research-meta">
+							<span class="meta-tag">Jan 2020 - Present</span>
+							<span class="meta-tag">Primary Student Researcher</span>
+							<span class="meta-tag meta-tag--funding">NSFC General Program (National Natural Science Foundation of China)</span>
+							<span class="meta-tag meta-tag--funding">CNY 946,000 (~$132,000 USD)</span>
+						</div>
+						<p><strong>PI:</strong> Dr. Xiaoyi Fang | <strong>Institution:</strong> Beijing Normal
+							University</p>
+						<p>Investigating neural and behavioral correlates of marital interaction using cutting-edge neuroimaging and computational approaches.</p>
+						
+						<div class="research-highlights">
+							<h4>Key Technical Achievements</h4>
+							<div class="highlight-grid">
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-film"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Stimulus Development</div>
+										<div class="highlight-description">Compiled 100+ spousal-interaction video clips with 26,000+ valence ratings from external participants</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-brain"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Neuroimaging</div>
+										<div class="highlight-description">fNIRS hyperscanning experiments with 50+ couples (150+ hours) using NIRScout system for neural synchronization</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-eye"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Computer Vision</div>
+										<div class="highlight-description">Python/TensorFlow/C++ pipeline for facial expression recognition and automated interaction coding</div>
+									</div>
+								</div>
+								<div class="highlight-item">
+									<div class="highlight-icon">
+										<i class="fas fa-chart-line"></i>
+									</div>
+									<div class="highlight-content">
+										<div class="highlight-title">Automated Reporting</div>
+										<div class="highlight-description">R/Python/HTML/JavaScript system generating customized feedback reports for 400+ participating couples</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="tech-stack">
+							<span class="tech-tag">Python</span>
+							<span class="tech-tag">TensorFlow</span>
+							<span class="tech-tag">C++</span>
+							<span class="tech-tag">OpenCV</span>
+							<span class="tech-tag">fNIRS</span>
+							<span class="tech-tag">NIRScout</span>
+							<span class="tech-tag">JavaScript</span>
+							<span class="tech-tag">HTML/CSS</span>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Publications -->
+				<section class="research-section">
+					<div class="publications-header">
+						<h2><i class="fas fa-file-alt"></i> Publications & Manuscripts</h2>
+					</div>
+
+					<div class="publication-category" data-category="under-review">
+						<div class="category-header">
+							<h3 style="color: var(--color-primary); margin-bottom: 0;">Under Review</h3>
+							<span class="category-count">2</span>
+						</div>
+
+						<div class="publication-item fade-in" data-type="under-review" data-tags="nlp,marital">
+							<div class="publication-header">
+								<div>
+									<div class="publication-status publication-status--under-review">
+										<i class="fas fa-clock"></i> Under Review
+									</div>
+									<h4>We-Talk Boosts Marital Quality across Contexts: Roles of Perceived Understanding and Dyadic
+										Congruence</h4>
+								</div>
+							</div>
+							<div class="publication-authors">Zheng, Q., Zhang J., Li, Q., Li, K., Ma, S., & Fang, X.</div>
+							<div class="publication-journal">Journal of Marriage and Family</div>
+							<div class="publication-abstract">Investigating how "we-talk" language patterns in spousal interactions predict marital quality
+								through perceived understanding and dyadic congruence mechanisms. Uses advanced NLP techniques including LIWC and semantic analysis to quantify couple communication patterns.</div>
+						</div>
+
+						<div class="publication-item fade-in" data-type="under-review" data-tags="mental-health,large-scale">
+							<div class="publication-header">
+								<div>
+									<div class="publication-status publication-status--under-review">
+										<i class="fas fa-clock"></i> Under Review
+									</div>
+									<h4>Hidden Burdens: Emotional and Behavioral Problems Among Chinese Adolescents and the
+										Interplay of Family and Regional Socioeconomic Status</h4>
+								</div>
+							</div>
+							<div class="publication-authors">Tong, W.*, Zheng, Q.*, Li, K., Li, Q., Feng, T., & Fang, X.
+								(*equal contribution)</div>
+							<div class="publication-journal">Journal of Affective Disorders</div>
+							<div class="publication-abstract">Large-scale analysis of adolescent mental health problems and their relationship with family
+								and regional socioeconomic factors. Utilizes national-level data from 5M+ participants to examine mental health disparities across China.</div>
+						</div>
+					</div>
+
+					<div class="publication-category" data-category="in-preparation">
+						<div class="category-header">
+							<h3 style="color: var(--color-primary); margin-bottom: 0;">In Preparation</h3>
+							<span class="category-count">2</span>
+						</div>
+
+						<div class="publication-item fade-in" data-type="in-preparation" data-tags="marital">
+							<div class="publication-header">
+								<div>
+									<div class="publication-status publication-status--in-preparation">
+										<i class="fas fa-edit"></i> In Preparation
+									</div>
+									<h4>Fertility Decline: Need Fulfillment and Marital Quality as Predictors of Fertility
+										Intentions Among Newlyweds</h4>
+								</div>
+							</div>
+							<div class="publication-authors">Wang, X.*, Zheng, Q.*, & Fang, X. (*equal contribution)</div>
+							<div class="publication-journal">Target: Developmental Psychology</div>
+							<div class="publication-abstract">Examining psychological predictors of fertility intentions in contemporary Chinese newlyweds using longitudinal data and advanced statistical modeling techniques.</div>
+						</div>
+
+						<div class="publication-item fade-in" data-type="in-preparation" data-tags="neuroimaging,marital">
+							<div class="publication-header">
+								<div>
+									<div class="publication-status publication-status--in-preparation">
+										<i class="fas fa-edit"></i> In Preparation
+									</div>
+									<h4>Neural Coupling in Newlyweds: Divergent Synchronization Patterns When Discussing Marital vs.
+										Family-of-Origin Issues</h4>
+								</div>
+							</div>
+							<div class="publication-authors">Ma, S., Zheng, Q., Li, Q., & Fang, X.</div>
+							<div class="publication-journal">Target: Social Cognitive and Affective Neuroscience</div>
+							<div class="publication-abstract">fNIRS hyperscanning study revealing different neural synchronization patterns during
+								different types of couple discussions. Combines neuroimaging with computational analysis of interaction patterns.</div>
+						</div>
+					</div>
+
+					<div class="publication-category" data-category="thesis">
+						<div class="category-header">
+							<h3 style="color: var(--color-primary); margin-bottom: 0;">Thesis</h3>
+							<span class="category-count">1</span>
+						</div>
+
+						<div class="publication-item fade-in" data-type="thesis" data-tags="nlp,marital">
+							<div class="publication-header">
+								<div>
+									<div class="publication-status publication-status--in-preparation">
+										<i class="fas fa-graduation-cap"></i> Master's Thesis
+									</div>
+									<h4>The Impact of Spousal Interaction Themes and Patterns on Marital Quality: A Semantic
+										Analysis</h4>
+								</div>
+							</div>
+							<div class="publication-authors">Zheng, Q.</div>
+							<div class="publication-journal">Beijing Normal University</div>
+							<div class="publication-abstract">Comprehensive semantic analysis of spousal interactions using advanced NLP techniques to
+								predict marital quality outcomes. Integrates LIWC, topic modeling, and fine-tuned language models for behavioral coding.</div>
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Conference Presentations -->
+				<section class="research-section">
+					<h2><i class="fas fa-users"></i> Conference Presentations</h2>
+
+					<div class="conference-item fade-in" data-tags="nlp,marital">
+						<div class="conference-header">
+							<div>
+								<h4>Emotional Semantic Features in Marriage Interview Text and Their Prediction of Marital
+									Quality</h4>
+							</div>
+							<div class="conference-type">Poster</div>
+						</div>
+						<div class="conference-meta">
+							<strong>Zheng, Q.</strong> & Fang, X.<br>
+							<em>The 25th National Academic Conference of Psychology</em><br>
+							Chengdu, China • October 2023<br>
+							<strong>Focus:</strong> Advanced NLP techniques for marital quality prediction using semantic analysis
+						</div>
+					</div>
+
+					<div class="conference-item fade-in" data-tags="machine-learning,marital">
+						<div class="conference-header">
+							<div>
+								<h4>Video-Based Machine-Learning Model for Couple Interaction Pattern Analysis</h4>
+							</div>
+							<div class="conference-type">Poster</div>
+						</div>
+						<div class="conference-meta">
+							<strong>Zheng, Q.</strong> & Fang, X.<br>
+							<em>2nd Academic Conference of Marriage and Family Psychology</em><br>
+							Guangzhou, China • November 2023<br>
+							<strong>Focus:</strong> Computer vision and machine learning for automated behavioral coding
+						</div>
+					</div>
+
+					<div class="conference-item fade-in" data-tags="mental-health,large-scale">
+						<div class="conference-header">
+							<div>
+								<h4>Prevalence of Mental Health Problems Among Chinese Children and Adolescents: A
+									Population-based Nationwide Study</h4>
+							</div>
+							<div class="conference-type">Poster</div>
+						</div>
+						<div class="conference-meta">
+							Li, K., <strong>Zheng, Q.</strong>, & Fang, X.<br>
+							<em>2nd Academic Conference of Marriage and Family Psychology</em><br>
+							Guangzhou, China • November 2023<br>
+							<strong>Focus:</strong> Large-scale epidemiological analysis of 5M+ participants
+						</div>
+					</div>
+
+					<div class="conference-item fade-in" data-tags="mental-health">
+						<div class="conference-header">
+							<div>
+								<h4>High Maternal Sensory Processing Sensitivity and Mindful Parenting: For Better or For Worse?</h4>
+							</div>
+							<div class="conference-type">Submitted</div>
+						</div>
+						<div class="conference-meta">
+							Li, K., <strong>Zheng, Q.</strong>, Shen, J., Liu, C., Deater-Deckard, K.<br>
+							<em>SRA 2026 Biennial Meeting</em><br>
+							Toronto, Canada • 2026<br>
+							<strong>Focus:</strong> Cross-cultural parenting research with international collaboration
+						</div>
+					</div>
+				</section>
+
+				<hr />
+
+				<!-- Awards & Recognition -->
+				<section class="research-section">
+					<h2><i class="fas fa-trophy"></i> Awards & Recognition</h2>
+
+					<div class="awards-grid">
+						<div class="award-category fade-in">
+							<h4><i class="fas fa-graduation-cap"></i> Academic Excellence</h4>
+							<ul class="award-list">
+								<li>First-Class Graduate Scholarship (2024, 2023)</li>
+								<li>Outstanding Graduate (2023, Top 5%)</li>
+								<li>Outstanding Undergraduate Thesis (2023, Top 5%)</li>
+								<li>Merit Student (2023, Top 5%)</li>
+							</ul>
+						</div>
+						<div class="award-category fade-in">
+							<h4><i class="fas fa-flask"></i> Research Recognition</h4>
+							<ul class="award-list">
+								<li>2nd Prize, MindSpore Innovation Competition (2024)</li>
+								<li>Excellent Teaching Assistant (2024, Top 10%)</li>
+								<li>Excellent Project Completion, National UIRP (2022)</li>
+								<li>Ministry of Education Appreciation Letter (2024)</li>
+							</ul>
+						</div>
+						<div class="award-category fade-in">
+							<h4><i class="fas fa-code"></i> Technical Achievements</h4>
+							<ul class="award-list">
+								<li>7,000+ lines of production research code</li>
+								<li>79% inter-rater reliability in automated coding</li>
+								<li>1TB+ multimodal research database</li>
+								<li>5M+ participant data analysis</li>
+							</ul>
+						</div>
+						<div class="award-category fade-in">
+							<h4><i class="fas fa-handshake"></i> Professional Impact</h4>
+							<ul class="award-list">
+								<li>National mental health policy contributions</li>
+								<li>400+ couples research participation</li>
+								<li>Cross-cultural research collaboration</li>
+								<li>Peer-reviewed publication pipeline</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; 2025 Qingguang Zheng. All rights reserved.</li>
+					<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script src="assets/js/design-system.js"></script>
+	
+	<script>
+		// Research Page Interactive Functionality
+		document.addEventListener('DOMContentLoaded', function() {
+			initializeResearchPage();
+		});
+
+		function initializeResearchPage() {
+			initializeAnimations();
+		}
+
+		// Initialize scroll animations
+		function initializeAnimations() {
+			const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left');
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			});
+			
+			animatedElements.forEach(element => {
+				observer.observe(element);
+			});
+		}
+
+
+
+
+
+
+
+		// Add smooth scrolling for internal links
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				const target = document.querySelector(this.getAttribute('href'));
+				if (target) {
+					target.scrollIntoView({
+						behavior: 'smooth',
+						block: 'start'
+					});
+				}
+			});
+		});
+
+		// Add keyboard navigation for filters
+		document.addEventListener('keydown', function(e) {
+
+		});
+	</script>
+
+</body>
+
+</html>

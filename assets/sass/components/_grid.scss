@@ -1,0 +1,379 @@
+///
+/// Responsive Grid System and Layout Utilities
+/// Modern CSS Grid and Flexbox-based layout system
+///
+
+// Container System
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 design-space(4);
+	
+	@include respond-to(sm) {
+		padding: 0 design-space(6);
+	}
+	
+	@include respond-to(md) {
+		padding: 0 design-space(8);
+	}
+	
+	@include respond-to(lg) {
+		max-width: 1024px;
+		padding: 0 design-space(8);
+	}
+	
+	@include respond-to(xl) {
+		max-width: 1280px;
+	}
+	
+	@include respond-to(2xl) {
+		max-width: 1536px;
+	}
+	
+	// Container variants
+	&--fluid {
+		max-width: none;
+	}
+	
+	&--narrow {
+		@include respond-to(lg) {
+			max-width: 768px;
+		}
+	}
+	
+	&--wide {
+		@include respond-to(lg) {
+			max-width: 1400px;
+		}
+	}
+}
+
+// CSS Grid System
+.grid {
+	display: grid;
+	gap: design-space(6);
+	
+	// Grid column utilities
+	&--1 { grid-template-columns: 1fr; }
+	&--2 { grid-template-columns: repeat(2, 1fr); }
+	&--3 { grid-template-columns: repeat(3, 1fr); }
+	&--4 { grid-template-columns: repeat(4, 1fr); }
+	&--5 { grid-template-columns: repeat(5, 1fr); }
+	&--6 { grid-template-columns: repeat(6, 1fr); }
+	&--12 { grid-template-columns: repeat(12, 1fr); }
+	
+	// Auto-fit grids
+	&--auto-fit {
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	}
+	
+	&--auto-fill {
+		grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	}
+	
+	// Responsive grid modifiers
+	&--responsive {
+		grid-template-columns: 1fr;
+		
+		@include respond-to(sm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		
+		@include respond-to(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		
+		@include respond-to(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	
+	// Gap utilities
+	&--gap-sm { gap: design-space(3); }
+	&--gap-md { gap: design-space(6); }
+	&--gap-lg { gap: design-space(8); }
+	&--gap-xl { gap: design-space(12); }
+	
+	// Alignment utilities
+	&--center {
+		justify-items: center;
+		align-items: center;
+	}
+	
+	&--start {
+		justify-items: start;
+		align-items: start;
+	}
+	
+	&--end {
+		justify-items: end;
+		align-items: end;
+	}
+}
+
+// Grid item utilities
+.grid-item {
+	// Column span utilities
+	&--span-1 { grid-column: span 1; }
+	&--span-2 { grid-column: span 2; }
+	&--span-3 { grid-column: span 3; }
+	&--span-4 { grid-column: span 4; }
+	&--span-5 { grid-column: span 5; }
+	&--span-6 { grid-column: span 6; }
+	&--span-full { grid-column: 1 / -1; }
+	
+	// Row span utilities
+	&--row-span-1 { grid-row: span 1; }
+	&--row-span-2 { grid-row: span 2; }
+	&--row-span-3 { grid-row: span 3; }
+	&--row-span-4 { grid-row: span 4; }
+	
+	// Responsive column spans
+	@include respond-to(md) {
+		&--md-span-1 { grid-column: span 1; }
+		&--md-span-2 { grid-column: span 2; }
+		&--md-span-3 { grid-column: span 3; }
+		&--md-span-4 { grid-column: span 4; }
+		&--md-span-6 { grid-column: span 6; }
+		&--md-span-full { grid-column: 1 / -1; }
+	}
+	
+	@include respond-to(lg) {
+		&--lg-span-1 { grid-column: span 1; }
+		&--lg-span-2 { grid-column: span 2; }
+		&--lg-span-3 { grid-column: span 3; }
+		&--lg-span-4 { grid-column: span 4; }
+		&--lg-span-6 { grid-column: span 6; }
+		&--lg-span-8 { grid-column: span 8; }
+		&--lg-span-full { grid-column: 1 / -1; }
+	}
+}
+
+// Flexbox Utilities
+.flex {
+	display: flex;
+	
+	// Direction
+	&--row { flex-direction: row; }
+	&--row-reverse { flex-direction: row-reverse; }
+	&--col { flex-direction: column; }
+	&--col-reverse { flex-direction: column-reverse; }
+	
+	// Wrap
+	&--wrap { flex-wrap: wrap; }
+	&--nowrap { flex-wrap: nowrap; }
+	&--wrap-reverse { flex-wrap: wrap-reverse; }
+	
+	// Justify content
+	&--justify-start { justify-content: flex-start; }
+	&--justify-end { justify-content: flex-end; }
+	&--justify-center { justify-content: center; }
+	&--justify-between { justify-content: space-between; }
+	&--justify-around { justify-content: space-around; }
+	&--justify-evenly { justify-content: space-evenly; }
+	
+	// Align items
+	&--items-start { align-items: flex-start; }
+	&--items-end { align-items: flex-end; }
+	&--items-center { align-items: center; }
+	&--items-baseline { align-items: baseline; }
+	&--items-stretch { align-items: stretch; }
+	
+	// Align content
+	&--content-start { align-content: flex-start; }
+	&--content-end { align-content: flex-end; }
+	&--content-center { align-content: center; }
+	&--content-between { align-content: space-between; }
+	&--content-around { align-content: space-around; }
+	&--content-evenly { align-content: space-evenly; }
+	
+	// Gap utilities
+	&--gap-1 { gap: design-space(1); }
+	&--gap-2 { gap: design-space(2); }
+	&--gap-3 { gap: design-space(3); }
+	&--gap-4 { gap: design-space(4); }
+	&--gap-6 { gap: design-space(6); }
+	&--gap-8 { gap: design-space(8); }
+}
+
+// Flex item utilities
+.flex-item {
+	&--1 { flex: 1; }
+	&--auto { flex: auto; }
+	&--initial { flex: initial; }
+	&--none { flex: none; }
+	
+	&--grow { flex-grow: 1; }
+	&--grow-0 { flex-grow: 0; }
+	
+	&--shrink { flex-shrink: 1; }
+	&--shrink-0 { flex-shrink: 0; }
+	
+	&--self-auto { align-self: auto; }
+	&--self-start { align-self: flex-start; }
+	&--self-end { align-self: flex-end; }
+	&--self-center { align-self: center; }
+	&--self-stretch { align-self: stretch; }
+	&--self-baseline { align-self: baseline; }
+}
+
+// Spacing Utilities
+@each $key, $value in $design-spacing {
+	// Margin utilities
+	.m-#{$key} { margin: $value; }
+	.mt-#{$key} { margin-top: $value; }
+	.mr-#{$key} { margin-right: $value; }
+	.mb-#{$key} { margin-bottom: $value; }
+	.ml-#{$key} { margin-left: $value; }
+	.mx-#{$key} { margin-left: $value; margin-right: $value; }
+	.my-#{$key} { margin-top: $value; margin-bottom: $value; }
+	
+	// Padding utilities
+	.p-#{$key} { padding: $value; }
+	.pt-#{$key} { padding-top: $value; }
+	.pr-#{$key} { padding-right: $value; }
+	.pb-#{$key} { padding-bottom: $value; }
+	.pl-#{$key} { padding-left: $value; }
+	.px-#{$key} { padding-left: $value; padding-right: $value; }
+	.py-#{$key} { padding-top: $value; padding-bottom: $value; }
+}
+
+// Section Layout Utilities
+.section {
+	padding: design-space(16) 0;
+	
+	&--sm { padding: design-space(8) 0; }
+	&--lg { padding: design-space(24) 0; }
+	&--xl { padding: design-space(32) 0; }
+	
+	// Section with background
+	&--bg {
+		background: design-color(bg-secondary);
+	}
+	
+	&--bg-accent {
+		background: linear-gradient(135deg, design-color(primary), design-color(primary-light));
+		color: white;
+		
+		.text-secondary {
+			color: rgba(255, 255, 255, 0.8);
+		}
+	}
+}
+
+// Hero Section Layout
+.hero {
+	padding: design-space(20) 0;
+	text-align: center;
+	
+	@include respond-to(md) {
+		padding: design-space(24) 0;
+	}
+	
+	@include respond-to(lg) {
+		padding: design-space(32) 0;
+	}
+	
+	&__title {
+		font-size: design-font(size-3xl);
+		font-weight: design-font(weight-bold);
+		color: design-color(text-primary);
+		margin-bottom: design-space(4);
+		line-height: design-font(leading-tight);
+		
+		@include respond-to(md) {
+			font-size: design-font(size-4xl);
+		}
+		
+		@include respond-to(lg) {
+			font-size: design-font(size-5xl);
+		}
+	}
+	
+	&__subtitle {
+		font-size: design-font(size-lg);
+		color: design-color(text-secondary);
+		margin-bottom: design-space(8);
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: design-font(leading-relaxed);
+		
+		@include respond-to(md) {
+			font-size: design-font(size-xl);
+		}
+	}
+	
+	&__actions {
+		display: flex;
+		gap: design-space(4);
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+}
+
+// Two-column layout
+.two-column {
+	display: grid;
+	gap: design-space(8);
+	
+	@include respond-to(lg) {
+		grid-template-columns: 1fr 1fr;
+		gap: design-space(12);
+	}
+	
+	&--sidebar {
+		@include respond-to(lg) {
+			grid-template-columns: 2fr 1fr;
+		}
+	}
+	
+	&--reverse {
+		@include respond-to(lg) {
+			grid-template-columns: 1fr 2fr;
+		}
+	}
+}
+
+// Three-column layout
+.three-column {
+	display: grid;
+	gap: design-space(6);
+	
+	@include respond-to(md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	
+	@include respond-to(lg) {
+		grid-template-columns: repeat(3, 1fr);
+		gap: design-space(8);
+	}
+}
+
+// Display utilities
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.hidden { display: none; }
+
+// Responsive display utilities
+@include respond-to(sm) {
+	.sm\:block { display: block; }
+	.sm\:inline-block { display: inline-block; }
+	.sm\:inline { display: inline; }
+	.sm\:hidden { display: none; }
+}
+
+@include respond-to(md) {
+	.md\:block { display: block; }
+	.md\:inline-block { display: inline-block; }
+	.md\:inline { display: inline; }
+	.md\:hidden { display: none; }
+}
+
+@include respond-to(lg) {
+	.lg\:block { display: block; }
+	.lg\:inline-block { display: inline-block; }
+	.lg\:inline { display: inline; }
+	.lg\:hidden { display: none; }
+}

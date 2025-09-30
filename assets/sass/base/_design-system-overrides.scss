@@ -1,0 +1,365 @@
+///
+/// Design System Base Overrides
+/// Apply new design system to base elements
+///
+
+// Root CSS Custom Properties for runtime access
+:root {
+	// Colors
+	--color-primary: #{design-color(primary)};
+	--color-primary-light: #{design-color(primary-light)};
+	--color-primary-dark: #{design-color(primary-dark)};
+	--color-bg-primary: #{design-color(bg-primary)};
+	--color-bg-secondary: #{design-color(bg-secondary)};
+	--color-bg-card: #{design-color(bg-card)};
+	--color-text-primary: #{design-color(text-primary)};
+	--color-text-secondary: #{design-color(text-secondary)};
+	--color-border-primary: #{design-color(border-primary)};
+	
+	// Spacing
+	--space-1: #{design-space(1)};
+	--space-2: #{design-space(2)};
+	--space-3: #{design-space(3)};
+	--space-4: #{design-space(4)};
+	--space-6: #{design-space(6)};
+	--space-8: #{design-space(8)};
+	
+	// Transitions
+	--transition-base: #{design-transition(base)};
+	--transition-fast: #{design-transition(fast)};
+}
+
+// Body and HTML overrides
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background: design-color(bg-primary);
+	color: design-color(text-secondary);
+	font-family: design-font(font-primary);
+	font-weight: design-font(weight-regular);
+	line-height: design-font(leading-relaxed);
+	
+	// Override original theme background
+	background-image: none !important;
+	
+	// Smooth transitions for theme changes
+	transition: background-color design-transition(base), color design-transition(base);
+}
+
+// Typography overrides
+h1, h2, h3, h4, h5, h6 {
+	color: design-color(text-primary);
+	font-weight: design-font(weight-semibold);
+	line-height: design-font(leading-tight);
+	margin-bottom: design-space(4);
+	
+	&:first-child {
+		margin-top: 0;
+	}
+}
+
+h1 {
+	font-size: design-font(size-4xl);
+	font-weight: design-font(weight-bold);
+	
+	@include respond-to(lg) {
+		font-size: design-font(size-5xl);
+	}
+}
+
+h2 {
+	font-size: design-font(size-2xl);
+	font-weight: design-font(weight-semibold);
+	
+	@include respond-to(lg) {
+		font-size: design-font(size-3xl);
+	}
+}
+
+h3 {
+	font-size: design-font(size-xl);
+	
+	@include respond-to(lg) {
+		font-size: design-font(size-2xl);
+	}
+}
+
+h4 {
+	font-size: design-font(size-lg);
+}
+
+h5 {
+	font-size: design-font(size-base);
+	font-weight: design-font(weight-medium);
+}
+
+h6 {
+	font-size: design-font(size-sm);
+	font-weight: design-font(weight-medium);
+	text-transform: uppercase;
+	letter-spacing: design-font(tracking-wide);
+}
+
+// Paragraph and text elements
+p {
+	margin-bottom: design-space(4);
+	line-height: design-font(leading-relaxed);
+	
+	&:last-child {
+		margin-bottom: 0;
+	}
+	
+	&.lead {
+		font-size: design-font(size-lg);
+		color: design-color(text-primary);
+		font-weight: design-font(weight-regular);
+	}
+}
+
+// Links
+a {
+	color: design-color(primary);
+	text-decoration: none;
+	transition: color design-transition(fast);
+	
+	&:hover {
+		color: design-color(primary-light);
+		text-decoration: none;
+	}
+	
+	&:focus {
+		outline: 2px solid design-color(primary);
+		outline-offset: 2px;
+	}
+}
+
+// Strong and emphasis
+strong, b {
+	color: design-color(text-primary);
+	font-weight: design-font(weight-semibold);
+}
+
+em, i {
+	font-style: italic;
+}
+
+// Code elements
+code {
+	background: design-color(bg-tertiary);
+	color: design-color(text-primary);
+	padding: design-space(1) design-space(2);
+	border-radius: design-radius(sm);
+	font-family: design-font(font-mono);
+	font-size: 0.875em;
+	border: 1px solid design-color(border-primary);
+}
+
+pre {
+	background: design-color(bg-tertiary);
+	border: 1px solid design-color(border-primary);
+	border-radius: design-radius(base);
+	padding: design-space(4);
+	overflow-x: auto;
+	margin-bottom: design-space(6);
+	
+	code {
+		background: none;
+		border: none;
+		padding: 0;
+		font-size: design-font(size-sm);
+	}
+}
+
+// Lists
+ul, ol {
+	margin-bottom: design-space(4);
+	padding-left: design-space(6);
+	
+	li {
+		margin-bottom: design-space(2);
+		color: design-color(text-secondary);
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+ul {
+	list-style-type: disc;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+// Blockquotes
+blockquote {
+	border-left: 4px solid design-color(primary);
+	padding-left: design-space(4);
+	margin: design-space(6) 0;
+	font-style: italic;
+	color: design-color(text-primary);
+	
+	p {
+		margin-bottom: design-space(2);
+		
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	cite {
+		display: block;
+		margin-top: design-space(2);
+		font-size: design-font(size-sm);
+		color: design-color(text-secondary);
+		font-style: normal;
+		
+		&::before {
+			content: '— ';
+		}
+	}
+}
+
+// Horizontal rules
+hr {
+	border: none;
+	height: 1px;
+	background: design-color(border-primary);
+	margin: design-space(8) 0;
+}
+
+// Form elements base styling
+input, textarea, select {
+	background: design-color(bg-card);
+	border: 1px solid design-color(border-primary);
+	color: design-color(text-primary);
+	border-radius: design-radius(base);
+	padding: design-space(3) design-space(4);
+	font-family: design-font(font-primary);
+	font-size: design-font(size-base);
+	transition: border-color design-transition(fast), box-shadow design-transition(fast);
+	
+	&:focus {
+		outline: none;
+		border-color: design-color(primary);
+		box-shadow: 0 0 0 3px rgba(245, 106, 106, 0.1);
+	}
+	
+	&::placeholder {
+		color: design-color(text-tertiary);
+	}
+}
+
+// Tables
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: design-space(6);
+	
+	th, td {
+		padding: design-space(3) design-space(4);
+		text-align: left;
+		border-bottom: 1px solid design-color(border-primary);
+	}
+	
+	th {
+		background: design-color(bg-secondary);
+		color: design-color(text-primary);
+		font-weight: design-font(weight-semibold);
+		font-size: design-font(size-sm);
+		text-transform: uppercase;
+		letter-spacing: design-font(tracking-wide);
+	}
+	
+	td {
+		color: design-color(text-secondary);
+	}
+	
+	tbody tr:hover {
+		background: design-color(bg-card);
+	}
+}
+
+// Images
+img {
+	max-width: 100%;
+	height: auto;
+	border-radius: design-radius(base);
+}
+
+// Selection styling
+::selection {
+	background: rgba(245, 106, 106, 0.2);
+	color: design-color(text-primary);
+}
+
+::-moz-selection {
+	background: rgba(245, 106, 106, 0.2);
+	color: design-color(text-primary);
+}
+
+// Scrollbar styling (webkit browsers)
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: design-color(bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+	background: design-color(border-primary);
+	border-radius: design-radius(full);
+	
+	&:hover {
+		background: design-color(primary);
+	}
+}
+
+// Focus visible for better accessibility
+:focus-visible {
+	outline: 2px solid design-color(primary);
+	outline-offset: 2px;
+}
+
+// Utility classes for text colors
+.text-primary { color: design-color(text-primary); }
+.text-secondary { color: design-color(text-secondary); }
+.text-tertiary { color: design-color(text-tertiary); }
+.text-accent { color: design-color(primary); }
+.text-success { color: design-color(success); }
+.text-warning { color: design-color(warning); }
+.text-error { color: design-color(error); }
+.text-info { color: design-color(info); }
+
+// Background utility classes
+.bg-primary { background: design-color(bg-primary); }
+.bg-secondary { background: design-color(bg-secondary); }
+.bg-card { background: design-color(bg-card); }
+.bg-accent { background: design-color(primary); }
+
+// Border utility classes
+.border { border: 1px solid design-color(border-primary); }
+.border-accent { border: 1px solid design-color(primary); }
+.border-t { border-top: 1px solid design-color(border-primary); }
+.border-b { border-bottom: 1px solid design-color(border-primary); }
+.border-l { border-left: 1px solid design-color(border-primary); }
+.border-r { border-right: 1px solid design-color(border-primary); }
+
+// Rounded corners
+.rounded { border-radius: design-radius(base); }
+.rounded-sm { border-radius: design-radius(sm); }
+.rounded-lg { border-radius: design-radius(lg); }
+.rounded-full { border-radius: design-radius(full); }
+
+// Shadow utilities
+.shadow { box-shadow: design-shadow(base); }
+.shadow-sm { box-shadow: design-shadow(sm); }
+.shadow-md { box-shadow: design-shadow(md); }
+.shadow-lg { box-shadow: design-shadow(lg); }
+.shadow-xl { box-shadow: design-shadow(xl); }
+.shadow-accent { box-shadow: design-shadow(accent); }

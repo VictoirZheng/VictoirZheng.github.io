@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Test Unified Controls</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/multilingual.css" />
+    <style>
+        body {
+            background: #1e1e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 100px 20px 20px;
+        }
+        .demo-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .demo-section {
+            margin: 40px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Unified Top Controls -->
+    <div id="top-controls">
+        <div id="language-switcher">
+            <button class="lang-toggle active" data-lang="en" aria-label="Switch to English">
+                <span class="lang-flag">🇺🇸</span>
+                <span class="lang-text">EN</span>
+            </button>
+            <button class="lang-toggle" data-lang="zh" aria-label="切换到中文">
+                <span class="lang-flag">🇨🇳</span>
+                <span class="lang-text">中文</span>
+            </button>
+        </div>
+        <a href="#menu" class="menu-toggle" aria-label="Toggle Menu">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Demo Content -->
+    <div class="demo-content">
+        <h1>统一顶部控制栏测试</h1>
+        <p>这个页面用于测试新的统一顶部控制栏，包含语言切换器和菜单按钮。</p>
+        
+        <div class="demo-section">
+            <h2>功能测试</h2>
+            <ul style="text-align: left; display: inline-block;">
+                <li>✅ 三个按钮水平排列（EN | 中文 | 菜单）</li>
+                <li>✅ 统一的视觉样式和交互效果</li>
+                <li>✅ 响应式设计支持</li>
+                <li>✅ 无障碍访问支持</li>
+                <li>✅ 悬停和激活状态</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2>样式特点</h2>
+            <ul style="text-align: left; display: inline-block;">
+                <li>🎨 半透明黑色背景</li>
+                <li>🎨 毛玻璃效果（backdrop-filter）</li>
+                <li>🎨 圆角边框设计</li>
+                <li>🎨 悬停时的颜色变化</li>
+                <li>🎨 激活状态的渐变背景</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2>交互说明</h2>
+            <p>点击语言按钮可以切换语言，点击菜单按钮（三条横线）可以打开/关闭导航菜单。</p>
+            <p>在移动设备上，文字会隐藏，只显示图标以节省空间。</p>
+        </div>
+    </div>
+
+    <!-- Hidden Menu for Testing -->
+    <nav id="menu" style="display: none;">
+        <h2>Menu</h2>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Research</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Personal</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/language-detection.js"></script>
+    <script src="assets/js/language-preferences.js"></script>
+    <script src="assets/js/multilingual.js"></script>
+    <script src="assets/js/multilingual-init.js"></script>
+</body>
+</html>

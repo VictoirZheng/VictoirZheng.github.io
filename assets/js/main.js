@@ -21,6 +21,9 @@
 		if (document.querySelector('.faq-question')) {
 			initializeFAQ();
 		}
+		
+		// Initialize mobile menu
+		initializeMobileMenu();
 	});
 
 	/**
@@ -84,6 +87,72 @@
 				answer.setAttribute('aria-hidden', 'true');
 			}
 		}
+	}
+
+	/**
+	 * Initialize mobile menu functionality
+	 * Progressive enhancement - navigation works without JavaScript
+	 */
+	function initializeMobileMenu() {
+		const menuToggle = document.querySelector('.menu-toggle');
+		const mainNav = document.querySelector('.main-nav');
+		
+		if (!menuToggle || !mainNav) return;
+
+		// Toggle menu on button click
+		menuToggle.addEventListener('click', function() {
+			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+			
+			menuToggle.setAttribute('aria-expanded', !isExpanded);
+			mainNav.classList.toggle('active');
+			
+			// Update menu icon
+			const menuIcon = menuToggle.querySelector('.menu-icon');
+			if (menuIcon) {
+				menuIcon.textContent = !isExpanded ? '✕' : '☰';
+			}
+		});
+
+		// Close menu when clicking on navigation links
+		const navLinks = mainNav.querySelectorAll('a');
+		navLinks.forEach(function(link) {
+			link.addEventListener('click', function() {
+				mainNav.classList.remove('active');
+				menuToggle.setAttribute('aria-expanded', 'false');
+				
+				const menuIcon = menuToggle.querySelector('.menu-icon');
+				if (menuIcon) {
+					menuIcon.textContent = '☰';
+				}
+			});
+		});
+
+		// Close menu when clicking outside
+		document.addEventListener('click', function(e) {
+			if (!menuToggle.contains(e.target) && !mainNav.contains(e.target)) {
+				mainNav.classList.remove('active');
+				menuToggle.setAttribute('aria-expanded', 'false');
+				
+				const menuIcon = menuToggle.querySelector('.menu-icon');
+				if (menuIcon) {
+					menuIcon.textContent = '☰';
+				}
+			}
+		});
+
+		// Close menu on escape key
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+				mainNav.classList.remove('active');
+				menuToggle.setAttribute('aria-expanded', 'false');
+				menuToggle.focus();
+				
+				const menuIcon = menuToggle.querySelector('.menu-icon');
+				if (menuIcon) {
+					menuIcon.textContent = '☰';
+				}
+			}
+		});
 	}
 
 })();

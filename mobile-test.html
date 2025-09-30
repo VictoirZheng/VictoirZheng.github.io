@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Mobile Navigation Test - Qingguang Zheng</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<style>
+		/* Test styles to visualize the mobile layout */
+		.test-content {
+			background: #f0f0f0;
+			padding: 2rem;
+			margin: 1rem 0;
+			border-radius: 8px;
+		}
+		.viewport-info {
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			background: rgba(0,0,0,0.8);
+			color: white;
+			padding: 0.5rem;
+			border-radius: 4px;
+			font-size: 0.8rem;
+			z-index: 9999;
+		}
+	</style>
+</head>
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="Qingguang Zheng Logo" width="32" height="32" /></span><span class="title">Qingguang</span>
+				</a>
+
+				<!-- Mobile Menu Toggle -->
+				<button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+					<span class="menu-icon">☰</span>
+				</button>
+
+				<!-- Main Navigation -->
+				<nav class="main-nav">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="research.html">Research</a></li>
+						<li><a href="skills.html">Skills</a></li>
+						<li><a href="personal.html">Personal</a></li>
+						<li><a href="faq.html">QAs</a></li>
+						<li><a href="contact.html">Contact</a></li>
+						<li><a href="zh/index.html" class="language-toggle">中文</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>移动端导航测试页面</h1>
+				<p>这个页面用于测试移动端导航的效果。在手机上查看时，导航应该变成汉堡菜单。</p>
+				
+				<div class="test-content">
+					<h2>测试内容区域 1</h2>
+					<p>这里是一些测试内容，用来验证在移动设备上导航不会占用过多屏幕空间。</p>
+				</div>
+				
+				<div class="test-content">
+					<h2>测试内容区域 2</h2>
+					<p>现在你应该能够看到更多的页面内容，而不是被导航菜单占满整个屏幕。</p>
+				</div>
+				
+				<div class="test-content">
+					<h2>测试内容区域 3</h2>
+					<p>点击右上角的汉堡菜单图标（☰）来打开导航菜单。</p>
+				</div>
+				
+				<div class="test-content">
+					<h2>使用说明</h2>
+					<ul>
+						<li>在桌面端：导航保持水平布局</li>
+						<li>在移动端：导航变成汉堡菜单</li>
+						<li>点击汉堡图标打开/关闭菜单</li>
+						<li>点击菜单项或菜单外区域关闭菜单</li>
+						<li>按ESC键也可以关闭菜单</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="copyright">
+					<li>&copy; 2025 Qingguang Zheng. All rights reserved</li>
+					<li>Mobile Navigation Test</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+
+	<!-- Viewport Info for Testing -->
+	<div class="viewport-info">
+		<span id="viewport-size"></span>
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/main.js"></script>
+	<script>
+		// Display viewport size for testing
+		function updateViewportInfo() {
+			const info = document.getElementById('viewport-size');
+			if (info) {
+				info.textContent = `${window.innerWidth}x${window.innerHeight}`;
+			}
+		}
+		
+		window.addEventListener('resize', updateViewportInfo);
+		window.addEventListener('load', updateViewportInfo);
+	</script>
+</body>
+</html>

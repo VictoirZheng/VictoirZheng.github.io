@@ -479,7 +479,7 @@ textarea {
 		position: relative;
 	}
 	
-	/* Full screen overlay */
+	/* Full screen overlay with scroll support */
 	#header .main-nav {
 		position: fixed;
 		top: 0;
@@ -495,8 +495,11 @@ textarea {
 		transition: all 0.3s ease;
 		z-index: 1001;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: center;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		padding: var(--space-xl) var(--space-md);
 	}
 	
 	#header .main-nav.active {
@@ -537,33 +540,40 @@ textarea {
 		outline-offset: 2px;
 	}
 
-	/* Menu content container */
+	/* Menu content container with adaptive sizing */
 	#header .main-nav ul {
 		flex-direction: column;
-		gap: var(--space-lg);
-		padding: var(--space-xl);
+		gap: var(--space-md);
+		padding: var(--space-lg);
 		background: var(--color-background);
 		border-radius: var(--border-radius);
 		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 		min-width: 280px;
 		max-width: 90vw;
+		width: 100%;
+		max-width: 400px;
 		text-align: center;
 		border: 1px solid var(--color-border);
 		position: relative;
+		margin: auto;
+		margin-top: var(--space-2xl);
+		margin-bottom: var(--space-2xl);
+		max-height: calc(100vh - 4rem);
+		overflow-y: auto;
 	}
 	
 	#header .main-nav a {
-		display: block;
-		padding: var(--space-md) var(--space-xl);
-		font-size: var(--text-lg);
+		display: flex;
+		padding: var(--space-sm) var(--space-lg);
+		font-size: var(--text-base);
 		font-weight: 500;
 		text-align: center;
 		border-radius: var(--border-radius);
 		transition: all var(--transition);
-		min-height: 48px;
-		display: flex;
+		min-height: 44px;
 		align-items: center;
 		justify-content: center;
+		white-space: nowrap;
 	}
 	
 	#header .main-nav a:hover,
@@ -578,11 +588,11 @@ textarea {
 		border-left: none;
 		border-top: 2px solid var(--color-border);
 		margin-left: 0;
-		margin-top: var(--space-md);
-		padding-top: var(--space-md) !important;
-		padding-left: var(--space-xl) !important;
+		margin-top: var(--space-sm);
+		padding-top: var(--space-sm) !important;
+		padding-left: var(--space-lg) !important;
 		color: var(--color-text-light) !important;
-		font-size: var(--text-base) !important;
+		font-size: var(--text-sm) !important;
 	}
 	
 	#header .language-toggle:hover {
@@ -1131,6 +1141,42 @@ button:focus:not(:focus-visible),
 	outline: none;
 }
 
+/* Mobile Menu Enhancements for Small Screens */
+@media screen and (max-width: 480px) {
+	#header .main-nav {
+		padding: var(--space-md) var(--space-xs);
+	}
+	
+	#header .main-nav ul {
+		gap: var(--space-xs);
+		padding: var(--space-md);
+		margin-top: var(--space-lg);
+		margin-bottom: var(--space-lg);
+		min-width: 260px;
+		max-width: 95vw;
+	}
+	
+	#header .main-nav a {
+		padding: var(--space-xs) var(--space-md);
+		font-size: var(--text-sm);
+		min-height: 40px;
+	}
+	
+	#header .language-toggle {
+		margin-top: var(--space-xs);
+		padding-top: var(--space-xs) !important;
+		font-size: var(--text-xs) !important;
+	}
+	
+	.menu-close {
+		top: var(--space-md);
+		right: var(--space-md);
+		width: 40px;
+		height: 40px;
+		font-size: var(--text-lg);
+	}
+}
+
 /* Responsive Design - Mobile First */
 @media screen and (max-width: 768px) {
 	.container {
@@ -1272,6 +1318,56 @@ button:focus:not(:focus-visible),
 	#footer .copyright {
 		flex-direction: column;
 		gap: var(--space-xs);
+	}
+}
+
+/* Landscape orientation on mobile devices */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+	#header .main-nav {
+		align-items: flex-start;
+		padding: var(--space-sm);
+	}
+	
+	#header .main-nav ul {
+		margin-top: var(--space-sm);
+		margin-bottom: var(--space-sm);
+		gap: var(--space-xs);
+		padding: var(--space-sm);
+		max-height: calc(100vh - 2rem);
+	}
+	
+	#header .main-nav a {
+		padding: var(--space-xs) var(--space-md);
+		min-height: 36px;
+		font-size: var(--text-sm);
+	}
+	
+	.menu-close {
+		top: var(--space-sm);
+		right: var(--space-sm);
+		width: 36px;
+		height: 36px;
+	}
+}
+
+/* Very small screens (iPhone SE, etc.) */
+@media screen and (max-width: 375px) {
+	#header .main-nav ul {
+		min-width: 240px;
+		max-width: 98vw;
+		gap: 2px;
+		padding: var(--space-sm);
+	}
+	
+	#header .main-nav a {
+		padding: 6px var(--space-sm);
+		font-size: var(--text-xs);
+		min-height: 36px;
+	}
+	
+	#header .language-toggle {
+		font-size: 10px !important;
+		padding-top: 4px !important;
 	}
 }
 

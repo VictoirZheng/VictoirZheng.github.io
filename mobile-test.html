@@ -1,32 +1,38 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-	<title>Mobile Navigation Test - Qingguang Zheng</title>
+	<title>Mobile Menu Test - Qingguang Zheng</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
-		/* Test styles to visualize the mobile layout */
-		.test-content {
-			background: #f0f0f0;
-			padding: 2rem;
-			margin: 1rem 0;
-			border-radius: 8px;
-		}
-		.viewport-info {
+		/* Test styles to simulate more menu items */
+		.test-info {
 			position: fixed;
-			bottom: 10px;
-			right: 10px;
+			top: 10px;
+			left: 10px;
 			background: rgba(0,0,0,0.8);
 			color: white;
-			padding: 0.5rem;
-			border-radius: 4px;
-			font-size: 0.8rem;
-			z-index: 9999;
+			padding: 10px;
+			border-radius: 5px;
+			font-size: 12px;
+			z-index: 2000;
+		}
+		
+		/* Add more menu items for testing */
+		.test-nav ul {
+			/* This will be used to add more items via JavaScript if needed */
 		}
 	</style>
 </head>
+
 <body class="is-preload">
+	<!-- Test Info Display -->
+	<div class="test-info">
+		Screen: <span id="screen-size"></span><br>
+		Orientation: <span id="orientation"></span>
+	</div>
+
 	<!-- Wrapper -->
 	<div id="wrapper">
 		<!-- Header -->
@@ -34,7 +40,8 @@
 			<div class="inner">
 				<!-- Logo -->
 				<a href="index.html" class="logo">
-					<span class="symbol"><img src="images/logo.svg" alt="Qingguang Zheng Logo" width="32" height="32" /></span><span class="title">Qingguang</span>
+					<span class="symbol"><img src="images/logo.svg" alt="Logo" width="32" height="32" /></span>
+					<span class="title">Test Menu</span>
 				</a>
 
 				<!-- Mobile Menu Toggle -->
@@ -42,19 +49,23 @@
 					<span class="menu-icon">☰</span>
 				</button>
 
-				<!-- Main Navigation -->
-				<nav class="main-nav">
+				<!-- Main Navigation with Extended Menu for Testing -->
+				<nav class="main-nav test-nav">
 					<button class="menu-close" aria-label="Close navigation menu">
 						<span class="close-icon">✕</span>
 					</button>
 					<ul>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html" class="active">Home</a></li>
 						<li><a href="research.html">Research</a></li>
-						<li><a href="skills.html">Skills</a></li>
+						<li><a href="skills.html">Skills & Expertise</a></li>
 						<li><a href="personal.html">Personal</a></li>
-						<li><a href="faq.html">QAs</a></li>
-						<li><a href="contact.html">Contact</a></li>
-						<li><a href="zh/index.html" class="language-toggle">中文</a></li>
+						<li><a href="faq.html">Questions & Answers</a></li>
+						<li><a href="contact.html">Contact Information</a></li>
+						<li><a href="#" class="language-toggle">中文版本</a></li>
+						<!-- Additional test items -->
+						<li><a href="#">Publications</a></li>
+						<li><a href="#">Teaching</a></li>
+						<li><a href="#">Collaborations</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -63,39 +74,25 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
-				<h1>移动端导航测试页面</h1>
-				<p>这个页面用于测试移动端导航的效果。在手机上查看时，导航应该变成汉堡菜单。</p>
+				<h1>Mobile Menu Test</h1>
+				<p>This page is for testing the mobile hamburger menu scrolling functionality.</p>
 				
-				<div class="test-content">
-					<h2>测试内容区域 1</h2>
-					<p>这里是一些测试内容，用来验证在移动设备上导航不会占用过多屏幕空间。</p>
-				</div>
-				
-				<div class="test-content">
-					<h2>测试内容区域 2</h2>
-					<p>现在你应该能够看到更多的页面内容，而不是被导航菜单占满整个屏幕。</p>
-				</div>
-				
-				<div class="test-content">
-					<h2>测试内容区域 3</h2>
-					<p>点击右上角的汉堡菜单图标（☰）来打开导航菜单。</p>
-				</div>
-				
-				<div class="test-content">
-					<h2>使用说明</h2>
-					<ul>
-						<li>在桌面端：导航保持水平布局</li>
-						<li>在移动端：导航变成全屏覆盖式菜单</li>
-						<li>点击汉堡图标（☰）打开菜单</li>
-						<li>菜单以半透明背景覆盖整个屏幕</li>
-						<li>菜单项居中显示，带有优雅的动画效果</li>
-						<li>可以通过以下方式关闭菜单：</li>
-						<li style="margin-left: 2rem;">• 点击右上角的关闭按钮（✕）</li>
-						<li style="margin-left: 2rem;">• 点击任意菜单项</li>
-						<li style="margin-left: 2rem;">• 点击菜单外的半透明区域</li>
-						<li style="margin-left: 2rem;">• 按ESC键</li>
-					</ul>
-				</div>
+				<h2>Test Instructions:</h2>
+				<ol>
+					<li>Resize your browser window to mobile size (< 768px width)</li>
+					<li>Click the hamburger menu (☰) button</li>
+					<li>Check if all menu items are visible and accessible</li>
+					<li>Try scrolling within the menu if needed</li>
+					<li>Test on different screen sizes and orientations</li>
+				</ol>
+
+				<h2>Expected Behavior:</h2>
+				<ul>
+					<li>Menu should be scrollable if content exceeds screen height</li>
+					<li>All navigation items should be accessible</li>
+					<li>Menu should adapt to different screen sizes</li>
+					<li>Close button should always be visible</li>
+				</ul>
 			</div>
 		</div>
 
@@ -103,19 +100,28 @@
 		<footer id="footer">
 			<div class="inner">
 				<ul class="copyright">
-					<li>&copy; 2025 Qingguang Zheng. All rights reserved</li>
-					<li>Mobile Navigation Test</li>
+					<li>&copy; 2025 Test Page</li>
 				</ul>
 			</div>
 		</footer>
 	</div>
 
-	<!-- Viewport Info for Testing -->
-	<div class="viewport-info">
-		<span id="viewport-size"></span>
-	</div>
-
 	<!-- Scripts -->
 	<script src="assets/js/main.js"></script>
+	<script>
+		// Display screen info for testing
+		function updateScreenInfo() {
+			document.getElementById('screen-size').textContent = 
+				window.innerWidth + 'x' + window.innerHeight;
+			document.getElementById('orientation').textContent = 
+				window.innerHeight > window.innerWidth ? 'Portrait' : 'Landscape';
+		}
+		
+		updateScreenInfo();
+		window.addEventListener('resize', updateScreenInfo);
+		window.addEventListener('orientationchange', function() {
+			setTimeout(updateScreenInfo, 100);
+		});
+	</script>
 </body>
 </html>

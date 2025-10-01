@@ -1,40 +1,52 @@
 /*
-	Academic Website - Main JavaScript
-	Minimal functionality - FAQ interactions only
-	Navigation works without JavaScript
+	Academic Website - Optimized JavaScript
+	Minimal functionality for progressive enhancement
+	All core features work without JavaScript
 */
 
 (function() {
 	'use strict';
 
-	// Wait for DOM to be ready
-	document.addEventListener('DOMContentLoaded', function() {
+	// Initialize when DOM is ready
+	document.addEventListener('DOMContentLoaded', init);
+
+	function init() {
+		// Add JS class to enable JavaScript-enhanced styles
+		document.documentElement.classList.add('js');
 		
-		// Remove preload class after page loads
+		// Remove preload class for smooth transitions
+		removePreloadClass();
+		
+		// Initialize components only if they exist
+		initializeFAQ();
+		initializeMobileMenu();
+	}
+
+	/**
+	 * Remove preload class after page loads
+	 */
+	function removePreloadClass() {
 		window.addEventListener('load', function() {
 			setTimeout(function() {
 				document.body.classList.remove('is-preload');
 			}, 100);
 		});
-		
-		// Initialize FAQ functionality (if on FAQ page)
-		if (document.querySelector('.faq-question')) {
-			initializeFAQ();
-		}
-		
-		// Initialize mobile menu
-		initializeMobileMenu();
-	});
+	}
 
 	/**
 	 * Initialize FAQ expandable sections
-	 * Progressive enhancement - content is accessible without JavaScript
+	 * Progressive enhancement - content accessible without JavaScript
 	 */
 	function initializeFAQ() {
 		const faqQuestions = document.querySelectorAll('.faq-question');
+		if (!faqQuestions.length) return;
 		
 		faqQuestions.forEach(function(question) {
-			// Make questions focusable and add ARIA attributes
+			setupFAQQuestion(question);
+		});
+
+		function setupFAQQuestion(question) {
+			// Add accessibility attributes
 			question.setAttribute('tabindex', '0');
 			question.setAttribute('role', 'button');
 			question.setAttribute('aria-expanded', 'false');
@@ -44,19 +56,17 @@
 				answer.setAttribute('aria-hidden', 'true');
 			}
 
-			// Click handler
-			question.addEventListener('click', function() {
-				toggleFAQItem(question);
-			});
+			// Add event listeners
+			question.addEventListener('click', () => toggleFAQItem(question));
+			question.addEventListener('keydown', handleFAQKeydown);
+		}
 
-			// Keyboard handler
-			question.addEventListener('keydown', function(e) {
-				if (e.key === 'Enter' || e.key === ' ') {
-					e.preventDefault();
-					toggleFAQItem(question);
-				}
-			});
-		});
+		function handleFAQKeydown(e) {
+			if (e.key === 'Enter' || e.key === ' ') {
+				e.preventDefault();
+				toggleFAQItem(e.target);
+			}
+		}
 
 		function toggleFAQItem(question) {
 			const answer = question.nextElementSibling;
@@ -64,24 +74,31 @@
 
 			const isExpanded = question.getAttribute('aria-expanded') === 'true';
 
-			// Close all other FAQ items
+			// Close all other FAQ items (accordion behavior)
 			faqQuestions.forEach(function(otherQuestion) {
 				if (otherQuestion !== question) {
-					otherQuestion.setAttribute('aria-expanded', 'false');
-					const otherAnswer = otherQuestion.nextElementSibling;
-					if (otherAnswer && otherAnswer.classList.contains('faq-answer')) {
-						otherAnswer.classList.remove('active');
-						otherAnswer.setAttribute('aria-hidden', 'true');
-					}
+					closeFAQItem(otherQuestion);
 				}
 			});
 
 			// Toggle current item
-			if (!isExpanded) {
-				question.setAttribute('aria-expanded', 'true');
-				answer.classList.add('active');
-				answer.setAttribute('aria-hidden', 'false');
+			if (isExpanded) {
+				closeFAQItem(question);
 			} else {
+				openFAQItem(question);
+			}
+		}
+
+		function openFAQItem(question) {
+			const answer = question.nextElementSibling;
+			question.setAttribute('aria-expanded', 'true');
+			answer.classList.add('active');
+			answer.setAttribute('aria-hidden', 'false');
+		}
+
+		function closeFAQItem(question) {
+			const answer = question.nextElementSibling;
+			if (answer && answer.classList.contains('faq-answer')) {
 				question.setAttribute('aria-expanded', 'false');
 				answer.classList.remove('active');
 				answer.setAttribute('aria-hidden', 'true');
@@ -100,12 +117,35 @@
 		
 		if (!menuToggle || !mainNav) return;
 
+		// Add event listeners
+		menuToggle.addEventListener('click', toggleMenu);
+		
+		if (menuClose) {
+			menuClose.addEventListener('click', closeMenu);
+		}
+
+		// Close menu when clicking navigation links
+		const navLinks = mainNav.querySelectorAll('a');
+		navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+		// Close menu when clicking overlay
+		mainNav.addEventListener('click', handleOverlayClick);
+
+		// Keyboard and resize handlers
+		document.addEventListener('keydown', handleEscapeKey);
+		window.addEventListener('resize', handleResize);
+
+		function toggleMenu() {
+			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+			isExpanded ? closeMenu() : openMenu();
+		}
+
 		function openMenu() {
 			menuToggle.setAttribute('aria-expanded', 'true');
 			mainNav.classList.add('active');
-			document.body.style.overflow = 'hidden'; // Prevent background scrolling
+			document.body.style.overflow = 'hidden';
 			
-			// Focus on close button for accessibility
+			// Focus management for accessibility
 			if (menuClose) {
 				setTimeout(() => menuClose.focus(), 100);
 			}
@@ -114,53 +154,29 @@
 		function closeMenu() {
 			menuToggle.setAttribute('aria-expanded', 'false');
 			mainNav.classList.remove('active');
-			document.body.style.overflow = ''; // Restore scrolling
-			menuToggle.focus(); // Return focus to toggle button
+			document.body.style.overflow = '';
+			menuToggle.focus();
 		}
 
-		// Toggle menu on button click
-		menuToggle.addEventListener('click', function() {
-			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-			
-			if (isExpanded) {
-				closeMenu();
-			} else {
-				openMenu();
-			}
-		});
-
-		// Close menu on close button click
-		if (menuClose) {
-			menuClose.addEventListener('click', closeMenu);
-		}
-
-		// Close menu when clicking on navigation links
-		const navLinks = mainNav.querySelectorAll('a');
-		navLinks.forEach(function(link) {
-			link.addEventListener('click', closeMenu);
-		});
-
-		// Close menu when clicking on overlay (outside menu content)
-		mainNav.addEventListener('click', function(e) {
-			// Only close if clicking on the overlay itself, not the menu content
+		function handleOverlayClick(e) {
+			// Close only if clicking the overlay, not menu content
 			if (e.target === mainNav) {
 				closeMenu();
 			}
-		});
+		}
 
-		// Close menu on escape key
-		document.addEventListener('keydown', function(e) {
+		function handleEscapeKey(e) {
 			if (e.key === 'Escape' && mainNav.classList.contains('active')) {
 				closeMenu();
 			}
-		});
+		}
 
-		// Handle window resize - close menu if switching to desktop
-		window.addEventListener('resize', function() {
+		function handleResize() {
+			// Close menu when switching to desktop view
 			if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
 				closeMenu();
 			}
-		});
+		}
 	}
 
 })();

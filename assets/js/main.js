@@ -95,62 +95,70 @@
 	 */
 	function initializeMobileMenu() {
 		const menuToggle = document.querySelector('.menu-toggle');
+		const menuClose = document.querySelector('.menu-close');
 		const mainNav = document.querySelector('.main-nav');
 		
 		if (!menuToggle || !mainNav) return;
+
+		function openMenu() {
+			menuToggle.setAttribute('aria-expanded', 'true');
+			mainNav.classList.add('active');
+			document.body.style.overflow = 'hidden'; // Prevent background scrolling
+			
+			// Focus on close button for accessibility
+			if (menuClose) {
+				setTimeout(() => menuClose.focus(), 100);
+			}
+		}
+
+		function closeMenu() {
+			menuToggle.setAttribute('aria-expanded', 'false');
+			mainNav.classList.remove('active');
+			document.body.style.overflow = ''; // Restore scrolling
+			menuToggle.focus(); // Return focus to toggle button
+		}
 
 		// Toggle menu on button click
 		menuToggle.addEventListener('click', function() {
 			const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
 			
-			menuToggle.setAttribute('aria-expanded', !isExpanded);
-			mainNav.classList.toggle('active');
-			
-			// Update menu icon
-			const menuIcon = menuToggle.querySelector('.menu-icon');
-			if (menuIcon) {
-				menuIcon.textContent = !isExpanded ? '✕' : '☰';
+			if (isExpanded) {
+				closeMenu();
+			} else {
+				openMenu();
 			}
 		});
+
+		// Close menu on close button click
+		if (menuClose) {
+			menuClose.addEventListener('click', closeMenu);
+		}
 
 		// Close menu when clicking on navigation links
 		const navLinks = mainNav.querySelectorAll('a');
 		navLinks.forEach(function(link) {
-			link.addEventListener('click', function() {
-				mainNav.classList.remove('active');
-				menuToggle.setAttribute('aria-expanded', 'false');
-				
-				const menuIcon = menuToggle.querySelector('.menu-icon');
-				if (menuIcon) {
-					menuIcon.textContent = '☰';
-				}
-			});
+			link.addEventListener('click', closeMenu);
 		});
 
-		// Close menu when clicking outside
-		document.addEventListener('click', function(e) {
-			if (!menuToggle.contains(e.target) && !mainNav.contains(e.target)) {
-				mainNav.classList.remove('active');
-				menuToggle.setAttribute('aria-expanded', 'false');
-				
-				const menuIcon = menuToggle.querySelector('.menu-icon');
-				if (menuIcon) {
-					menuIcon.textContent = '☰';
-				}
+		// Close menu when clicking on overlay (outside menu content)
+		mainNav.addEventListener('click', function(e) {
+			// Only close if clicking on the overlay itself, not the menu content
+			if (e.target === mainNav) {
+				closeMenu();
 			}
 		});
 
 		// Close menu on escape key
 		document.addEventListener('keydown', function(e) {
 			if (e.key === 'Escape' && mainNav.classList.contains('active')) {
-				mainNav.classList.remove('active');
-				menuToggle.setAttribute('aria-expanded', 'false');
-				menuToggle.focus();
-				
-				const menuIcon = menuToggle.querySelector('.menu-icon');
-				if (menuIcon) {
-					menuIcon.textContent = '☰';
-				}
+				closeMenu();
+			}
+		});
+
+		// Handle window resize - close menu if switching to desktop
+		window.addEventListener('resize', function() {
+			if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
+				closeMenu();
 			}
 		});
 	}

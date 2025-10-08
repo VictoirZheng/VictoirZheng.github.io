@@ -1,0 +1,412 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <title>私人统计面板 - Qingguang Zheng</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .chart-container {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .visitors-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .visitors-table th,
+        .visitors-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .visitors-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .refresh-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 1rem;
+        }
+        
+        .refresh-btn:hover {
+            background: #0056b3;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .auth-input {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .auth-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .auth-error {
+            color: #dc3545;
+            margin-top: 1rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="is-preload">
+    <div id="wrapper">
+        <div id="main">
+            <div class="inner">
+                <!-- 身份验证界面 -->
+                <div id="auth-container" class="auth-container">
+                    <h2>访问验证</h2>
+                    <p>请输入访问密码查看统计数据</p>
+                    <input type="password" id="auth-password" class="auth-input" placeholder="输入密码" />
+                    <br>
+                    <button class="auth-btn" onclick="authenticate()">验证</button>
+                    <div id="auth-error" class="auth-error hidden">密码错误，请重试</div>
+                </div>
+
+                <!-- 统计面板 -->
+                <div id="stats-panel" class="stats-container hidden">
+                    <a href="index.html" class="back-link">← 返回主页</a>
+                    
+                    <h1>私人访客统计面板</h1>
+                    <button class="refresh-btn" onclick="refreshStats()">刷新数据</button>
+                    
+                    <!-- 统计卡片 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="total-visits">0</div>
+                            <div class="stat-label">总访问量</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="today-visits">0</div>
+                            <div class="stat-label">今日访问</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="recent-visitors">0</div>
+                            <div class="stat-label">近期访客</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="avg-daily">0</div>
+                            <div class="stat-label">日均访问</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 访问趋势图 -->
+                    <div class="chart-container">
+                        <h3>最近7天访问趋势</h3>
+                        <canvas id="visitChart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <!-- 最近访客列表 -->
+                    <div class="chart-container">
+                        <h3>最近访客记录</h3>
+                        <table class="visitors-table">
+                            <thead>
+                                <tr>
+                                    <th>访问时间</th>
+                                    <th>页面</th>
+                                    <th>来源</th>
+                                    <th>设备信息</th>
+                                </tr>
+                            </thead>
+                            <tbody id="visitors-list">
+                                <!-- 动态填充 -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 数据管理 -->
+                    <div class="chart-container">
+                        <h3>数据管理</h3>
+                        <button class="refresh-btn" onclick="exportData()" style="background: #28a745;">导出数据</button>
+                        <button class="refresh-btn" onclick="clearData()" style="background: #dc3545;">清除所有数据</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/visitor-analytics.js"></script>
+    <script>
+        // 访问密码 - 你可以修改这个密码
+        const ACCESS_PASSWORD = 'victoir';
+
+        function authenticate() {
+            const password = document.getElementById('auth-password').value;
+            const errorDiv = document.getElementById('auth-error');
+            
+            if (password === ACCESS_PASSWORD) {
+                document.getElementById('auth-container').classList.add('hidden');
+                document.getElementById('stats-panel').classList.remove('hidden');
+                loadDashboard();
+                
+                // 记住登录状态（会话期间）
+                sessionStorage.setItem('stats_authenticated', 'true');
+            } else {
+                errorDiv.classList.remove('hidden');
+                document.getElementById('auth-password').value = '';
+            }
+        }
+
+        // 检查是否已经验证过
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('stats_authenticated') === 'true') {
+                document.getElementById('auth-container').classList.add('hidden');
+                document.getElementById('stats-panel').classList.remove('hidden');
+                setTimeout(loadDashboard, 100);
+            }
+            
+            // 回车键登录
+            document.getElementById('auth-password').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    authenticate();
+                }
+            });
+        });
+
+        function loadDashboard() {
+            if (!window.visitorAnalytics) {
+                console.error('Visitor analytics not loaded');
+                return;
+            }
+            
+            const stats = window.visitorAnalytics.getStatsSummary();
+            const fullStats = window.visitorAnalytics.getStats();
+            
+            // 更新统计卡片
+            document.getElementById('total-visits').textContent = stats.totalVisits;
+            document.getElementById('today-visits').textContent = stats.todayVisits;
+            document.getElementById('recent-visitors').textContent = stats.recentVisitorsCount;
+            
+            // 计算日均访问量
+            const historyDays = Object.keys(stats.visitHistory).length;
+            const avgDaily = historyDays > 0 ? Math.round(stats.totalVisits / historyDays) : 0;
+            document.getElementById('avg-daily').textContent = avgDaily;
+            
+            // 绘制访问趋势图
+            drawVisitChart(stats.visitHistory);
+            
+            // 显示最近访客
+            displayRecentVisitors(fullStats.recentVisitors || []);
+        }
+
+        function refreshStats() {
+            loadDashboard();
+        }
+
+        function exportData() {
+            const stats = window.visitorAnalytics.getStats();
+            const dataStr = JSON.stringify(stats, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(dataBlob);
+            link.download = `visitor-stats-${new Date().toISOString().split('T')[0]}.json`;
+            link.click();
+        }
+
+        function clearData() {
+            if (confirm('确定要清除所有访客统计数据吗？此操作不可恢复。')) {
+                localStorage.removeItem('visitor_stats');
+                alert('数据已清除');
+                loadDashboard();
+            }
+        }
+
+        function drawVisitChart(visitHistory) {
+            const canvas = document.getElementById('visitChart');
+            const ctx = canvas.getContext('2d');
+            
+            // 获取最近7天的数据
+            const last7Days = [];
+            const today = new Date();
+            
+            for (let i = 6; i >= 0; i--) {
+                const date = new Date(today);
+                date.setDate(date.getDate() - i);
+                const dateStr = date.toDateString();
+                last7Days.push({
+                    date: dateStr,
+                    visits: visitHistory[dateStr] || 0,
+                    label: date.toLocaleDateString('zh-CN', { month: 'short', day: 'numeric' })
+                });
+            }
+            
+            // 清空画布
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // 设置样式
+            const padding = 40;
+            const chartWidth = canvas.width - 2 * padding;
+            const chartHeight = canvas.height - 2 * padding;
+            
+            // 找到最大值
+            const maxVisits = Math.max(...last7Days.map(d => d.visits), 1);
+            
+            // 绘制坐标轴
+            ctx.strokeStyle = '#e9ecef';
+            ctx.lineWidth = 1;
+            
+            // Y轴
+            ctx.beginPath();
+            ctx.moveTo(padding, padding);
+            ctx.lineTo(padding, padding + chartHeight);
+            ctx.stroke();
+            
+            // X轴
+            ctx.beginPath();
+            ctx.moveTo(padding, padding + chartHeight);
+            ctx.lineTo(padding + chartWidth, padding + chartHeight);
+            ctx.stroke();
+            
+            // 绘制数据点和线条
+            ctx.strokeStyle = '#007bff';
+            ctx.fillStyle = '#007bff';
+            ctx.lineWidth = 2;
+            
+            ctx.beginPath();
+            last7Days.forEach((day, index) => {
+                const x = padding + (index * chartWidth) / (last7Days.length - 1);
+                const y = padding + chartHeight - (day.visits / maxVisits) * chartHeight;
+                
+                if (index === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+                
+                // 绘制数据点
+                ctx.beginPath();
+                ctx.arc(x, y, 4, 0, 2 * Math.PI);
+                ctx.fill();
+                ctx.beginPath();
+            });
+            ctx.stroke();
+            
+            // 绘制标签
+            ctx.fillStyle = '#6c757d';
+            ctx.font = '12px Arial';
+            ctx.textAlign = 'center';
+            
+            last7Days.forEach((day, index) => {
+                const x = padding + (index * chartWidth) / (last7Days.length - 1);
+                ctx.fillText(day.label, x, padding + chartHeight + 20);
+                
+                // 显示数值
+                if (day.visits > 0) {
+                    const y = padding + chartHeight - (day.visits / maxVisits) * chartHeight;
+                    ctx.fillText(day.visits.toString(), x, y - 10);
+                }
+            });
+        }
+
+        function displayRecentVisitors(visitors) {
+            const tbody = document.getElementById('visitors-list');
+            tbody.innerHTML = '';
+            
+            visitors.slice(0, 20).forEach(visitor => {
+                const row = document.createElement('tr');
+                
+                const time = new Date(visitor.timestamp).toLocaleString('zh-CN');
+                const page = visitor.page || '/';
+                const referrer = visitor.referrer === 'direct' ? '直接访问' : 
+                               visitor.referrer.length > 30 ? visitor.referrer.substring(0, 30) + '...' : visitor.referrer;
+                const device = `${visitor.screen} | ${visitor.language}`;
+                
+                row.innerHTML = `
+                    <td>${time}</td>
+                    <td>${page}</td>
+                    <td>${referrer}</td>
+                    <td>${device}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+        }
+    </script>
+</body>
+
+</html>

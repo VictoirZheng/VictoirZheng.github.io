@@ -1,0 +1,117 @@
+{
+    "memo_12": {
+        "title": "MgAl&AlSi",
+        "ingredients": [
+            "Mg",
+            "Al",
+            "Si"
+        ],
+        "desc": "镁铝 & 铝硅，坚固的合金，坚固的感情。"
+    },
+    "memo_52": {
+        "title": "521",
+        "ingredients": [
+            "B",
+            "He",
+            "H"
+        ],
+        "desc": "硼氦氢... 5 2 1，我爱你。"
+    },
+    "memo_26": {
+        "title": "26岁",
+        "ingredients": [
+            "Fe",
+            "Fe",
+            "Fe"
+        ],
+        "desc": "铁一般的意志，最稳定的元素，最美好的年纪。"
+    },
+    "memo_22": {
+        "title": "硕士三年",
+        "ingredients": [
+            "V",
+            "Cr",
+            "Mn"
+        ],
+        "desc": "钒铬锰... 奋斗的三年，闪光的三年。"
+    },
+    "memo_5": {
+        "title": "Happy Birthday",
+        "ingredients": [
+            "He",
+            "Be",
+            "B"
+        ],
+        "desc": "氢氦锂铍硼... 生日快乐！"
+    },
+    "memo_9": {
+        "title": "酒精",
+        "ingredients": [
+            "C",
+            "H",
+            "O"
+        ],
+        "desc": "CH3CH2OH，微醺的时刻。"
+    },
+    "memo_30": {
+        "title": "你的Mg夺走了我的Zn",
+        "ingredients": [
+            "Mg",
+            "Zn"
+        ],
+        "desc": "你的美(Mg)夺走了我的心(Zn)。"
+    },
+    "memo_99": {
+        "title": "穿金戴银",
+        "ingredients": [
+            "Ag",
+            "Au"
+        ],
+        "desc": "金银满屋，富贵吉祥。"
+    },
+    "memo_69": {
+        "title": "你懂的",
+        "ingredients": [
+            "Ca",
+            "O",
+            "Ni"
+        ],
+        "desc": "钙氧镍... Ca O Ni... 看欧尼？"
+    },
+    "memo_36": {
+        "title": "你太美",
+        "ingredients": [
+            "Ni",
+            "Ti",
+            "Mg"
+        ],
+        "desc": "镍钛镁... 你太美！"
+    },
+    "memo_49": {
+        "title": "心疼你",
+        "ingredients": [
+            "Zn",
+            "Cu",
+            "Ni"
+        ],
+        "desc": "锌铜镍... 心疼你。"
+    },
+    "memo_79": {
+        "title": "PBS",
+        "ingredients": [
+            "P",
+            "B",
+            "S"
+        ],
+        "desc": "磷硼硫... PBS。"
+    },
+    "memo_123": {
+        "title": "LKM",
+        "ingredients": [
+            "Li",
+            "K",
+            "Mn"
+        ],
+        "desc": "锂钾锰... LKM。"
+    }
+}

@@ -1,0 +1,141 @@
+{
+    "start": [
+        {
+            "portrait": "",
+            "name": "系统",
+            "text": "滋滋...哔哔滋滋..."
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "锵锵~~"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "噔噔！！"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "可以看到画面吗？"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "肯定看得到吧！"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "宝宝"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "生日快乐！"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "生日快乐！！"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "生日快乐！！！"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "耶"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "没有想到吧！"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "应该挺难想到吧？"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "这个技术含量可比写首诗写首歌要高不少呢？"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "啧啧..."
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "啧啧..."
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "但是因为工期比较紧张，可能还是比较粗糙就是啦"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "而且这也是我第一次尝试这种小工程！"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "所以正好借宝宝的这次机会来实践一下，过程很有趣哦！"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "那么就来开始吧，要努力做到全收集哦"
+        },
+        {
+            "portrait": "",
+            "name": "系统",
+            "text": "点击右下角的老虎机图标来抽取你的礼物吧！"
+        },
+        {
+            "portrait": "",
+            "name": "系统",
+            "text": "左上角可以检查已经收集到的礼物集合，不过左下角是什么呢？"
+        }
+    ],
+    "test_chat": [
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "嘿，Lynn，你能听到我说话吗？"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "听得很清楚！这个通信频道很稳定。"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "太好了。我想测试一下如果我们语速很快会发生什么。"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "你是说像这样快速切换头像吗？"
+        },
+        {
+            "portrait": "victor",
+            "name": "Victor",
+            "text": "没错！看起来系统处理得很好。"
+        },
+        {
+            "portrait": "lynn",
+            "name": "Lynn",
+            "text": "太棒了！"
+        }
+    ]
+}

@@ -1,45 +1,54 @@
 <!DOCTYPE HTML>
+<!--
+	Based on Phantom by HTML5 UP (html5up.net | @ajlkn), CCA 3.0 license.
+	Pages share the same header/footer; edit content inside <div id="main">.
+-->
 <html lang="en">
+
 <head>
-	<title>Research - Qingguang Zheng</title>
+	<title>Research | Qingguang Zheng</title>
 	<meta charset="utf-8" />
-	<meta name="description" content="Research in computational psychology and NLP applications by Qingguang Zheng" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Research projects, publications, conference presentations and open-source tools by Qingguang Zheng." />
+	<meta name="author" content="Qingguang Zheng" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+	<link rel="canonical" href="https://victoirzheng.github.io/research.html" />
+	<link rel="alternate" hreflang="en" href="https://victoirzheng.github.io/" />
+	<link rel="alternate" hreflang="zh" href="https://victoirzheng.github.io/zh/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Research | Qingguang Zheng" />
+	<meta property="og:description" content="Research projects, publications, conference presentations and open-source tools by Qingguang Zheng." />
+	<meta property="og:url" content="https://victoirzheng.github.io/research.html" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 </head>
+
 <body class="is-preload">
-	<!-- Skip Link for Accessibility -->
 	<a href="#main" class="skip-link">Skip to main content</a>
-	
-	<!-- Wrapper -->
+
 	<div id="wrapper">
 
 		<!-- Header -->
 		<header id="header">
 			<div class="inner">
-				<!-- Logo -->
 				<a href="index.html" class="logo">
 					<span class="symbol"><img src="images/logo.svg" alt="Qingguang Zheng Logo" width="32" height="32" /></span><span class="title">Victoir</span>
 				</a>
 
-				<!-- Mobile Menu Toggle -->
 				<button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
 					<span class="menu-icon">☰</span>
 				</button>
 
-				<!-- Main Navigation -->
 				<nav class="main-nav">
 					<button class="menu-close" aria-label="Close navigation menu">
 						<span class="close-icon">✕</span>
 					</button>
 					<ul>
 						<li><a href="index.html">Home</a></li>
-						<li><a href="research.html" class="active">Research</a></li>
+						<li><a href="research.html" class="active" aria-current="page">Research</a></li>
 						<li><a href="skills.html">Skills</a></li>
 						<li><a href="personal.html">Personal</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="contact.html">Contact</a></li>
-						<li><a href="zh/index.html" class="language-toggle">中文</a></li>
+						<li><a href="zh/index.html" class="language-toggle" lang="zh">中文</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -48,111 +57,172 @@
 		<!-- Main -->
 		<div id="main">
 			<div class="inner">
+
 				<h1>Research</h1>
-				<p>Computational psychology and NLP applications for understanding family dynamics and mental health.</p>
-				
-				<!-- Research Projects -->
+				<p>I use computational methods to understand close relationships: what couples talk about, how they
+					talk, and how their emotions, behavior and brains synchronize during interaction. A parallel line of
+					work applies large-scale data analysis to the mental health of Chinese students.</p>
+
 				<section>
-					<h2>Selected Projects</h2>
+					<h2>Research Projects</h2>
 					<div class="project-grid">
+
 						<article class="project-card">
-							<h4>The Effect of Marital Interaction on Marital Relationship: Behavior and Cognitive Neurosis Mechanism</h4>
-							<p>Using NLP, CV and time series analysis to understand spousal communication patterns (both verbal and non-verbal) and developing an AI-powered automatical coding system.</p>
-							<div class="tags">
-								<span class="tag">NSFC Grant</span>
-								<span class="tag">Python</span>
-								<span class="tag">R</span>
-								<span class="tag">NLP</span>
-								<span class="tag">LLMs</span>
-								<span class="tag">OpenFace</span>
-								<span class="tag">fMRI</span>
-								<span class="tag">Family Dynamics</span>
-							</div>
+							<h4>The Effect of Marital Interaction on Marital Relationship: Behavioral and Cognitive Neural Mechanisms</h4>
+							<p class="project-meta">NSFC General Program &middot; 2022&ndash;present &middot; PI: Prof. Xiaoyi Fang &middot; Primary student researcher</p>
+							<ul>
+								<li>Applied LIWC, LDA topic modeling and BERT fine-tuning to 720 spousal interaction transcripts.</li>
+								<li>Designed a few-shot prompting strategy for LLMs (Gemini, DeepSeek, Qwen) to automate thematic coding, raising consistency from a 67% zero-shot baseline to 94%, comparable to human annotators.</li>
+								<li>Built a multimodal pipeline (OpenFace facial AU tracking, Whisper speech-to-text, LLM sentiment) for couple interaction videos.</li>
+								<li>Extracted language, facial-expression and gaze synchrony with windowed cross-correlation, recurrence quantification and detrended fluctuation analysis.</li>
+							</ul>
+							<div class="tags"><span class="tag">NSFC</span><span class="tag">LLMs</span><span class="tag">NLP</span><span class="tag">OpenFace</span><span class="tag">Whisper</span><span class="tag">Time Series</span><span class="tag">Synchrony</span><span class="tag">fMRI</span></div>
 						</article>
 
 						<article class="project-card">
-							<h4>The Dynamic Association between Marital Interaction and Marital Relationship Among Newly Couple: The Mediating Role of Marital Emotion and Affection</h4>
-							<p>Longitunal laboratory observation & fNIRS hyper-scanning of newlyards spousal interactions, decoding interaction patterns to predict later relationship outcomes.</p>
-							<div class="tags">
-								<span class="tag">NSFC Grant</span>
-								<span class="tag">Python</span>
-								<span class="tag">R</span>
-								<span class="tag">NLP</span>
-								<span class="tag">LIWC</span>
-								<span class="tag">LDA</span>
-								<span class="tag">fNIRS</span>
-								<span class="tag">Family Dynamics</span>
-							</div>
+							<h4>Analyses of Chinese College Students&rsquo; Mental Health and Revision of the College Students Mental Health Screening Scale (CSMHSS)</h4>
+							<p class="project-meta">Ministry of Education &middot; 2022&ndash;present &middot; PI: Prof. Xiaoyi Fang &middot; Primary student researcher</p>
+							<ul>
+								<li>Built a reproducible R/Python pipeline (7,000+ lines) automating cleaning, modeling, visualization, scale revision and report generation.</li>
+								<li>Evaluate reliability, validity and norms of the CSMHSS each year with samples of 250,000+ students.</li>
+								<li>Analyze nationwide prevalence, regional distribution and trends of mental health problems among 5,000,000+ students per year.</li>
+								<li>Lead a four-person graduate team producing annual evidence-based reports for national policy.</li>
+							</ul>
+							<div class="tags"><span class="tag">MoE</span><span class="tag">Psychometrics</span><span class="tag">Big Data</span><span class="tag">R</span><span class="tag">Python</span><span class="tag">Mental Health</span></div>
 						</article>
 
 						<article class="project-card">
-							<h4>Analyses of Chinese College Students' Mental Health Status and Revisions of College Students Mental Health Screening Scale</h4>
-							<p>Large-scale analysis of Chinese college students' mental health status with 5M+ participants per year for national policy impact.</p>
-							<div class="tags">
-								<span class="tag">MoE Project</span>
-								<span class="tag">Python</span>
-								<span class="tag">R</span>
-								<span class="tag">Big Data</span>
-								<span class="tag">Mental Health</span>
-							</div>
+							<h4>The Dynamic Association between Marital Interaction and Marital Relationship among Newlyweds: The Mediating Role of Marital Emotion and Affection</h4>
+							<p class="project-meta">NSFC General Program &middot; 2020&ndash;2023 &middot; PI: Prof. Xiaoyi Fang &middot; Primary student researcher</p>
+							<ul>
+								<li>Ran fNIRS hyperscanning experiments with 50+ couples on a NIRScout system (150+ hours).</li>
+								<li>Managed a database of 2,000+ interaction recordings (1,000+ hours, 4 TB): quality control, metadata tagging and transcoding.</li>
+								<li>Built an automated pipeline producing personalized feedback reports for 400+ participating couples.</li>
+								<li>Led a five-person team to compile 100+ interaction video stimuli and collect 20,000+ external valence ratings.</li>
+							</ul>
+							<div class="tags"><span class="tag">NSFC</span><span class="tag">fNIRS Hyperscanning</span><span class="tag">Longitudinal</span><span class="tag">Dyadic Data</span><span class="tag">Automation</span></div>
 						</article>
 
 						<article class="project-card">
 							<h4>Emotional Semantic Space: Individual Differences and Prediction of Emotional Well-Being</h4>
-							<p>Using semantic space method to predict individual differences in emotion, social values and well-being.</p>
-							<div class="tags">
-								<span class="tag">National Undergraduate Grant</span>
-								<span class="tag">Semantic Space</span>
-								<span class="tag">NLP</span>
-								<span class="tag">RSA</span>
-								<span class="tag">SVM</span>
-								<span class="tag">RVR</span>
-								<span class="tag">Mental Health</span>
-							</div>
+							<p class="project-meta">National Undergraduate Innovation Program &middot; 2021&ndash;2022 &middot; PI: Prof. Yanchao Bi &middot; Core team member</p>
+							<ul>
+								<li>Ran the Multiple Arrangement Task (MATLAB) to map individual lexical-semantic spaces.</li>
+								<li>Programmed Go/No-Go and word-association paradigms in PsychoPy and deployed them online.</li>
+								<li>Predicted depression and anxiety from semantic-space metrics (N = 275) with hierarchical clustering and relevance vector regression.</li>
+							</ul>
+							<div class="tags"><span class="tag">Semantic Space</span><span class="tag">RSA</span><span class="tag">RVR</span><span class="tag">PsychoPy</span><span class="tag">Mental Health</span></div>
+						</article>
+
+						<article class="project-card">
+							<h4>Associations Between Individual Lexical-Semantic Spaces and Emotional Patterns, Social Values and Moral Tendencies</h4>
+							<p class="project-meta">School-level Undergraduate Innovation Program &middot; 2020&ndash;2021 &middot; PI: Prof. Yanchao Bi &middot; Core team member</p>
+							<ul>
+								<li>Measured lexical-semantic structure with paired-similarity ratings and triplet odd-one-out tasks.</li>
+								<li>Captured emotion-recognition dynamics with MouseTracker.</li>
+								<li>Linked semantic structure to mouse trajectories, social value orientation and moral judgment with SVM and RSA.</li>
+							</ul>
+							<div class="tags"><span class="tag">Semantic Space</span><span class="tag">SVM</span><span class="tag">RSA</span><span class="tag">MouseTracker</span></div>
 						</article>
 					</div>
 				</section>
 
-				<!-- Publications -->
 				<section>
-					<h2>Featured Publications</h2>
+					<h2>Publications &amp; Manuscripts</h2>
+					<h3 class="pub-group">Under Review</h3>
 					<div class="publications-list">
+
 						<article class="card">
 							<h4>We-Talk Boosts Marital Quality across Contexts: Roles of Perceived Understanding and Dyadic Congruence</h4>
-							<p><strong>Zheng, Q.</strong>, Zhang J., Li, Q., Li, K., Ma, S., & Fang, X.</p>
-							<p><em>Journal of Marriage and Family</em> (Under Review)</p>
+							<p><strong>Zheng, Q.</strong>, Zhang, J., Li, Q., Li, K., Ma, S., &amp; Fang, X.</p>
+							<p><em>Journal of Marriage and Family</em> (under review)</p>
 						</article>
 
 						<article class="card">
 							<h4>Hidden Burdens: Emotional and Behavioral Problems Among Chinese Adolescents and the Interplay of Family and Regional Socioeconomic Status</h4>
-							<p>Tong, W.*, <strong>Zheng, Q.*</strong>, Li, K., Li, Q., Feng, T., & Fang, X. (*equal contribution)</p>
-							<p><em>Journal of Affective Disorders</em> (Under Review)</p>
+							<p>Tong, W.*, <strong>Zheng, Q.</strong>*, Li, K., Li, Q., Feng, T., &amp; Fang, X.</p>
+							<p><em>Journal of Affective Disorders</em> (under review)</p>
+						</article>
+					</div>
+					<h3 class="pub-group">In Preparation</h3>
+					<div class="publications-list">
+
+						<article class="card">
+							<h4>The Impact of Spousal Interaction Themes and Patterns on Marital Quality: A Semantic and Time-Series Analysis</h4>
+							<p><strong>Zheng, Q.</strong></p>
+							<p>Master&rsquo;s thesis, Beijing Normal University</p>
 						</article>
 
 						<article class="card">
-							<h4>The Impact of Spousal Interaction Themes and Patterns on Marital Quality: A Semantic Analysis.</h4>
-							<p><strong>Zheng, Q.</strong></p>
-							<p><em>Master's Thesis</em> (In Preparation)</p>
+							<h4>Fertility Decline: Need Fulfillment and Marital Quality as Predictors of Fertility Intentions Among Newlyweds</h4>
+							<p>Wang, X.*, <strong>Zheng, Q.</strong>*, &amp; Fang, X.</p>
+							<p>In preparation</p>
+						</article>
+
+						<article class="card">
+							<h4>Neural Coupling in Newlyweds: Divergent Synchronization Patterns When Discussing Marital vs. Family-of-Origin Issues</h4>
+							<p>Ma, S., <strong>Zheng, Q.</strong>, Li, Q., &amp; Fang, X.</p>
+							<p>In preparation</p>
+						</article>
+					</div>
+					<p class="footnote">* Equal contribution.</p>
+				</section>
+
+				<section>
+					<h2>Conference Presentations</h2>
+					<div class="publications-list">
+
+						<article class="card">
+							<h4>High Maternal Sensory Processing Sensitivity and Mindful Parenting: For Better or For Worse?</h4>
+							<p>Li, K., <strong>Zheng, Q.</strong>, Shen, J., Liu, C., &amp; Deater-Deckard, K.</p>
+							<p>Society for Research on Adolescence (SRA) 2026 Biennial Meeting, Toronto, Canada (accepted)</p>
+						</article>
+
+						<article class="card">
+							<h4>Video-Based Machine-Learning Model for Couple Interaction Pattern Analysis</h4>
+							<p><strong>Zheng, Q.</strong>, &amp; Fang, X.</p>
+							<p>Poster, 2nd Academic Conference of the Marriage and Family Psychology and Counseling Committee, Chinese Psychological Society &amp; 6th International Symposium on Marriage and Family, Guangzhou, November 2023</p>
+						</article>
+
+						<article class="card">
+							<h4>Prevalence of Mental Health Problems, Levels, and Comorbidity among Chinese Children and Adolescents: A Population-Based Nationwide Study</h4>
+							<p>Li, K., <strong>Zheng, Q.</strong>, &amp; Fang, X.</p>
+							<p>Poster, 2nd Academic Conference of the Marriage and Family Psychology and Counseling Committee, Chinese Psychological Society &amp; 6th International Symposium on Marriage and Family, Guangzhou, November 2023</p>
+						</article>
+
+						<article class="card">
+							<h4>Emotional Semantic Features in Marriage Interview Text and Their Prediction of Marital Quality</h4>
+							<p><strong>Zheng, Q.</strong>, &amp; Fang, X.</p>
+							<p>Poster, 25th National Academic Conference of Psychology, Chengdu, October 2023</p>
 						</article>
 					</div>
 				</section>
 
-				<!-- Research Skills -->
-				<!-- <section>
-					<h2>Research Skills</h2>
-					<div class="tags" style="margin-top: var(--space-md);">
-						<span class="tag">Computational Psychology</span>
-						<span class="tag">Natural Language Processing</span>
-						<span class="tag">Machine Learning</span>
-						<span class="tag">Deep Learning</span>
-						<span class="tag">Statistical Analysis</span>
-						<span class="tag">Neuroimaging (fMRI, fNIRS)</span>
-						<span class="tag">Behavioral Coding</span>
-						<span class="tag">Large-Scale Data Analysis</span>
-						<span class="tag">Python Programming</span>
-						<span class="tag">R Statistical Computing</span>
+				<section>
+					<h2>Open-Source Research Tools</h2>
+					<div class="project-grid">
+						<a class="project-card tool-card" href="https://github.com/VictoirZheng/SEM-Batch-Processor" target="_blank" rel="noopener">
+							<h4>SEM-Batch-Processor</h4>
+							<p>R&nbsp;Shiny app that drives Mplus to batch-run structural equation models, extract estimates and plot results.</p>
+							<div class="tags"><span class="tag">R</span><span class="tag">Shiny</span><span class="tag">Mplus</span><span class="tag">SEM</span></div>
+						</a>
+						<a class="project-card tool-card" href="https://github.com/VictoirZheng/2503AutomaticReportGenerator" target="_blank" rel="noopener">
+							<h4>AutoReport</h4>
+							<p>Pipeline that turns questionnaire data into personalized feedback reports for research participants.</p>
+							<div class="tags"><span class="tag">R</span><span class="tag">Python</span><span class="tag">HTML/JS</span></div>
+						</a>
+						<a class="project-card tool-card" href="https://github.com/VictoirZheng/2407BertFinetuningProject" target="_blank" rel="noopener">
+							<h4>BERT for Therapist&ndash;Client Interaction</h4>
+							<p>Fine-tuned BERT for encoding and analyzing counseling dialogue. Second Prize, MindSpore Innovation Competition 2024.</p>
+							<div class="tags"><span class="tag">BERT</span><span class="tag">MindSpore</span><span class="tag">NLP</span></div>
+						</a>
+						<a class="project-card tool-card" href="https://github.com/VictoirZheng/2406GoNoGoParadigm" target="_blank" rel="noopener">
+							<h4>Go/No-Go Paradigm</h4>
+							<p>Online-deployable Go/No-Go task for behavioral experiments.</p>
+							<div class="tags"><span class="tag">PsychoPy</span><span class="tag">Experiment</span></div>
+						</a>
 					</div>
-				</section> -->
+				</section>
 			</div>
 		</div>
 
@@ -160,18 +230,18 @@
 		<footer id="footer">
 			<div class="inner">
 				<ul class="copyright">
-					<li>&copy; 2025 Victoir. All rights reserved</li>
-					<li>Design: <a href="http://kiro.dev">Kiro</a> & <a></a><a href="http://html5up.net">HTML5 UP</a></li>
-
+					<li>&copy; 2026 Qingguang Zheng</li>
+					<li>Design: <a href="https://kiro.dev">Kiro</a> &amp; <a href="https://html5up.net">HTML5 UP</a></li>
+					<li>Hosted on <a href="https://pages.github.com">GitHub Pages</a></li>
 				</ul>
 			</div>
 		</footer>
 
 	</div>
 
-	<!-- Scripts -->
 	<script src="assets/js/main.js"></script>
 	<script src="assets/js/visitor-analytics.js"></script>
 
 </body>
+
 </html>

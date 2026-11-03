@@ -2202,3 +2202,147 @@ ducation Background Styles */
 		font-size: var(--text-base);
 	}
 }
+/* ==========================================================
+   2026 content refresh: news/awards list, highlights,
+   project details, publication groups, tool cards
+   ========================================================== */
+.name-zh {
+	font-size: 0.55em;
+	color: var(--color-text-light);
+	font-weight: 400;
+	margin-left: 0.35em;
+	white-space: nowrap;
+}
+
+.hero .tags,
+section > .tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-xs);
+	margin-bottom: var(--space-xl);
+}
+
+section > .tags .tag {
+	font-size: var(--text-sm);
+	padding: 0.35rem 0.75rem;
+}
+
+.highlight-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: var(--space-lg);
+	margin: var(--space-md) 0 var(--space-lg);
+}
+
+.highlight {
+	border-left: 3px solid var(--color-primary);
+	padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
+}
+
+.highlight p {
+	color: var(--color-text-light);
+	font-size: var(--text-sm);
+	margin: 0;
+}
+
+.highlight .highlight-number {
+	font-family: var(--font-heading);
+	font-size: var(--text-3xl);
+	font-weight: 700;
+	color: var(--color-primary);
+	line-height: 1.2;
+	margin-bottom: var(--space-xs);
+}
+
+.news-list {
+	list-style: none;
+	margin: var(--space-md) 0 var(--space-lg);
+	padding: 0;
+}
+
+.news-list li {
+	display: grid;
+	grid-template-columns: 5.5rem 1fr;
+	gap: var(--space-sm);
+	padding: var(--space-sm) 0;
+	border-bottom: 1px solid var(--color-border);
+}
+
+.news-list li:last-child {
+	border-bottom: none;
+}
+
+.news-list p {
+	margin: 0;
+}
+
+.news-date {
+	font-variant-numeric: tabular-nums;
+	font-weight: 600;
+	color: var(--color-primary);
+	font-size: var(--text-sm);
+	padding-top: 0.1rem;
+}
+
+.project-card .project-meta {
+	font-size: var(--text-sm);
+	color: var(--color-text-light);
+	margin-bottom: var(--space-sm);
+}
+
+.project-card ul {
+	margin: 0 0 var(--space-sm);
+	padding-left: 1.1rem;
+}
+
+.project-card li {
+	font-size: var(--text-sm);
+	margin-bottom: 0.4rem;
+	line-height: 1.55;
+}
+
+a.tool-card {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+}
+
+a.tool-card:hover h4,
+a.tool-card:focus-visible h4 {
+	text-decoration: underline;
+}
+
+.pub-group {
+	font-size: var(--text-lg);
+	color: var(--color-text-light);
+	margin: var(--space-lg) 0 0;
+}
+
+.pub-group + .publications-list {
+	margin-top: var(--space-sm);
+}
+
+.footnote {
+	font-size: var(--text-sm);
+	color: var(--color-text-light);
+}
+
+@media (max-width: 480px) {
+	.news-list li {
+		grid-template-columns: 1fr;
+		gap: 0.15rem;
+	}
+	.name-zh {
+		display: block;
+		margin: 0.25em 0 0;
+	}
+}
+
+/* Text badge used where no logo image is available (e.g. UConn) */
+.university-logo.logo-text {
+	background: #000e2f;
+	color: #ffffff;
+	font-size: 0.62rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}

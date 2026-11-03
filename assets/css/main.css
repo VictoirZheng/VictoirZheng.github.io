@@ -2337,3 +2337,12 @@ a.tool-card:focus-visible h4 {
 		margin: 0.25em 0 0;
 	}
 }
+
+/* Text badge used where no logo image is available (e.g. UConn) */
+.university-logo.logo-text {
+	background: #000e2f;
+	color: #ffffff;
+	font-size: 0.62rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+}

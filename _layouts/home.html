@@ -1,0 +1,18 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
+<section class="intro">
+  <h1>{{ page.heading | smartify }}</h1>
+  <p class="intro__name">{{ page.subtitle }}</p>
+  <div class="intro__body">
+{{ content }}
+  </div>
+  <p class="intro__links">
+    <a href="{{ site.author.cv | relative_url }}">{{ t.cv }}</a>
+    <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+  </p>
+</section>
+{%- for section in page.sections %}
+{% include home/{{ section }}.html %}
+{%- endfor %}

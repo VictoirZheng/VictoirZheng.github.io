@@ -1,0 +1,8 @@
+{%- if site.posts.size > 0 %}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+<section class="section" id="writing">
+  <h2>{{ t.writing }}</h2>
+  {% include post-list.html posts=site.posts limit=3 %}
+  <p class="more"><a href="{{ '/blog/' | relative_url }}">{{ t.all_posts }} &rarr;</a></p>
+</section>
+{%- endif %}

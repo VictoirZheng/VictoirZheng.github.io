@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Editor · Qingguang Zheng</title>
+</head>
+<body>
+  <!--
+    Sveltia CMS, pinned to one version. To upgrade, change the version in the URL and
+    replace the integrity hash with the new file's (see README.md).
+  -->
+  <script src="https://unpkg.com/@sveltia/cms@0.250.2/dist/sveltia-cms.js"
+    integrity="sha384-C1+1L3qphgbrAxO2FdF1IFZO8lu9vKwl/r2HKwNT23T2pUQZzDzyXYRAm08skZ3Y"
+    crossorigin="anonymous"></script>
+  <script>
+    // Preview posts the way the site renders them (same stylesheet, same structure as _layouts/post.html).
+    CMS.registerPreviewStyle('/assets/css/site.css', { collection: 'posts' });
+
+    const formatDate = (value, lang) => {
+      if (!value) return '';
+      const date = new Date(String(value).slice(0, 10) + 'T12:00:00');
+      if (Number.isNaN(date.getTime())) return String(value);
+      return date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    };
+
+    const PostPreview = ({ entry, widgetFor }) => {
+      const get = (key) => entry.getIn(['data', key]);
+      const lang = get('lang') || 'en';
+      const tags = (get('tags')?.toJS?.() ?? []).filter(Boolean);
+      return html`
+        <div className="wrap" lang=${lang}>
+          <article className="post">
+            <header className="page-header">
+              <p className="post-meta" data-key-path="date">${formatDate(get('date'), lang)}</p>
+              <h1 data-key-path="title">${get('title')}</h1>
+              ${get('description') ? html`<p className="lede" data-key-path="description">${get('description')}</p>` : null}
+            </header>
+            ${get('published') === false ? html`<p className="note">Draft: this post is not shown on the site.</p>` : null}
+            <div className="prose" data-key-path="body">${widgetFor('body')}</div>
+            ${tags.length ? html`<footer className="post-footer"><ul className="tags" data-key-path="tags">${tags.map((tag) => html`<li key=${tag}>${tag}</li>`)}</ul></footer>` : null}
+          </article>
+        </div>`;
+    };
+    CMS.registerPreviewTemplate('posts', PostPreview);
+  </script>
+</body>
+</html>

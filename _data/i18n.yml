@@ -1,0 +1,45 @@
+# Interface text for each page language (set with `lang:` on a page or post).
+
+en:
+  name: English
+  home: /
+  nav:
+    - { title: Research, url: /research/ }
+    - { title: Writing, url: /blog/ }
+    - { title: About, url: /about/ }
+  switch: { title: 中文, url: /zh/, lang: zh }
+  skip: Skip to content
+  cv: CV (PDF)
+  writing: Writing
+  all_posts: All posts
+  lately: Lately
+  projects: Projects
+  contact: Contact
+  min_read: min read
+  date_format: "%B %-d, %Y"
+  short_date: "%b %-d, %Y"
+  newer: Newer
+  older: Older
+  owner: Qingguang Zheng
+
+zh:
+  name: 中文
+  home: /zh/
+  nav:
+    - { title: 研究, url: /zh/#projects }
+    - { title: 文章, url: /blog/ }
+    - { title: 联系, url: /zh/#contact }
+  switch: { title: English, url: /, lang: en }
+  skip: 跳到正文
+  cv: 简历（英文 PDF）
+  writing: 文章
+  all_posts: 全部文章
+  lately: 最近
+  projects: 做过的研究
+  contact: 联系
+  min_read: 分钟读完
+  date_format: "%Y年%-m月%-d日"
+  short_date: "%Y年%-m月%-d日"
+  newer: 较新
+  older: 较早
+  owner: 郑庆广

@@ -1,0 +1,229 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms@0.250.2/schema/sveltia-cms.json
+#
+# Sveltia CMS configuration for the editor at /admin/.
+# Docs: https://sveltiacms.app/en/docs
+# Layouts, languages and redirects are set in _config.yml, so they are not edited here.
+
+backend:
+  name: github
+  repo: VictoirZheng/VictoirZheng.github.io
+  branch: main
+  # Sign in with a fine-grained GitHub token. There is no OAuth server for this site.
+  auth_methods: [token]
+
+site_url: https://victoirzheng.github.io
+display_url: https://victoirzheng.github.io
+logo:
+  src: /images/favicon.svg
+
+# Leave empty optional fields out of the files, so site-wide defaults (like the
+# link-preview image) still apply.
+output:
+  omit_empty_optional_fields: true
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+# Post URLs use ASCII only, e.g. /blog/first-week-at-uconn/.
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: posts
+    label: Posts
+    label_singular: Post
+    description: >-
+      Blog posts. Turn off Published to keep a post as a draft: drafts don't appear on the site,
+      but they are still visible in the public GitHub repository.
+    folder: _posts
+    create: true
+    slug:
+      template: "{{slug}}"
+      editable: [create]
+      hint: >-
+        This becomes the post's web address. Use lowercase English words joined by hyphens, e.g.
+        first-week-at-uconn. For a title in Chinese, type one here.
+    # Jekyll needs the date at the start of a post's filename.
+    path: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    preview_path: "blog/{{year}}/{{slug}}/"
+    sortable_fields:
+      fields: [date, title]
+      default: { field: date, direction: descending }
+    fields:
+      - { name: title, label: Title }
+      - name: date
+        label: Date
+        widget: datetime
+        type: date
+        format: YYYY-MM-DD
+        default: "{{now}}"
+      - name: lang
+        label: Language
+        widget: select
+        default: en
+        options:
+          - { label: English, value: en }
+          - { label: 中文, value: zh }
+      - name: description
+        label: Summary
+        widget: text
+        required: false
+        hint: One or two sentences, shown in post lists and link previews.
+      - { name: tags, label: Tags, widget: list, required: false, default: [] }
+      - name: image
+        label: Preview image
+        widget: image
+        required: false
+        hint: Optional. Shown when the post is shared on social media or in chat apps.
+      - name: published
+        label: Published
+        widget: boolean
+        default: true
+      - name: body
+        label: Body
+        widget: richtext
+        editor_components: [image, code-block, table, hr]
+
+  - name: pages
+    label: Pages
+    description: The text of the fixed pages.
+    files:
+      - name: home
+        label: Home (English)
+        file: index.md
+        fields:
+          - { name: heading, label: Greeting }
+          - { name: subtitle, label: Name line }
+          - { name: body, label: Introduction, widget: richtext }
+          - { name: focus_title, label: Topics heading }
+          - name: focus
+            label: Topics
+            widget: list
+            summary: "{{title}}"
+            fields:
+              - { name: title, label: Title }
+              - { name: text, label: Text, widget: text }
+      - name: home_zh
+        label: 首页（中文）
+        file: zh/index.md
+        fields:
+          - { name: title, label: Page title }
+          - { name: description, label: Description for search engines, widget: text }
+          - { name: heading, label: Greeting }
+          - { name: subtitle, label: Name line }
+          - { name: body, label: Introduction, widget: richtext }
+          - { name: focus_title, label: Topics heading }
+          - name: focus
+            label: Topics
+            widget: list
+            summary: "{{title}}"
+            fields:
+              - { name: title, label: Title }
+              - { name: text, label: Text, widget: text }
+          - { name: contact, label: Contact, widget: richtext, minimal: true }
+      - name: research
+        label: Research
+        file: research/index.md
+        fields:
+          - { name: title, label: Page title }
+          - { name: description, label: Description for search engines, widget: text }
+          - { name: body, label: Introduction, widget: richtext }
+          - { name: methods, label: Methods, widget: richtext, minimal: true }
+      - name: about
+        label: About
+        file: about/index.md
+        fields:
+          - { name: title, label: Page title }
+          - { name: description, label: Description for search engines, widget: text }
+          - { name: body, label: Text, widget: richtext }
+
+  - name: lists
+    label: Lists
+    description: Lists shown on the home and research pages. Fields marked Chinese are optional.
+    files:
+      - name: news
+        label: Lately
+        file: _data/news.yml
+        fields:
+          - name: items
+            label: Items
+            label_singular: Item
+            widget: list
+            root: true
+            add_to_top: true
+            summary: "{{when}}: {{text}}"
+            fields:
+              - { name: when, label: When, hint: "For example Nov 2026, or just 2026." }
+              - { name: when_zh, label: When (Chinese), required: false, hint: 例如 2026年11月 }
+              - name: text
+                label: Text
+                widget: richtext
+                minimal: true
+                buttons: [bold, italic, link]
+              - name: text_zh
+                label: Text (Chinese)
+                widget: richtext
+                minimal: true
+                buttons: [bold, italic, link]
+                required: false
+      - name: publications
+        label: Papers and talks
+        file: _data/publications.yml
+        fields:
+          - name: items
+            label: Items
+            label_singular: Item
+            widget: list
+            root: true
+            summary: "{{title}} ({{status}})"
+            fields:
+              - name: authors
+                label: Authors
+                hint: APA style, e.g. "Zheng, Q., & Fang, X." Add * after a name for equal contribution.
+              - { name: year, label: Year, required: false }
+              - { name: title, label: Title }
+              - name: venue
+                label: Venue
+                required: false
+                hint: Journal, conference or institution.
+              - name: status
+                label: Status
+                widget: select
+                default: Under review
+                options: [Published, In press, Under review, In preparation, Thesis, Poster, Talk]
+              - { name: url, label: Link, required: false, hint: "DOI or PDF link, if there is one." }
+      - name: projects
+        label: Projects
+        file: _data/projects.yml
+        fields:
+          - name: items
+            label: Projects
+            label_singular: Project
+            widget: list
+            root: true
+            summary: "{{title}} ({{years}})"
+            fields:
+              - { name: title, label: Title }
+              - { name: title_zh, label: Title (Chinese), required: false }
+              - { name: years, label: Years, hint: "e.g. 2020–2026" }
+              - { name: place, label: Where }
+              - { name: place_zh, label: Where (Chinese), required: false }
+              - { name: summary, label: Summary, widget: text }
+              - { name: summary_zh, label: Summary (Chinese), widget: text, required: false }
+              - { name: tags, label: Tags, widget: list, required: false, default: [] }
+      - name: software
+        label: Software
+        file: _data/software.yml
+        fields:
+          - name: items
+            label: Software
+            label_singular: Tool
+            widget: list
+            root: true
+            summary: "{{name}}"
+            fields:
+              - { name: name, label: Name }
+              - { name: url, label: Link }
+              - { name: description, label: Description, widget: text }
+              - { name: tags, label: Tags, widget: list, required: false, default: [] }

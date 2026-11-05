@@ -1,14 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 120" role="img" aria-label="QZ monogram">
-  <!-- Q ring with the Z's base sweeping out as the Q's tail. Edit fill/stroke colour here. -->
-  <defs>
-    <mask id="tail-gap"><rect width="124" height="120" fill="#fff"/><path d="M58 80.5C78 80.5 92 90 104 96.5C110 99.5 115 99 118.5 95C116 101.5 109 104 101 101.5C88 97 76 87.5 58 87.5Z" fill="#000" stroke="#000" stroke-width="8" stroke-linejoin="round"/></mask>
-  </defs>
-  <g fill="none" stroke="#1e3a8a" mask="url(#tail-gap)"><circle cx="56" cy="57" r="48" stroke-width="5.5"/></g>
-  <g fill="#1e3a8a">
-    <path d="M38 33H74V39.5H38Z"/>
-    <path d="M38 33H42V43H38Z"/>
-    <path d="M64 39.5H74L48 80.5H38Z"/>
-    <path d="M38 80.5H58C78 80.5 92 90 104 96.5C110 99.5 115 99 118.5 95C116 101.5 109 104 101 101.5C88 97 76 87.5 58 87.5H38Z"/>
-    <path d="M47.5 60.5C51.5 57.5 56 62 65.5 57.5" fill="none" stroke="#1e3a8a" stroke-width="2.6" stroke-linecap="round"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 120"><style>svg{color:#1e3a8a}@media (prefers-color-scheme:dark){svg{color:#a9bbff}}</style><mask id="g"><rect width="124" height="120" fill="#fff"/><path d="M58 80.5C78 80.5 92 90 104 96.5C110 99.5 115 99 118.5 95C116 101.5 109 104 101 101.5C88 97 76 87.5 58 87.5Z" stroke="#000" stroke-width="8" stroke-linejoin="round"/></mask><circle cx="56" cy="57" r="48" fill="none" stroke="currentColor" stroke-width="7" mask="url(#g)"/><path fill="currentColor" d="M38 33H74V39.5H38ZM38 33H42V43H38ZM64 39.5H74L48 80.5H38ZM38 80.5H58C78 80.5 92 90 104 96.5C110 99.5 115 99 118.5 95C116 101.5 109 104 101 101.5C88 97 76 87.5 58 87.5H38Z"/><path d="M47.5 60.5C51.5 57.5 56 62 65.5 57.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>

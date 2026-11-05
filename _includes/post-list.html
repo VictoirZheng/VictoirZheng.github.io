@@ -1,0 +1,20 @@
+{%- comment -%}
+  Usage: {% include post-list.html posts=site.posts limit=3 dek=true %}
+{%- endcomment -%}
+{%- assign page_lang = page.lang | default: site.lang %}
+{%- assign t = site.data.i18n[page_lang] %}
+<ul class="dated">
+  {%- for post in include.posts limit: include.limit %}
+  {%- assign post_lang = post.lang | default: site.lang %}
+  <li>
+    <time class="dated__when" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: t.short_date }}</time>
+    <span class="dated__what">
+      <a class="dated__title" href="{{ post.url | relative_url }}" lang="{{ post_lang }}">{{ post.title | escape }}</a>
+      {%- if post_lang != page_lang %} <span class="chip" lang="{{ post_lang }}">{{ site.data.i18n[post_lang].name }}</span>{% endif %}
+      {%- if include.dek and post.description %}
+      <span class="dated__dek" lang="{{ post_lang }}">{{ post.description | escape }}</span>
+      {%- endif %}
+    </span>
+  </li>
+  {%- endfor %}
+</ul>

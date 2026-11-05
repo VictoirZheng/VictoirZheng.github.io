@@ -1,0 +1,14 @@
+{%- if site.data.news.size > 0 %}
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+<section class="section" id="lately">
+  <h2>{{ t.lately }}</h2>
+  <ul class="dated">
+    {%- for item in site.data.news %}
+    {%- assign text = item.text %}
+    {%- assign when = item.when %}
+    {%- if page.lang == "zh" %}{% if item.text_zh != blank %}{% assign text = item.text_zh %}{% endif %}{% if item.when_zh != blank %}{% assign when = item.when_zh %}{% endif %}{% endif %}
+    <li><span class="dated__when">{{ when }}</span><span class="dated__what">{{ text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></li>
+    {%- endfor %}
+  </ul>
+</section>
+{%- endif %}

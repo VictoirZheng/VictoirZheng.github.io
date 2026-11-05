@@ -1,0 +1,12 @@
+- when: Nov 2026
+  when_zh: 2026年11月
+  text: Moved this site to GitHub Pages and started a blog.
+  text_zh: 网站搬到了 GitHub Pages，也开了博客。
+- when: "2026"
+  when_zh: 2026年
+  text: Started my Ph.D. at UConn.
+  text_zh: 开始在 UConn 读博。
+- when: Nov 2025
+  when_zh: 2025年11月
+  text: Released [SEM-Batch-Processor](https://github.com/VictoirZheng/SEM-Batch-Processor), a small R Shiny app for running many Mplus models in one go.
+  text_zh: 发布了 [SEM-Batch-Processor](https://github.com/VictoirZheng/SEM-Batch-Processor)，一个批量运行 Mplus 模型的 R Shiny 小工具。

@@ -1,0 +1,15 @@
+---
+title: Writing
+lede: Occasional notes, in English or Chinese.
+description: Posts by Qingguang Zheng.
+---
+{%- if site.posts.size > 0 %}
+{%- assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{%- for year in years %}
+<h2 class="year">{{ year.name }}</h2>
+{% include post-list.html posts=year.items dek=true %}
+{%- endfor %}
+{%- else %}
+<p class="empty">Nothing here yet.</p>
+{%- endif %}
+<p class="more"><a href="{{ site.feed.path | relative_url }}">Subscribe via RSS</a></p>

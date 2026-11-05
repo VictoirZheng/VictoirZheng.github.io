@@ -1,0 +1,6 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+<section class="section" id="projects">
+  <h2>{{ t.projects }}</h2>
+  {% include project-list.html %}
+  <p class="more"><a href="{{ '/research/' | relative_url }}" hreflang="en">Research (English) &rarr;</a></p>
+</section>

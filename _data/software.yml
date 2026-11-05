@@ -1,0 +1,16 @@
+- name: SEM-Batch-Processor
+  url: https://github.com/VictoirZheng/SEM-Batch-Processor
+  description: An R Shiny app that runs a batch of Mplus structural equation models and gathers the estimates and plots in one place.
+  tags: [R, Shiny, Mplus]
+- name: AutoReport
+  url: https://github.com/VictoirZheng/2503AutomaticReportGenerator
+  description: Turns questionnaire data into a personal feedback report for each participant. We used it to send reports to more than 400 couples.
+  tags: [R, Python, HTML]
+- name: BERT for counseling dialogue
+  url: https://github.com/VictoirZheng/2407BertFinetuningProject
+  description: A fine-tuned BERT model that codes therapist–client exchanges. It won second prize at the 2024 MindSpore Innovation Competition.
+  tags: [BERT, MindSpore]
+- name: Go/No-Go task
+  url: https://github.com/VictoirZheng/2406GoNoGoParadigm
+  description: A Go/No-Go experiment written in PsychoPy and set up to run online.
+  tags: [PsychoPy]

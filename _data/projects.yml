@@ -1,0 +1,38 @@
+- title: Couples in conversation
+  title_zh: 对话中的夫妻
+  years: 2020–2026
+  place: Beijing Normal University
+  place_zh: 北京师范大学
+  summary: >-
+    Two NSFC-funded studies of couples, one of them following newlyweds over time. Couples talked
+    through real issues from their marriage and their families of origin while we recorded them, and in
+    the newlywed study we also recorded both partners' brain activity with fNIRS hyperscanning. I turned
+    the recordings into data (transcripts, topics, facial action units, gaze), measured how closely
+    partners tracked each other, and built a few-shot LLM pipeline for coding conversation themes. It
+    raised coding consistency from 67% to 94%, about where trained human coders are.
+  summary_zh: 两项由国家自然科学基金资助的夫妻研究，其中一项追踪新婚夫妻。夫妻在实验室里讨论婚姻和原生家庭中的真实问题，我们全程录像；在新婚夫妻研究中，还用 fNIRS 超扫描同时记录双方的脑活动。我负责把录像变成数据（转写、话题、面部动作单元、注视），测量伴侣之间的同步，并搭建了少样本大模型编码流程，让主题编码的一致性从 67% 提高到 94%，接近训练有素的人工编码员。
+  tags: [dyadic interaction, synchrony, fNIRS, LLMs, OpenFace]
+- title: Student mental health at national scale
+  title_zh: 全国大学生心理健康
+  years: 2022–2026
+  place: Beijing Normal University, for the Ministry of Education
+  place_zh: 北京师范大学，教育部委托项目
+  summary: >-
+    Each year this project analyzes data from a national mental health screening of Chinese college
+    students. I handled the psychometrics (reliability, validity and norms of the screening scale, from
+    250,000+ students), the prevalence and regional trends (5 million+ students), and the reproducible R
+    and Python pipeline that produces the yearly report.
+  summary_zh: 每年分析全国大学生心理健康筛查数据。我负责量表的信效度与常模（25 万+ 人）、心理问题的检出率与地区趋势（500 万+ 人），以及生成年度报告的可复现 R/Python 分析流程。
+  tags: [psychometrics, large-scale data, R, Python]
+- title: Emotion words and well-being
+  title_zh: 情绪词与心理健康
+  years: 2020–2022
+  place: Beijing Normal University, State Key Laboratory of Cognitive Neuroscience and Learning
+  place_zh: 北京师范大学认知神经科学与学习国家重点实验室
+  summary: >-
+    Two undergraduate projects on how people organize emotion words in memory. We mapped each person's
+    semantic space with arrangement and odd-one-out tasks, then related its structure to depression and
+    anxiety, social value orientation and moral judgment, using representational similarity analysis and
+    machine learning.
+  summary_zh: 两项本科科研项目，研究人们如何在记忆中组织情绪词。我们用排列任务和“找不同”任务描绘每个人的语义空间，再用表征相似性分析和机器学习，把语义空间的结构与抑郁焦虑、社会价值取向和道德判断联系起来。
+  tags: [semantic space, RSA, machine learning]

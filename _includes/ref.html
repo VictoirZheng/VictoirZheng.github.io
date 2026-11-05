@@ -1,0 +1,11 @@
+{%- assign item = include.item -%}
+{%- assign me = site.author.citation_name | escape -%}
+{%- capture bold_me %}<strong>{{ me }}</strong>{% endcapture -%}
+{%- assign last = item.title | strip | slice: -1 -%}
+{%- assign authors_last = item.authors | strip | slice: -1 -%}
+<li>
+  {{ item.authors | escape | replace: me, bold_me }}{% if item.year %} ({{ item.year }}).{% elsif authors_last != "." %}.{% endif %}
+  {% if item.url %}<a href="{{ item.url }}">{{ item.title | escape }}</a>{% else %}{{ item.title | escape }}{% endif %}{% unless last == "?" or last == "!" %}.{% endunless %}
+  {%- if item.venue %} <span class="ref__venue">{{ item.venue | escape }}.</span>{% endif %}
+  <span class="chip">{{ item.status }}</span>
+</li>

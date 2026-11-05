@@ -1,0 +1,37 @@
+---
+layout: default
+---
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{%- if page.lang == "zh" %}
+  {%- assign minutes = content | strip_html | strip_newlines | size | divided_by: 400 | plus: 1 %}
+{%- else %}
+  {%- assign minutes = content | number_of_words | divided_by: 220 | plus: 1 %}
+{%- endif %}
+<article class="post">
+  <header class="page-header">
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: t.date_format }}</time>
+      <span>{{ minutes }} {{ t.min_read }}</span>
+    </p>
+    <h1>{{ page.title | smartify }}</h1>
+    {%- if page.description %}
+    <p class="lede">{{ page.description | smartify }}</p>
+    {%- endif %}
+  </header>
+  <div class="prose">
+{{ content }}
+  </div>
+  <footer class="post-footer">
+    {%- if page.tags.size > 0 %}
+    <ul class="tags">{% for tag in page.tags %}{% if tag != blank %}<li>{{ tag }}</li>{% endif %}{% endfor %}</ul>
+    {%- endif %}
+    <nav class="post-nav" aria-label="More posts">
+      {%- if page.next %}
+      <a href="{{ page.next.url | relative_url }}" rel="next"><span>{{ t.newer }}</span>{{ page.next.title | escape }}</a>
+      {%- endif %}
+      {%- if page.previous %}
+      <a href="{{ page.previous.url | relative_url }}" rel="prev"><span>{{ t.older }}</span>{{ page.previous.title | escape }}</a>
+      {%- endif %}
+    </nav>
+  </footer>
+</article>

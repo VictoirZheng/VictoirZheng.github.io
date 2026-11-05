@@ -1,0 +1,13 @@
+{%- if page.focus.size > 0 %}
+<section class="section" id="focus">
+  <h2>{{ page.focus_title }}</h2>
+  <ol class="focus">
+    {%- for item in page.focus %}
+    <li>
+      <h3>{{ item.title | smartify }}</h3>
+      <p>{{ item.text | smartify }}</p>
+    </li>
+    {%- endfor %}
+  </ol>
+</section>
+{%- endif %}

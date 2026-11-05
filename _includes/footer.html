@@ -1,0 +1,13 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
+<footer class="site-footer wrap">
+  <div class="site-footer__inner">
+    <p>&copy; {{ site.time | date: "%Y" }} {{ t.owner }}</p>
+    <ul>
+      <li><a href="mailto:{{ site.author.email }}">Email</a></li>
+      {%- for link in site.links %}
+      <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+      {%- endfor %}
+      <li><a href="{{ site.feed.path | relative_url }}">RSS</a></li>
+    </ul>
+  </div>
+</footer>

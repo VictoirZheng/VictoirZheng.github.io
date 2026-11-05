@@ -1,0 +1,18 @@
+{%- assign t = site.data.i18n[page.lang] | default: site.data.i18n.en -%}
+<header class="site-header wrap">
+  <div class="site-header__inner">
+    <a class="brand" href="{{ t.home | relative_url }}">{% include logo.svg %}<span>Victoir</span></a>
+    <nav aria-label="Main">
+      <ul>
+        {%- for item in t.nav %}
+        {%- assign current = false -%}
+        {%- if page.url == item.url -%}{%- assign current = "page" -%}
+        {%- elsif item.url == "/blog/" and page.collection == "posts" -%}{%- assign current = "true" -%}
+        {%- endif %}
+        <li><a href="{{ item.url | relative_url }}"{% if current %} aria-current="{{ current }}"{% endif %}>{{ item.title }}</a></li>
+        {%- endfor %}
+        <li><a href="{{ t.switch.url | relative_url }}" lang="{{ t.switch.lang }}" hreflang="{{ t.switch.lang }}">{{ t.switch.title }}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

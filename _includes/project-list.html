@@ -1,0 +1,23 @@
+{%- comment -%}
+  Projects from _data/projects.yml. On Chinese pages the *_zh fields are used when filled in.
+{%- endcomment -%}
+<ol class="entries">
+  {%- for p in site.data.projects %}
+  {%- assign title = p.title %}
+  {%- assign place = p.place %}
+  {%- assign summary = p.summary %}
+  {%- if page.lang == "zh" %}
+    {%- if p.title_zh != blank %}{% assign title = p.title_zh %}{% endif %}
+    {%- if p.place_zh != blank %}{% assign place = p.place_zh %}{% endif %}
+    {%- if p.summary_zh != blank %}{% assign summary = p.summary_zh %}{% endif %}
+  {%- endif %}
+  <li class="entry">
+    <p class="entry__meta">{{ p.years }}{% if place != blank %} &middot; {{ place }}{% endif %}</p>
+    <h3 class="entry__title">{{ title | smartify }}</h3>
+    <p>{{ summary | smartify }}</p>
+    {%- if p.tags.size > 0 %}
+    <ul class="tags">{% for tag in p.tags %}{% if tag != blank %}<li>{{ tag }}</li>{% endif %}{% endfor %}</ul>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ol>

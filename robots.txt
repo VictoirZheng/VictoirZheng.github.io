@@ -1,7 +1,0 @@
-User-agent: *
-Disallow: /admin-stats-qz2025.html
-Disallow: /mobile-test.html
-Disallow: /legacy/
-Disallow: /docs/
-
-Sitemap: https://victoirzheng.github.io/sitemap.xml

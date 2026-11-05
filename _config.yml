@@ -1,0 +1,94 @@
+# Site settings. Content lives in the pages, _data/ and _posts/;
+# this file only holds structure. Restart `jekyll serve` after editing it.
+
+title: Qingguang Zheng
+description: >-
+  Ph.D. student in Psychological Sciences at the University of Connecticut.
+  I study how people coordinate when they talk, mostly in couples and families.
+tagline: Ph.D. student at UConn
+url: https://victoirzheng.github.io
+baseurl: ""
+lang: en
+timezone: America/New_York
+
+author:
+  name: Qingguang Zheng
+  email: qingguang.zheng@uconn.edu
+  # Bolded in author lists on the Research page.
+  citation_name: Zheng, Q.
+  cv: /assets/Qingguang_ZHENG_CV.pdf
+
+links:
+  - { name: GitHub, url: "https://github.com/VictoirZheng" }
+  - { name: ORCID, url: "https://orcid.org/0009-0009-7803-6058" }
+  - { name: ResearchGate, url: "https://www.researchgate.net/profile/Qingguang-Zheng" }
+
+# Used by jekyll-seo-tag for link previews.
+logo: /assets/images/social-card.png
+social:
+  name: Qingguang Zheng
+  links:
+    - https://github.com/VictoirZheng
+    - https://orcid.org/0009-0009-7803-6058
+
+# GitHub Pages would otherwise add its default theme (Primer) on top of these layouts.
+theme: null
+
+# The year keeps two posts with the same URL name in different years apart.
+permalink: /blog/:year/:title/
+# Publish posts dated "today" even when it is still yesterday in New York
+# (e.g. a post written in Beijing). GitHub Pages only rebuilds on a push.
+future: true
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope: { path: "" }
+    values:
+      layout: page
+      image: /assets/images/social-card.png
+  - scope: { path: "", type: posts }
+    values:
+      layout: post
+      lang: en
+  - scope: { path: index.md }
+    values:
+      layout: home
+      sections: [focus, writing, lately]
+  - scope: { path: zh }
+    values:
+      lang: zh
+  - scope: { path: zh/index.md }
+    values:
+      layout: home
+      sections: [focus, projects, writing, lately, contact]
+  - scope: { path: research/index.md }
+    values:
+      layout: research
+      redirect_from: [/research.html, /skills.html]
+  - scope: { path: about/index.md }
+    values:
+      redirect_from: [/personal.html, /faq.html, /contact.html]
+  - scope: { path: admin }
+    values:
+      sitemap: false
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

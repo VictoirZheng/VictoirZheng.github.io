@@ -1,0 +1,59 @@
+---
+layout: default
+---
+{%- assign pubs = site.data.publications %}
+{%- assign all_authors = pubs | map: "authors" | join: " " %}
+<article class="page">
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+  </header>
+  <div class="prose">
+{{ content }}
+  </div>
+
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    {% include project-list.html %}
+  </section>
+
+  <section class="section" id="papers">
+    <h2>Papers and talks</h2>
+    <h3 class="subhead">Manuscripts</h3>
+    <ol class="refs">
+      {%- for item in pubs %}{% unless item.status == "Poster" or item.status == "Talk" %}
+      {% include ref.html item=item %}
+      {%- endunless %}{% endfor %}
+    </ol>
+    <h3 class="subhead">Posters and talks</h3>
+    <ol class="refs">
+      {%- for item in pubs %}{% if item.status == "Poster" or item.status == "Talk" %}
+      {% include ref.html item=item %}
+      {%- endif %}{% endfor %}
+    </ol>
+    {%- if all_authors contains "*" %}
+    <p class="note">* Equal contribution.</p>
+    {%- endif %}
+  </section>
+
+  <section class="section" id="software">
+    <h2>Software</h2>
+    <ul class="entries">
+      {%- for s in site.data.software %}
+      <li class="entry">
+        <h3 class="entry__title"><a href="{{ s.url }}">{{ s.name }}</a></h3>
+        <p>{{ s.description | smartify }}</p>
+        {%- if s.tags.size > 0 %}
+        <ul class="tags">{% for tag in s.tags %}{% if tag != blank %}<li>{{ tag }}</li>{% endif %}{% endfor %}</ul>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ul>
+  </section>
+
+  {%- if page.methods %}
+  <section class="section" id="methods">
+    <h2>Methods</h2>
+    <div class="prose">{{ page.methods | markdownify }}</div>
+  </section>
+  {%- endif %}
+</article>
